@@ -13,10 +13,10 @@ We are going to implement a non-deterministic parallel k-SAT using data parallel
 
 The Boolean satisfiability problem (abbreviated SAT) is the problem of determining if there exists an interpretation that satisfies a given Boolean formula. SAT is the first problem that was proven to be NP-complete. We find many projects of past 15618 editions that parallelized the SAT problem using GPU/CPUs and deterministic backtracking based approaches like (DPLL), but our algorithm will differ in the following way
 
-The solver is an incomplete solver, which means that there is no guarantee that it will decide whether the formula is satisfiable or not
-It is non-deterministic
-It uses data parallelism instead of task parallelism by operating on multi-bit boolean variables (probably 128 - 256 at a time) instead of single booleans and leveraging SIMD instructions on x86/86. The idea is that the algorithm spends most of its time performing arithmetic operations on booleans
-It is MUCH faster in practice
+* The solver is an incomplete solver, which means that there is no guarantee that it will decide whether the formula is satisfiable or not
+* It is non-deterministic
+* It uses data parallelism instead of task parallelism by operating on multi-bit boolean variables (probably 128 - 256 at a time) instead of single booleans and leveraging SIMD instructions on x86/86. The idea is that the algorithm spends most of its time performing arithmetic operations on booleans
+* It is MUCH faster in practice
 
 More specifically, our algorithm will be based on the UnitMarch algorithm [1] designed at CMU
 Insert link: https://www.cs.cmu.edu/~mheule/publications/JSAT4_6_Heule.pdf
