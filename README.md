@@ -82,7 +82,7 @@ We chose C++ because we are both familiar with the langues, it is a directly com
 * Week 6: Last minute optimization of our parallel program and write report.
 
 ## REFERENCES
-[1] Heule, Marijn & Maaren, Hans. (2008). Parallel SAT Solving using Bit-level Operations. JSAT. 4. 99-116. 10.3233/SAT190040. 
-[2] http://www.satcompetition.org/
-[3] https://en.wikipedia.org/wiki/Unit_propagation
+* [1] Heule, Marijn & Maaren, Hans. (2008). Parallel SAT Solving using Bit-level Operations. JSAT. 4. 99-116. 10.3233/SAT190040. 
+* [2] http://www.satcompetition.org/
+* [3] https://en.wikipedia.org/wiki/Unit_propagation
 
