@@ -19,7 +19,6 @@ The Boolean satisfiability problem (abbreviated SAT) is the problem of determini
 * It is MUCH faster in practice
 
 More specifically, our algorithm will be based on the UnitMarch algorithm [1] designed at CMU
-Insert link: https://www.cs.cmu.edu/~mheule/publications/JSAT4_6_Heule.pdf
 
 ## THE CHALLENGE
 
