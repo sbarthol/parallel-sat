@@ -26,32 +26,21 @@ bool satisfies(const vector<vector<bool>>& clauses,
   return true;
 }
 
-void update_clauses(vector<vector<bool>>& clauses, int variable, bool value) {
-  for (vector<bool>& clause : clauses) {
-    clause[variable] = value;
-  }
-}
-
-void update_clauses(vector<vector<bool>>& clauses, vector<bool> assignment) {
-  for (int i = 0; i < assignment.size(); i++) {
-    update_clauses(clauses, i, assignment[i]);
-  }
-}
-
 void unit_propagation(vector<vector<bool>>& clauses,
                       unordered_map<int, bool> phi_active) {}
 
 int main() {
-  int m = 2;  // clauses
+  int m = 3;  // clauses
   int n = 3;  // variables
 
-  // (x or !y) and (x or z)
+  // (x or !y) and (x or z) and (z)
   vector<vector<bool>> initial_clauses(m, vector<bool>(2 * n, false));
 
   initial_clauses[0][0] = true;
   initial_clauses[0][3] = true;
   initial_clauses[1][0] = true;
   initial_clauses[1][4] = true;
+  initial_clauses[2][4] = true;
   /*
 
   (x or !y) and (x or z)
@@ -83,7 +72,6 @@ int main() {
       if (phi_active_map.count(pi[j]) == 0) {
         bool v = phi_master[pi[j]];
         phi_active_map[pi[j]] = v;
-        update_clauses(F, pi[j], v);
       }
     }
     vector<bool> phi_active(n);
@@ -97,7 +85,6 @@ int main() {
       /* Reinitialize from the beginning because there could have been a cascade
         of clauses eliminated through unit propagation caused by random_idx */
       F = initial_clauses;
-      update_clauses(F, phi_active);
     }
     phi_master = phi_active;
   }
