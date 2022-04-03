@@ -14,7 +14,10 @@ bool satisfies(const vector<vector<bool>>& clauses,
     bool clause_value = false;
     int clause_count = 0;
     for (int j = 0; j < clauses[i].size() && !clause_value; j++) {
-      clause_value = assigment[clauses[i][j] >> 1] == !(clauses[i][j] & 1);
+      if (clauses[i][j]) {
+        clause_value = assigment[j >> 1] == !(j & 1);
+        clause_count++;
+      }
     }
     if (!clause_value && clause_count > 0) {
       return false;
@@ -45,11 +48,10 @@ int main() {
   // (x or !y) and (x or z)
   vector<vector<bool>> initial_clauses(m, vector<bool>(2 * n, false));
 
-  initial_clauses[0].push_back(0);
-  initial_clauses[0].push_back(3);
-  initial_clauses[1].push_back(0);
-  initial_clauses[1].push_back(5);
-
+  initial_clauses[0][0] = true;
+  initial_clauses[0][3] = true;
+  initial_clauses[1][0] = true;
+  initial_clauses[1][4] = true;
   /*
 
   (x or !y) and (x or z)
