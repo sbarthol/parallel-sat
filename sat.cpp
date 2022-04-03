@@ -27,6 +27,20 @@ bool satisfies(const vector<vector<bool>>& clauses,
   return true;
 }
 
+void update_clauses(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
+                    int var) {
+  for (int i = 0; i < clauses.size(); i++) {
+    if (clauses[i][var << 1]) {
+      clauses[i][var << 1] = false;
+      clause_sizes[i]--;
+    }
+    if (clauses[i][(var << 1) | 1]) {
+      clauses[i][(var << 1) | 1] = false;
+      clause_sizes[i]--;
+    }
+  }
+}
+
 void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
                       unordered_map<int, bool>& phi_active_map) {
   queue<int> q;
@@ -48,25 +62,13 @@ void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
         }
       }
       assert(j != -1 && lsb != -1);
-      assert(phi_active_map.count(j << 1) == 0);
-      assert(phi_active_map.count((j << 1) | 1) == 0);
+      assert(phi_active_map.count(j) == 0);
       phi_active_map[j] = lsb ^ 1;
-      for (int i = 0; i < clauses.size(); i++) {
-        if (clauses[i][j << 1]) {
-          clauses[i][j << 1] = false;
-          clause_sizes[i]--;
-          assert(i != top || clause_sizes[i] == 0);
-          if (clause_sizes[i] == 1) {
-            q.push(i);
-          }
-        }
-        if (clauses[i][(j << 1) | 1]) {
-          clauses[i][(j << 1) | 1] = false;
-          clause_sizes[i]--;
-          assert(i != top || clause_sizes[i] == 0);
-          if (clause_sizes[i] == 1) {
-            q.push(i);
-          }
+      update_clauses(clauses, clause_sizes, j);
+      for (int i = 0; i < clause_sizes.size(); i++) {
+        if (clause_sizes[i] == 1) {
+          assert(i != top);
+          q.push(i);
         }
       }
     }
@@ -127,18 +129,18 @@ int main() {
   auto rng = mt19937(0);
   uniform_int_distribution<int> u(0, n - 1);
 
-  vector<vector<bool>> F = initial_clauses;
-  vector<int> F_sizes = initial_clause_sizes;
-
   int period;
-  for (period = 0; !satisfies(F, phi_master); period++) {
+  for (period = 0; !satisfies(initial_clauses, phi_master); period++) {
     shuffle(pi.begin(), pi.end(), rng);
     unordered_map<int, bool> phi_active_map;
+    vector<vector<bool>> F = initial_clauses;
+    vector<int> F_sizes = initial_clause_sizes;
     for (int j = 0; j < n; j++) {
       unit_propagation(F, F_sizes, phi_active_map);
       if (phi_active_map.count(pi[j]) == 0) {
         bool v = phi_master[pi[j]];
         phi_active_map[pi[j]] = v;
+        update_clauses(F, F_sizes, pi[j]);
       }
     }
     vector<bool> phi_active(n);
@@ -148,11 +150,6 @@ int main() {
     if (phi_active == phi_master) {
       int random_idx = u(rng);
       phi_active[random_idx] = !phi_active[random_idx];
-
-      /* Reinitialize from the beginning because there could have been a cascade
-        of clauses eliminated through unit propagation caused by random_idx */
-      F = initial_clauses;
-      F_sizes = initial_clause_sizes;
     }
     phi_master = phi_active;
   }
