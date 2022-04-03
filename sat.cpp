@@ -2,6 +2,7 @@
 #include <chrono>
 #include <cstdio>
 #include <numeric>
+#include <queue>
 #include <random>
 #include <unordered_map>
 #include <vector>
@@ -26,8 +27,51 @@ bool satisfies(const vector<vector<bool>>& clauses,
   return true;
 }
 
-void unit_propagation(vector<vector<bool>>& clauses,
-                      unordered_map<int, bool> phi_active) {}
+void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
+                      unordered_map<int, bool>& phi_active_map) {
+  queue<int> q;
+  for (int i = 0; i < clause_sizes.size(); i++) {
+    if (clause_sizes[i] == 1) {
+      q.push(i);
+    }
+  }
+  while (!q.empty()) {
+    int top = q.front();
+    q.pop();
+    if (clause_sizes[top] == 1) {
+      // Todo: use bit array instead of array of bools ?
+      int j = -1, lsb = -1;
+      for (int i = 0; i < clauses[top].size() && j == -1; i++) {
+        if (clauses[top][i]) {
+          j = i >> 1;
+          lsb = i & 1;
+        }
+      }
+      assert(j != -1 && lsb != -1);
+      assert(phi_active_map.count(j << 1) == 0);
+      assert(phi_active_map.count((j << 1) | 1) == 0);
+      phi_active_map[j] = lsb ^ 1;
+      for (int i = 0; i < clauses.size(); i++) {
+        if (clauses[i][j << 1]) {
+          clauses[i][j << 1] = false;
+          clause_sizes[i]--;
+          assert(i != top || clause_sizes[i] == 0);
+          if (clause_sizes[i] == 1) {
+            q.push(i);
+          }
+        }
+        if (clauses[i][(j << 1) | 1]) {
+          clauses[i][(j << 1) | 1] = false;
+          clause_sizes[i]--;
+          assert(i != top || clause_sizes[i] == 0);
+          if (clause_sizes[i] == 1) {
+            q.push(i);
+          }
+        }
+      }
+    }
+  }
+}
 
 int main() {
   int m = 6;  // clauses
@@ -35,27 +79,34 @@ int main() {
 
   // (x or !y) and (x or z) and (z)
   vector<vector<bool>> initial_clauses(m, vector<bool>(2 * n, false));
+  vector<int> initial_clause_sizes(m);
 
   initial_clauses[0][0] = true;
   initial_clauses[0][2] = true;
+  initial_clause_sizes[0] = 2;
 
   initial_clauses[1][1] = true;
   initial_clauses[1][2] = true;
   initial_clauses[1][4] = true;
+  initial_clause_sizes[1] = 3;
 
   initial_clauses[2][3] = true;
   initial_clauses[2][5] = true;
+  initial_clause_sizes[2] = 2;
 
   initial_clauses[3][3] = true;
   initial_clauses[3][4] = true;
   initial_clauses[3][7] = true;
+  initial_clause_sizes[3] = 3;
 
   initial_clauses[4][3] = true;
   initial_clauses[4][4] = true;
   initial_clauses[4][6] = true;
+  initial_clause_sizes[4] = 3;
 
   initial_clauses[5][5] = true;
   initial_clauses[5][7] = true;
+  initial_clause_sizes[5] = 2;
   /*
 
   (x or !y) and (x or z)
@@ -77,13 +128,14 @@ int main() {
   uniform_int_distribution<int> u(0, n - 1);
 
   vector<vector<bool>> F = initial_clauses;
+  vector<int> F_sizes = initial_clause_sizes;
 
   int period;
   for (period = 0; !satisfies(F, phi_master); period++) {
     shuffle(pi.begin(), pi.end(), rng);
     unordered_map<int, bool> phi_active_map;
     for (int j = 0; j < n; j++) {
-      unit_propagation(F, phi_active_map);
+      unit_propagation(F, F_sizes, phi_active_map);
       if (phi_active_map.count(pi[j]) == 0) {
         bool v = phi_master[pi[j]];
         phi_active_map[pi[j]] = v;
@@ -100,6 +152,7 @@ int main() {
       /* Reinitialize from the beginning because there could have been a cascade
         of clauses eliminated through unit propagation caused by random_idx */
       F = initial_clauses;
+      F_sizes = initial_clause_sizes;
     }
     phi_master = phi_active;
   }
