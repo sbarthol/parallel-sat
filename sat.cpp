@@ -30,17 +30,32 @@ void unit_propagation(vector<vector<bool>>& clauses,
                       unordered_map<int, bool> phi_active) {}
 
 int main() {
-  int m = 3;  // clauses
-  int n = 3;  // variables
+  int m = 6;  // clauses
+  int n = 4;  // variables
 
   // (x or !y) and (x or z) and (z)
   vector<vector<bool>> initial_clauses(m, vector<bool>(2 * n, false));
 
   initial_clauses[0][0] = true;
-  initial_clauses[0][3] = true;
-  initial_clauses[1][0] = true;
+  initial_clauses[0][2] = true;
+
+  initial_clauses[1][1] = true;
+  initial_clauses[1][2] = true;
   initial_clauses[1][4] = true;
-  initial_clauses[2][4] = true;
+
+  initial_clauses[2][3] = true;
+  initial_clauses[2][5] = true;
+
+  initial_clauses[3][3] = true;
+  initial_clauses[3][4] = true;
+  initial_clauses[3][7] = true;
+
+  initial_clauses[4][3] = true;
+  initial_clauses[4][4] = true;
+  initial_clauses[4][6] = true;
+
+  initial_clauses[5][5] = true;
+  initial_clauses[5][7] = true;
   /*
 
   (x or !y) and (x or z)
@@ -91,6 +106,6 @@ int main() {
 
   printf("Assignment found after %d periods: \n", period);
   for (int i = 0; i < n; i++) {
-    printf("%c: %s\n", 'x' + i, phi_master[i] ? "true" : "false");
+    printf("x%d: %s\n", i + 1, phi_master[i] ? "true" : "false");
   }
 }
