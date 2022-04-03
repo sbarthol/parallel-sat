@@ -38,6 +38,7 @@ void update_clauses(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
       clauses[i][(var << 1) | 1] = false;
       clause_sizes[i]--;
     }
+    assert(clause_sizes[i] > 0);
   }
 }
 
