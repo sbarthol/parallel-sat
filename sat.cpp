@@ -76,6 +76,24 @@ void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
   }
 }
 
+void print(vector<vector<bool>> clauses) {
+  printf("---------------\n");
+
+  for (int i = 0; i < clauses.size(); i++) {
+    printf("clause %d:", i);
+    for (int j = 0; j < clauses[i].size(); j++) {
+      if (clauses[i][j]) {
+        if (j & 1) {
+          printf(" !x%d", j >> 1);
+        } else {
+          printf(" x%d", j >> 1);
+        }
+      }
+    }
+    printf("\n");
+  }
+}
+
 int main() {
   int m = 6;  // clauses
   int n = 4;  // variables
