@@ -28,13 +28,19 @@ bool satisfies(const vector<vector<bool>>& clauses,
 }
 
 void update_clauses(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
-                    int var) {
+                    int var, bool value) {
   for (int i = 0; i < clauses.size(); i++) {
-    if (clauses[i][var << 1]) {
+    if (clauses[i][var << 1] && value) {
+      fill(clauses[i].begin(), clauses[i].end(), false);
+      clause_sizes[i] = 0;
+    } else if (clauses[i][var << 1]) {
       clauses[i][var << 1] = false;
       clause_sizes[i]--;
     }
-    if (clauses[i][(var << 1) | 1]) {
+    if (clauses[i][(var << 1) | 1] && !value) {
+      fill(clauses[i].begin(), clauses[i].end(), false);
+      clause_sizes[i] = 0;
+    } else if (clauses[i][(var << 1) | 1]) {
       clauses[i][(var << 1) | 1] = false;
       clause_sizes[i]--;
     }
@@ -65,7 +71,7 @@ void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
       assert(j != -1 && lsb != -1);
       assert(phi_active_map.count(j) == 0);
       phi_active_map[j] = lsb ^ 1;
-      update_clauses(clauses, clause_sizes, j);
+      update_clauses(clauses, clause_sizes, j, lsb ^ 1);
       for (int i = 0; i < clause_sizes.size(); i++) {
         if (clause_sizes[i] == 1) {
           assert(i != top);
@@ -151,20 +157,28 @@ int main() {
   int period;
   for (period = 0; !satisfies(initial_clauses, phi_master); period++) {
     shuffle(pi.begin(), pi.end(), rng);
+
     unordered_map<int, bool> phi_active_map;
     vector<vector<bool>> F = initial_clauses;
     vector<int> F_sizes = initial_clause_sizes;
+    bool change = true;
+
     for (int j = 0; j < n; j++) {
-      unit_propagation(F, F_sizes, phi_active_map);
+      if (change) {
+        unit_propagation(F, F_sizes, phi_active_map);
+        change = false;
+      }
       if (phi_active_map.count(pi[j]) == 0) {
         bool v = phi_master[pi[j]];
         phi_active_map[pi[j]] = v;
-        update_clauses(F, F_sizes, pi[j]);
+        update_clauses(F, F_sizes, pi[j], v);
+        change = true;
       }
     }
     vector<bool> phi_active(n);
-    transform(phi_active_map.begin(), phi_active_map.end(), phi_active.begin(),
-              [](auto p) { return p.second; });
+    for (auto p : phi_active_map) {
+      phi_active[p.first] = p.second;
+    }
 
     if (phi_active == phi_master) {
       int random_idx = u(rng);
