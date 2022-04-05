@@ -6,7 +6,6 @@ using namespace std;
 
 vector<vector<bool>> CNFGenerator::generate(int n_variables, int n_clauses) {
   // First generate random assignment
-  srand(23);
   vector<bool> assignment(n_variables, false);
   for (int i = 0; i < assignment.size(); i++) {
     if (RNG::uniform(2) == 0) {
