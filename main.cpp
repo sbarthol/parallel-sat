@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-  int n_variables = 50;
+  int n_variables = 4;
   int n_clauses = 6;
 
   vector<vector<bool>> clauses = CNFGenerator::generate(n_variables, n_clauses);

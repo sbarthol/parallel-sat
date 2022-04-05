@@ -12,10 +12,11 @@ Solver::Solver(vector<vector<bool>> clauses_, vector<bool> phi_master_)
     : clauses(clauses_), phi_master(phi_master_) {
   m = clauses_.size();
   assert(m > 0);
-  n = clauses_[0].size();
+  assert(clauses_[0].size() % 2 == 0);
+  n = clauses_[0].size() / 2;
   clause_sizes = vector<int>(m);
   for (int i = 0; i < m; i++) {
-    for (int j = 0; j < n; j++) {
+    for (int j = 0; j < 2 * n; j++) {
       clause_sizes[i] += clauses[i][j];
     }
   }
@@ -24,11 +25,12 @@ Solver::Solver(vector<vector<bool>> clauses_, vector<bool> phi_master_)
 Solver::Solver(vector<vector<bool>> clauses_) : clauses(clauses_) {
   m = clauses_.size();
   assert(m > 0);
-  n = clauses_[0].size();
+  assert(clauses_[0].size() % 2 == 0);
+  n = clauses_[0].size() / 2;
   phi_master = vector<bool>(n, false);
   clause_sizes = vector<int>(m);
   for (int i = 0; i < m; i++) {
-    for (int j = 0; j < n; j++) {
+    for (int j = 0; j < 2 * n; j++) {
       clause_sizes[i] += clauses[i][j];
     }
   }
@@ -38,7 +40,7 @@ bool Solver::satisfies(const vector<bool>& assigment) {
   for (int i = 0; i < m; i++) {
     bool clause_value = false;
     int clause_count = 0;
-    for (int j = 0; j < n && !clause_value; j++) {
+    for (int j = 0; j < 2 * n && !clause_value; j++) {
       if (clauses[i][j]) {
         clause_value = assigment[j >> 1] == !(j & 1);
         clause_count++;
@@ -128,6 +130,7 @@ vector<bool> Solver::solve(int& periods) {
     unordered_map<int, bool> phi_active_map;
     vector<vector<bool>> F = clauses;
     vector<int> F_sizes = clause_sizes;
+
     bool change = true;
 
     for (int j = 0; j < n; j++) {
