@@ -5,6 +5,7 @@
 #include <queue>
 #include <random>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
@@ -51,31 +52,41 @@ void update_clauses(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
 void unit_propagation(vector<vector<bool>>& clauses, vector<int>& clause_sizes,
                       unordered_map<int, bool>& phi_active_map) {
   queue<int> q;
+  unordered_set<int> in_queue;
+
   for (int i = 0; i < clause_sizes.size(); i++) {
     if (clause_sizes[i] == 1) {
-      q.push(i);
+      int u = 0;
+      while (!clauses[i][u]) {
+        u++;
+      }
+      if (!in_queue.count(u) && !in_queue.count(u ^ 1)) {
+        q.push(u);
+        in_queue.insert(u);
+      }
     }
   }
+
   while (!q.empty()) {
-    int top = q.front();
+    int u = q.front();
     q.pop();
-    if (clause_sizes[top] == 1) {
-      // Todo: use bit array instead of array of bools ?
-      int j = -1, lsb = -1;
-      for (int i = 0; i < clauses[top].size() && j == -1; i++) {
-        if (clauses[top][i]) {
-          j = i >> 1;
-          lsb = i & 1;
-        }
-      }
-      assert(j != -1 && lsb != -1);
-      assert(phi_active_map.count(j) == 0);
-      phi_active_map[j] = lsb ^ 1;
-      update_clauses(clauses, clause_sizes, j, lsb ^ 1);
-      for (int i = 0; i < clause_sizes.size(); i++) {
+    in_queue.erase(u);
+
+    for (int i = 0; i < clause_sizes.size(); i++) {
+      if (clauses[i][u ^ 1]) {
+        phi_active_map[u >> 1] = !(u & 1);
+        update_clauses(clauses, clause_sizes, u >> 1, !(u & 1));
         if (clause_sizes[i] == 1) {
-          assert(i != top);
-          q.push(i);
+          int v = 0;
+          while (!clauses[i][v]) {
+            v++;
+          }
+          phi_active_map[v >> 1] = !(v & 1);
+          update_clauses(clauses, clause_sizes, v >> 1, !(v & 1));
+          if (!in_queue.count(v)) {
+            q.push(v);
+            in_queue.insert(v);
+          }
         }
       }
     }
