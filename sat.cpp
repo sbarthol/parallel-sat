@@ -1,30 +1,29 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdio>
+#include <cstdlib>
+#include <iostream>
 #include <numeric>
 #include <queue>
 #include <random>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-#include <cstdlib>
-#include <iostream>
 
 using namespace std;
 
-/* 
-Generates a random string of bools, 
+/*
+Generates a random string of bools,
 then clauses that the bools satisfy
 arguments: m is # clauses, n is # variables
 returns: clauses and clause sizes
 */
 std::pair<vector<vector<bool>>, vector<int>> generate_problem(int m, int n) {
-
   // First generate random assignment
   std::srand(23);
   vector<bool> assignment(n, false);
-  for(int i = 0; i < assignment.size(); i++) {
-    if(std::rand() % 2 == 0) {
+  for (int i = 0; i < assignment.size(); i++) {
+    if (std::rand() % 2 == 0) {
       assignment[i] = true;
     }
   }
@@ -33,35 +32,34 @@ std::pair<vector<vector<bool>>, vector<int>> generate_problem(int m, int n) {
   vector<vector<bool>> clauses(m, vector<bool>(2 * n, false));
   vector<int> clause_sizes(m);
 
-  int inv_freq = std::min(int(n/2),2); // can be tuned
-  for(int j = 0; j < m; j++) {
+  int inv_freq = std::min(int(n / 2), 2);  // can be tuned
+  for (int j = 0; j < m; j++) {
     bool has_valid = false;
-    for(int i = 0; i < n; i++) {
-      if(std::rand() % inv_freq != 0) continue;
+    for (int i = 0; i < n; i++) {
+      if (std::rand() % inv_freq != 0) continue;
       // if we pass rand(), then include variable i in this clause
 
       // if our clause already has a valid term, we can be random
-      if(has_valid) {
+      if (has_valid) {
         if (std::rand() % inv_freq != 0) {
-          clauses[j][(i<<1)] = true;
+          clauses[j][(i << 1)] = true;
         } else {
-          clauses[j][(i<<1) + 1] = true;
-        } 
-      } // else, we put the actual value
+          clauses[j][(i << 1) + 1] = true;
+        }
+      }  // else, we put the actual value
       else {
-        if (assignment[i]) { 
-          clauses[j][(i<<1)] = true;
+        if (assignment[i]) {
+          clauses[j][(i << 1)] = true;
         } else {
-          clauses[j][(i<<1) + 1] = true;
-        } 
+          clauses[j][(i << 1) + 1] = true;
+        }
         has_valid = true;
       }
-      clause_sizes[j] ++;
+      clause_sizes[j]++;
     }
   }
 
   return std::pair(clauses, clause_sizes);
-
 }
 bool satisfies(const vector<vector<bool>>& clauses,
                const vector<bool>& assigment) {
@@ -173,7 +171,7 @@ int main() {
   vector<vector<bool>> initial_clauses(m, vector<bool>(2 * n, false));
   vector<int> initial_clause_sizes(m);
 
-  /* 
+  /*
   initial_clauses[0][0] = true;
   initial_clauses[0][2] = true;
   initial_clause_sizes[0] = 2;
@@ -202,7 +200,7 @@ int main() {
   initial_clause_sizes[5] = 2;
   */
 
-  auto clauses_pair = generate_problem(m,n);
+  auto clauses_pair = generate_problem(m, n);
   initial_clauses = clauses_pair.first;
   initial_clause_sizes = clauses_pair.second;
 
