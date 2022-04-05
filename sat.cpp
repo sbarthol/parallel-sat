@@ -32,7 +32,7 @@ std::pair<vector<vector<bool>>, vector<int>> generate_problem(int m, int n) {
   vector<vector<bool>> clauses(m, vector<bool>(2 * n, false));
   vector<int> clause_sizes(m);
 
-  int inv_freq = std::min(int(n / 2), 2);  // can be tuned
+  int inv_freq = std::max(int(n / 2), 2);  // can be tuned
   for (int j = 0; j < m; j++) {
     bool has_valid = false;
     for (int i = 0; i < n; i++) {
