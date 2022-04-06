@@ -44,7 +44,7 @@ bool Solver::satisfies(const vector<bool>& assigment) {
 bool Solver::is_unit_clause(const vector<bool>& clause,
                             const unordered_map<int, bool>& phi_active_map,
                             int& rem_lit) {
-    rem_lit = -1;
+  rem_lit = -1;
   for (int u = 0; u < 2 * n; u++) {
     if (clause[u]) {
       if (phi_active_map.count(u) == 0) {
@@ -58,17 +58,17 @@ bool Solver::is_unit_clause(const vector<bool>& clause,
       }
     }
   }
-  return true;
+  return rem_lit != -1;
 }
 
-void Solver::unit_propagation(vector<vector<bool>>& clauses,
-                              unordered_map<int, bool>& phi_active_map) {
+void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
   queue<int> q;
   unordered_set<int> in_queue;
 
   for (int i = 0; i < m; i++) {
     int u;
     if (is_unit_clause(clauses[i], phi_active_map, u)) {
+      assert(u != -1);
       if (!in_queue.count(u) && !in_queue.count(u ^ 1)) {
         q.push(u);
         in_queue.insert(u);
@@ -84,6 +84,7 @@ void Solver::unit_propagation(vector<vector<bool>>& clauses,
     for (int i = 0; i < m; i++) {
       if (clauses[i][u ^ 1]) {
         phi_active_map[u >> 1] = !(u & 1);
+
         int v;
         if (is_unit_clause(clauses[i], phi_active_map, v)) {
           phi_active_map[v >> 1] = !(v & 1);
@@ -104,14 +105,12 @@ vector<bool> Solver::solve(int& periods) {
   int period;
   for (period = 0; !satisfies(phi_master); period++) {
     shuffle(pi.begin(), pi.end(), RNG::m_mt);
-
     unordered_map<int, bool> phi_active_map;
-
     bool change = true;
 
     for (int j = 0; j < n; j++) {
       if (change) {
-        unit_propagation(clauses, phi_active_map);
+        unit_propagation(phi_active_map);
         change = false;
       }
       if (phi_active_map.count(pi[j]) == 0) {

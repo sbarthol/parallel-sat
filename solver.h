@@ -13,8 +13,7 @@ class Solver {
   bool satisfies(const std::vector<bool>& assigment);
   void update_clauses(std::vector<std::vector<bool>>& clauses, int var,
                       bool value);
-  void unit_propagation(std::vector<std::vector<bool>>& clauses,
-                        std::unordered_map<int, bool>& phi_active_map);
+  void unit_propagation(std::unordered_map<int, bool>& phi_active_map);
   bool is_unit_clause(const std::vector<bool>& clause,
                       const std::unordered_map<int, bool>& phi_active_map,
                       int& remaining_literal);
