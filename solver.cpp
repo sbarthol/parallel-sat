@@ -14,12 +14,6 @@ Solver::Solver(vector<vector<bool>> clauses_, vector<bool> phi_master_)
   assert(m > 0);
   assert(clauses_[0].size() % 2 == 0);
   n = clauses_[0].size() / 2;
-  clause_sizes = vector<int>(m);
-  for (int i = 0; i < m; i++) {
-    for (int j = 0; j < 2 * n; j++) {
-      clause_sizes[i] += clauses[i][j];
-    }
-  }
 }
 
 Solver::Solver(vector<vector<bool>> clauses_) : clauses(clauses_) {
@@ -28,12 +22,6 @@ Solver::Solver(vector<vector<bool>> clauses_) : clauses(clauses_) {
   assert(clauses_[0].size() % 2 == 0);
   n = clauses_[0].size() / 2;
   phi_master = vector<bool>(n, false);
-  clause_sizes = vector<int>(m);
-  for (int i = 0; i < m; i++) {
-    for (int j = 0; j < 2 * n; j++) {
-      clause_sizes[i] += clauses[i][j];
-    }
-  }
 }
 
 bool Solver::satisfies(const vector<bool>& assigment) {
@@ -53,39 +41,34 @@ bool Solver::satisfies(const vector<bool>& assigment) {
   return true;
 }
 
-void Solver::update_clauses(vector<vector<bool>>& clauses,
-                            vector<int>& clause_sizes, int var, bool value) {
-  for (int i = 0; i < m; i++) {
-    if (clauses[i][var << 1] && value) {
-      fill(clauses[i].begin(), clauses[i].end(), false);
-      clause_sizes[i] = 0;
-    } else if (clauses[i][var << 1]) {
-      clauses[i][var << 1] = false;
-      clause_sizes[i]--;
+bool Solver::is_unit_clause(const vector<bool>& clause,
+                            const unordered_map<int, bool>& phi_active_map,
+                            int& rem_lit) {
+    rem_lit = -1;
+  for (int u = 0; u < 2 * n; u++) {
+    if (clause[u]) {
+      if (phi_active_map.count(u) == 0) {
+        if (rem_lit == -1) {
+          rem_lit = u;
+        } else {
+          return false;
+        }
+      } else if (phi_active_map.at(u)) {
+        return false;
+      }
     }
-    if (clauses[i][(var << 1) | 1] && !value) {
-      fill(clauses[i].begin(), clauses[i].end(), false);
-      clause_sizes[i] = 0;
-    } else if (clauses[i][(var << 1) | 1]) {
-      clauses[i][(var << 1) | 1] = false;
-      clause_sizes[i]--;
-    }
-    assert(clause_sizes[i] >= 0);
   }
+  return true;
 }
 
 void Solver::unit_propagation(vector<vector<bool>>& clauses,
-                              vector<int>& clause_sizes,
                               unordered_map<int, bool>& phi_active_map) {
   queue<int> q;
   unordered_set<int> in_queue;
 
   for (int i = 0; i < m; i++) {
-    if (clause_sizes[i] == 1) {
-      int u = 0;
-      while (!clauses[i][u]) {
-        u++;
-      }
+    int u;
+    if (is_unit_clause(clauses[i], phi_active_map, u)) {
       if (!in_queue.count(u) && !in_queue.count(u ^ 1)) {
         q.push(u);
         in_queue.insert(u);
@@ -101,14 +84,9 @@ void Solver::unit_propagation(vector<vector<bool>>& clauses,
     for (int i = 0; i < m; i++) {
       if (clauses[i][u ^ 1]) {
         phi_active_map[u >> 1] = !(u & 1);
-        update_clauses(clauses, clause_sizes, u >> 1, !(u & 1));
-        if (clause_sizes[i] == 1) {
-          int v = 0;
-          while (!clauses[i][v]) {
-            v++;
-          }
+        int v;
+        if (is_unit_clause(clauses[i], phi_active_map, v)) {
           phi_active_map[v >> 1] = !(v & 1);
-          update_clauses(clauses, clause_sizes, v >> 1, !(v & 1));
           if (!in_queue.count(v)) {
             q.push(v);
             in_queue.insert(v);
@@ -128,20 +106,17 @@ vector<bool> Solver::solve(int& periods) {
     shuffle(pi.begin(), pi.end(), RNG::m_mt);
 
     unordered_map<int, bool> phi_active_map;
-    vector<vector<bool>> F = clauses;
-    vector<int> F_sizes = clause_sizes;
 
     bool change = true;
 
     for (int j = 0; j < n; j++) {
       if (change) {
-        unit_propagation(F, F_sizes, phi_active_map);
+        unit_propagation(clauses, phi_active_map);
         change = false;
       }
       if (phi_active_map.count(pi[j]) == 0) {
         bool v = phi_master[pi[j]];
         phi_active_map[pi[j]] = v;
-        update_clauses(F, F_sizes, pi[j], v);
         change = true;
       }
     }
