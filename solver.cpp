@@ -47,13 +47,13 @@ bool Solver::is_unit_clause(const vector<bool>& clause,
   rem_lit = -1;
   for (int u = 0; u < 2 * n; u++) {
     if (clause[u]) {
-      if (phi_active_map.count(u) == 0) {
+      if (phi_active_map.count(u >> 1) == 0) {
         if (rem_lit == -1) {
           rem_lit = u;
         } else {
           return false;
         }
-      } else if (phi_active_map.at(u)) {
+      } else if (phi_active_map.at(u >> 1)) {
         return false;
       }
     }
