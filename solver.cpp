@@ -12,6 +12,12 @@ Solver::Solver(vector<vector<int>> clauses_, int n_, vector<bool> phi_master_)
     : clauses(clauses_), n(n_), phi_master(phi_master_) {
   m = clauses_.size();
   assert(m > 0);
+  inv_clauses = vector<vector<int>>(2 * n);
+  for (int i = 0; i < m; i++) {
+    for (int j : clauses[i]) {
+      inv_clauses[j].push_back(i);
+    }
+  }
 }
 
 Solver::Solver(vector<vector<int>> clauses_, int n_)
@@ -19,6 +25,12 @@ Solver::Solver(vector<vector<int>> clauses_, int n_)
   m = clauses_.size();
   assert(m > 0);
   phi_master = vector<bool>(n, false);
+  inv_clauses = vector<vector<int>>(2 * n);
+  for (int i = 0; i < m; i++) {
+    for (int j : clauses[i]) {
+      inv_clauses[j].push_back(i);
+    }
+  }
 }
 
 bool Solver::satisfies(const vector<bool>& assigment) {
@@ -72,16 +84,14 @@ void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
     q.pop();
     in_queue.erase(u);
 
-    for (int i = 0; i < m; i++) {
-      if (binary_search(clauses[i].begin(), clauses[i].end(), u ^ 1)) {
-        phi_active_map[u >> 1] = !(u & 1);
-        int v;
-        if (is_unit_clause(clauses[i], phi_active_map, v)) {
-          phi_active_map[v >> 1] = !(v & 1);
-          if (!in_queue.count(v)) {
-            q.push(v);
-            in_queue.insert(v);
-          }
+    for (int i : inv_clauses[u ^ 1]) {
+      phi_active_map[u >> 1] = !(u & 1);
+      int v;
+      if (is_unit_clause(clauses[i], phi_active_map, v)) {
+        phi_active_map[v >> 1] = !(v & 1);
+        if (!in_queue.count(v)) {
+          q.push(v);
+          in_queue.insert(v);
         }
       }
     }
@@ -109,6 +119,7 @@ vector<bool> Solver::solve(int& periods) {
         change = true;
       }
     }
+
     vector<bool> phi_active(n);
     for (auto p : phi_active_map) {
       phi_active[p.first] = p.second;

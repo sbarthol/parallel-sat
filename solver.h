@@ -8,6 +8,7 @@ class Solver {
  private:
   std::vector<bool> phi_master;
   std::vector<std::vector<int>> clauses;
+  std::vector<std::vector<int>> inv_clauses;
   int n, m;
 
   bool satisfies(const std::vector<bool>& assigment);
