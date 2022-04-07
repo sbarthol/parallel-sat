@@ -6,12 +6,12 @@
 using namespace std;
 
 int main() {
-  int n_variables = 4;
-  int n_clauses = 6;
+  int n_variables = 40;
+  int n_clauses = 10;
 
-  vector<vector<bool>> clauses = CNFGenerator::generate(n_variables, n_clauses);
+  vector<vector<int>> clauses = CNFGenerator::generate(n_variables, n_clauses);
 
-  Solver single_bit_solver = Solver(clauses);
+  Solver single_bit_solver = Solver(clauses, n_variables);
   int periods;
   vector<bool> assignment = single_bit_solver.solve(periods);
 

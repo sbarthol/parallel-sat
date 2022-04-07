@@ -13,8 +13,7 @@ class CNFGenerator {
  then clauses that the bools satisfy
  returns: clauses and clause sizes
  */
-  static std::vector<std::vector<bool>> generate(int n_variables,
-                                                 int n_clauses);
+  static std::vector<std::vector<int>> generate(int n_variables, int n_clauses);
 };
 
 #endif

@@ -8,54 +8,45 @@
 
 using namespace std;
 
-Solver::Solver(vector<vector<bool>> clauses_, vector<bool> phi_master_)
-    : clauses(clauses_), phi_master(phi_master_) {
+Solver::Solver(vector<vector<int>> clauses_, int n_, vector<bool> phi_master_)
+    : clauses(clauses_), n(n_), phi_master(phi_master_) {
   m = clauses_.size();
   assert(m > 0);
-  assert(clauses_[0].size() % 2 == 0);
-  n = clauses_[0].size() / 2;
 }
 
-Solver::Solver(vector<vector<bool>> clauses_) : clauses(clauses_) {
+Solver::Solver(vector<vector<int>> clauses_, int n_)
+    : clauses(clauses_), n(n_) {
   m = clauses_.size();
   assert(m > 0);
-  assert(clauses_[0].size() % 2 == 0);
-  n = clauses_[0].size() / 2;
   phi_master = vector<bool>(n, false);
 }
 
 bool Solver::satisfies(const vector<bool>& assigment) {
-  for (int i = 0; i < m; i++) {
+  for (vector<int>& clause : clauses) {
     bool clause_value = false;
-    int clause_count = 0;
-    for (int j = 0; j < 2 * n && !clause_value; j++) {
-      if (clauses[i][j]) {
-        clause_value = assigment[j >> 1] == !(j & 1);
-        clause_count++;
-      }
+    for (int j = 0; j < clause.size() && !clause_value; j++) {
+      clause_value = assigment[clause[j] >> 1] == !(clause[j] & 1);
     }
-    if (!clause_value && clause_count > 0) {
+    if (!clause_value && !clause.empty()) {
       return false;
     }
   }
   return true;
 }
 
-bool Solver::is_unit_clause(const vector<bool>& clause,
+bool Solver::is_unit_clause(const vector<int>& clause,
                             const unordered_map<int, bool>& phi_active_map,
                             int& rem_lit) {
   rem_lit = -1;
-  for (int u = 0; u < 2 * n; u++) {
-    if (clause[u]) {
-      if (phi_active_map.count(u >> 1) == 0) {
-        if (rem_lit == -1) {
-          rem_lit = u;
-        } else {
-          return false;
-        }
-      } else if (phi_active_map.at(u >> 1)) {
+  for (int u : clause) {
+    if (phi_active_map.count(u >> 1) == 0) {
+      if (rem_lit == -1) {
+        rem_lit = u;
+      } else {
         return false;
       }
+    } else if (phi_active_map.at(u >> 1)) {
+      return false;
     }
   }
   return rem_lit != -1;
@@ -82,9 +73,8 @@ void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
     in_queue.erase(u);
 
     for (int i = 0; i < m; i++) {
-      if (clauses[i][u ^ 1]) {
+      if (binary_search(clauses[i].begin(), clauses[i].end(), u ^ 1)) {
         phi_active_map[u >> 1] = !(u & 1);
-
         int v;
         if (is_unit_clause(clauses[i], phi_active_map, v)) {
           phi_active_map[v >> 1] = !(v & 1);
