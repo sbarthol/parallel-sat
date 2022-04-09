@@ -74,6 +74,7 @@ void SingleBitSolver::unit_propagation(
     int u;
     if (is_unit_clause(clauses[i], phi_active_map, u)) {
       assert(u != -1);
+      phi_active_map[u >> 1] = !(u & 1);
       if (!in_queue.count(u) && !in_queue.count(u ^ 1)) {
         q.push(u);
         in_queue.insert(u);
@@ -87,13 +88,12 @@ void SingleBitSolver::unit_propagation(
     in_queue.erase(u);
 
     for (int i : inv_clauses[u ^ 1]) {
-      // Todo: u and v are assigned twice (v later becomes u)
-      phi_active_map[u >> 1] = !(u & 1);
       int v;
       if (is_unit_clause(clauses[i], phi_active_map, v)) {
         assert(v != u);
         phi_active_map[v >> 1] = !(v & 1);
         // Todo: how to be sure that !v is not in the queue?
+        assert(!in_queue.count(v ^ 1));
         if (!in_queue.count(v)) {
           q.push(v);
           in_queue.insert(v);
