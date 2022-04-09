@@ -47,17 +47,16 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   }
 }
 
-bool MultiBitSolver::satisfies(const vector<int>& phi) {
+int MultiBitSolver::satisfies(const vector<int>& phi) {
+  int conj = ~0;
   for (vector<int>& clause : clauses) {
-    int clause_value = 0;
-    for (int j = 0; j < clause.size() && !clause_value; j++) {
-      clause_value = phi[clause[j]];
+    int disj = 0;
+    for (int u : clause) {
+      disj |= phi[u];
     }
-    if (!clause_value && !clause.empty()) {
-      return false;
-    }
+    conj &= disj;
   }
-  return true;
+  return conj;
 }
 
 vector<pair<int, int>> MultiBitSolver::get_rem_lits(const vector<int>& clause,
@@ -124,8 +123,9 @@ vector<bool> MultiBitSolver::solve(int& periods) {
   vector<int> pi(n);
   iota(pi.begin(), pi.end(), 0);
 
+  int conj = satisfies(phi_master);
   int period;
-  for (period = 0; !satisfies(phi_master); period++) {
+  for (period = 0; !conj; period++) {
     shuffle(pi.begin(), pi.end(), RNG::m_mt);
     vector<int> phi_active(2 * n, 0);
     bool change = true;
@@ -153,13 +153,17 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     for (int i = 0; i < n; i++) {
       assert(!(~(phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)])));
     }
+    conj = satisfies(phi_master);
   }
 
   periods = period;
+  assert(conj);
 
-  // Todo, convert back to single-bit
-  assert(false);
-  return vector<bool>();
+  vector<bool> assignment(n);
+  for (int i = 0; i < n; i++) {
+    assignment[i] = phi_master[LIT(i)] & (conj & ~(conj - 1));
+  }
+  return assignment;
 }
 
 vector<bool> MultiBitSolver::solve() {
