@@ -1,4 +1,4 @@
-parallel-sat: cnf_generator.o main.o solver.o rng.o
+parallel-sat: cnf_generator.o main.o solver.o multi_bit_solver.o rng.o
 	g++ -std=c++17 -I. -o parallel-sat cnf_generator.o main.o solver.o rng.o
 
 cnf_generator.o: cnf_generator.cpp cnf_generator.h
@@ -6,6 +6,9 @@ cnf_generator.o: cnf_generator.cpp cnf_generator.h
 
 solver.o: solver.cpp solver.h
 	g++ -std=c++17 -I. -c solver.cpp
+
+multi_bit_solver.o: multi_bit_solver.cpp multi_bit_solver.h
+	g++ -std=c++17 -I. -c multi_bit_solver.cpp
 
 main.o: main.cpp
 	g++ -std=c++17 -I. -c main.cpp
