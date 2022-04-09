@@ -60,28 +60,36 @@ bool MultiBitSolver::satisfies(const vector<int>& phi) {
   return true;
 }
 
-vector<int> MultiBitSolver::get_rem_lits(const vector<int>& clause,
-                                         const vector<int>& phi_active) {
-  assert(false);
+vector<pair<int, int>> MultiBitSolver::get_rem_lits(const vector<int>& clause,
+                                                    const vector<int>& phi) {
+  vector<pair<int, int>> rem_lits;
+  // Todo, turn O(k^2) into O(k) using mask technique
+  for (int u : clause) {
+    int ass = ~(phi[u] | phi[COMPL(u)]);
+    for (int v : clause) {
+      if (u != v) {
+        ass &= phi[COMPL(v)];
+      }
+    }
+    if (ass) {
+      rem_lits.push_back({u, ass});
+    }
+  }
+  return rem_lits;
 }
 
-int MultiBitSolver::get_rem_lit_truth(const int u, const vector<int>& clause,
-                                      const vector<int>& phi_active) {
-  assert(false);
-}
-
-void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
+void MultiBitSolver::unit_propagation(vector<int>& phi) {
   queue<int> q;
   unordered_set<int> in_queue;
 
   for (int i = 0; i < m; i++) {
-    vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
-    for (int u : rem_lits) {
-      assert(u != -1);
-      phi_active[u] |= get_rem_lit_truth(u, clauses[i], phi_active);
-      if (!in_queue.count(u) && !in_queue.count(COMPL(u))) {
-        q.push(u);
-        in_queue.insert(u);
+    vector<pair<int, int>> rem_lits = get_rem_lits(clauses[i], phi);
+    for (auto p : rem_lits) {
+      assert(p.first != -1);
+      phi[p.first] |= p.second;
+      if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
+        q.push(p.first);
+        in_queue.insert(p.first);
       }
     }
   }
@@ -92,13 +100,13 @@ void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
     in_queue.erase(u);
 
     for (int i : inv_clauses[COMPL(u)]) {
-      vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
-      for (int v : rem_lits) {
-        assert(v != u);
-        phi_active[v] |= get_rem_lit_truth(v, clauses[i], phi_active);
-        if (!in_queue.count(v) && !in_queue.count(COMPL(v))) {
-          q.push(v);
-          in_queue.insert(v);
+      vector<pair<int, int>> rem_lits = get_rem_lits(clauses[i], phi);
+      for (auto p : rem_lits) {
+        assert(p.first != u);
+        phi[p.first] |= p.second;
+        if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
+          q.push(p.first);
+          in_queue.insert(p.first);
         }
       }
     }
