@@ -103,6 +103,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi) {
       vector<pair<int, int>> rem_lits = get_rem_lits(clauses[i], phi);
       for (auto p : rem_lits) {
         assert(p.first != u);
+        assert(p.first != -1);
         phi[p.first] |= p.second;
         if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
           q.push(p.first);
