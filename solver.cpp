@@ -88,6 +88,7 @@ void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
       phi_active_map[u >> 1] = !(u & 1);
       int v;
       if (is_unit_clause(clauses[i], phi_active_map, v)) {
+        assert(v != u);
         phi_active_map[v >> 1] = !(v & 1);
         if (!in_queue.count(v)) {
           q.push(v);
