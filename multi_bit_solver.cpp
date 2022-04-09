@@ -104,7 +104,9 @@ void MultiBitSolver::unit_propagation(vector<int>& phi) {
         assert(p.first != u);
         assert(p.first != -1);
         phi[p.first] |= p.second;
-        if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
+        if (!in_queue.count(p.first)) {
+          // Todo: how to be sure that !v is not in the queue?
+          assert(!in_queue.count(COMPL(p.first)));
           q.push(p.first);
           in_queue.insert(p.first);
         }
