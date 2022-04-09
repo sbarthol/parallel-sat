@@ -1,10 +1,12 @@
 #include <unordered_map>
 #include <vector>
 
-#ifndef SOLVER_H
-#define SOLVER_H
+#include "solver.h"
 
-class MultiBitSolver {
+#ifndef MULTI_BIT_SOLVER_H
+#define MULTI_BIT_SOLVER_H
+
+class MultiBitSolver : Solver {
  private:
   std::vector<int> phi_master;
   std::vector<std::vector<int>> clauses;
@@ -22,8 +24,8 @@ class MultiBitSolver {
   MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_,
                  std::vector<int> phi_master_);
   MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);
-  std::vector<int> solve(int& periods);
-  std::vector<int> solve();
+  std::vector<bool> solve(int& periods);
+  std::vector<bool> solve();
 };
 
 #endif

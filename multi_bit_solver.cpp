@@ -68,7 +68,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
   assert(false);
 }
 
-vector<int> MultiBitSolver::solve(int& periods) {
+vector<bool> MultiBitSolver::solve(int& periods) {
   // phi_master must not have conflicts or unassigned positions
   assert(phi_master.size() == 2 * n);
   for (int i = 0; i < n; i++) {
@@ -110,10 +110,13 @@ vector<int> MultiBitSolver::solve(int& periods) {
   }
 
   periods = period;
-  return phi_master;
+
+  // Todo, convert back to single-bit
+  assert(false);
+  return vector<bool>();
 }
 
-vector<int> MultiBitSolver::solve() {
+vector<bool> MultiBitSolver::solve() {
   int foo;
   return solve(foo);
 }

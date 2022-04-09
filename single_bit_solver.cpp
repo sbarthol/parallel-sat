@@ -1,4 +1,4 @@
-#include "solver.h"
+#include "single_bit_solver.h"
 
 #include <numeric>
 #include <queue>
@@ -8,7 +8,8 @@
 
 using namespace std;
 
-Solver::Solver(vector<vector<int>> clauses_, int n_, vector<bool> phi_master_)
+SingleBitSolver::SingleBitSolver(vector<vector<int>> clauses_, int n_,
+                                 vector<bool> phi_master_)
     : clauses(clauses_), n(n_), phi_master(phi_master_) {
   m = clauses_.size();
   assert(m > 0);
@@ -20,7 +21,7 @@ Solver::Solver(vector<vector<int>> clauses_, int n_, vector<bool> phi_master_)
   }
 }
 
-Solver::Solver(vector<vector<int>> clauses_, int n_)
+SingleBitSolver::SingleBitSolver(vector<vector<int>> clauses_, int n_)
     : clauses(clauses_), n(n_) {
   m = clauses_.size();
   assert(m > 0);
@@ -33,7 +34,7 @@ Solver::Solver(vector<vector<int>> clauses_, int n_)
   }
 }
 
-bool Solver::satisfies(const vector<bool>& assigment) {
+bool SingleBitSolver::satisfies(const vector<bool>& assigment) {
   for (vector<int>& clause : clauses) {
     bool clause_value = false;
     for (int j = 0; j < clause.size() && !clause_value; j++) {
@@ -46,9 +47,9 @@ bool Solver::satisfies(const vector<bool>& assigment) {
   return true;
 }
 
-bool Solver::is_unit_clause(const vector<int>& clause,
-                            const unordered_map<int, bool>& phi_active_map,
-                            int& rem_lit) {
+bool SingleBitSolver::is_unit_clause(
+    const vector<int>& clause, const unordered_map<int, bool>& phi_active_map,
+    int& rem_lit) {
   rem_lit = -1;
   for (int u : clause) {
     if (phi_active_map.count(u >> 1) == 0) {
@@ -64,7 +65,8 @@ bool Solver::is_unit_clause(const vector<int>& clause,
   return rem_lit != -1;
 }
 
-void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
+void SingleBitSolver::unit_propagation(
+    unordered_map<int, bool>& phi_active_map) {
   queue<int> q;
   unordered_set<int> in_queue;
 
@@ -99,7 +101,7 @@ void Solver::unit_propagation(unordered_map<int, bool>& phi_active_map) {
   }
 }
 
-vector<bool> Solver::solve(int& periods) {
+vector<bool> SingleBitSolver::solve(int& periods) {
   vector<int> pi(n);
   iota(pi.begin(), pi.end(), 0);
 
@@ -137,7 +139,7 @@ vector<bool> Solver::solve(int& periods) {
   return phi_master;
 }
 
-vector<bool> Solver::solve() {
+vector<bool> SingleBitSolver::solve() {
   int foo;
   return solve(foo);
 }

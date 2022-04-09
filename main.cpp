@@ -1,7 +1,7 @@
 #include <vector>
 
 #include "cnf_generator.h"
-#include "solver.h"
+#include "single_bit_solver.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main() {
 
   vector<vector<int>> clauses = CNFGenerator::generate(n_variables, n_clauses);
 
-  Solver single_bit_solver = Solver(clauses, n_variables);
+  SingleBitSolver single_bit_solver = SingleBitSolver(clauses, n_variables);
   int periods;
   vector<bool> assignment = single_bit_solver.solve(periods);
 
