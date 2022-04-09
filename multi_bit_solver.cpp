@@ -8,7 +8,7 @@
 
 #define LIT(i) ((i) << 1)
 #define NEG_LIT(i) (((i) << 1) | 1)
-#define COMPL (i)((i) ^ 1)
+#define COMPL(i) ((i) ^ 1)
 
 using namespace std;
 
@@ -65,6 +65,11 @@ vector<int> MultiBitSolver::get_rem_lits(const vector<int>& clause,
   assert(false);
 }
 
+int MultiBitSolver::get_rem_lit_truth(const int u, const vector<int>& clause,
+                                      const vector<int>& phi_active) {
+  assert(false);
+}
+
 void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
   queue<int> q;
   unordered_set<int> in_queue;
@@ -73,7 +78,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
     vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
     for (int u : rem_lits) {
       assert(u != -1);
-      phi_active[u] |= get_rem_lit_truth();
+      phi_active[u] |= get_rem_lit_truth(u, clauses[i], phi_active);
       if (!in_queue.count(u) && !in_queue.count(COMPL(u))) {
         q.push(u);
         in_queue.insert(u);
@@ -90,7 +95,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
       vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
       for (int v : rem_lits) {
         assert(v != u);
-        phi_active_map[v] |= get_rem_lit_truth();
+        phi_active[v] |= get_rem_lit_truth(v, clauses[i], phi_active);
         if (!in_queue.count(v) && !in_queue.count(COMPL(v))) {
           q.push(v);
           in_queue.insert(v);
