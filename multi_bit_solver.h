@@ -14,10 +14,9 @@ class MultiBitSolver {
   bool satisfies(const std::vector<int>& assigment);
   void update_clauses(std::vector<std::vector<int>>& clauses, int var,
                       int value);
-  void unit_propagation(std::unordered_map<int, int>& phi_active_map);
-  std::vector<int> get_rem_lits(
-      const std::vector<int>& clause,
-      const std::unordered_map<int, int>& phi_active_map);
+  void unit_propagation(std::vector<int>& phi_active_map);
+  std::vector<int> get_rem_lits(const std::vector<int>& clause,
+                                const std::vector<int>& phi_active_map);
 
  public:
   MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_,
