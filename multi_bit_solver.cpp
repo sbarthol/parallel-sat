@@ -8,6 +8,7 @@
 
 #define LIT(i) ((i) << 1)
 #define NEG_LIT(i) (((i) << 1) | 1)
+#define COMPL (i)((i) ^ 1)
 
 using namespace std;
 
@@ -65,7 +66,38 @@ vector<int> MultiBitSolver::get_rem_lits(const vector<int>& clause,
 }
 
 void MultiBitSolver::unit_propagation(vector<int>& phi_active) {
-  assert(false);
+  queue<int> q;
+  unordered_set<int> in_queue;
+
+  for (int i = 0; i < m; i++) {
+    vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
+    for (int u : rem_lits) {
+      assert(u != -1);
+      phi_active[u] |= get_rem_lit_truth();
+      if (!in_queue.count(u) && !in_queue.count(COMPL(u))) {
+        q.push(u);
+        in_queue.insert(u);
+      }
+    }
+  }
+
+  while (!q.empty()) {
+    int u = q.front();
+    q.pop();
+    in_queue.erase(u);
+
+    for (int i : inv_clauses[COMPL(u)]) {
+      vector<int> rem_lits = get_rem_lits(clauses[i], phi_active);
+      for (int v : rem_lits) {
+        assert(v != u);
+        phi_active_map[v] |= get_rem_lit_truth();
+        if (!in_queue.count(v) && !in_queue.count(COMPL(v))) {
+          q.push(v);
+          in_queue.insert(v);
+        }
+      }
+    }
+  }
 }
 
 vector<bool> MultiBitSolver::solve(int& periods) {
