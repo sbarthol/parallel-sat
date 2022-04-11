@@ -142,7 +142,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         phi_active[LIT(pi[i])] |= phi_master[LIT(pi[i])] & unassigned;
         phi_active[NEG_LIT(pi[i])] |= phi_master[NEG_LIT(pi[i])] & unassigned;
         change = true;
-        assert(!(~(phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)])));
+        assert(!(~(phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])])));
       }
     }
     if (phi_active == phi_master) {
