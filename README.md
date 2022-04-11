@@ -66,7 +66,7 @@ It makes sense to use the Gates machines as we only need a single core x86/64 pr
 
 We chose C++ because we are both familiar with the langues, it is a directly compiled language (fast) and it is more convenient to use SIMD instructions when the language is close to the machine.
 
-## SCHEDULE
+## SCHEDULE (OLD)
 
 -   Week 1: Read the paper and fully understand how the algorithm works.
 
