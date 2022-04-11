@@ -137,7 +137,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         unit_propagation(phi_active);
         change = false;
       }
-      int unassigned = ~(phi_active[LIT(i)] | phi_active[NEG_LIT(i)]);
+      int unassigned = ~(phi_active[LIT(pi[i])] | phi_active[NEG_LIT(pi[i])]);
       if (unassigned) {
         phi_active[LIT(pi[i])] |= phi_master[LIT(pi[i])] & unassigned;
         phi_active[NEG_LIT(pi[i])] |= phi_master[NEG_LIT(pi[i])] & unassigned;
@@ -145,9 +145,13 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         assert(!(~(phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])])));
       }
     }
+    for (int i = 0; i < n; i++) {
+      assert(!(~(phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)])));
+    }
     if (phi_active == phi_master) {
-      int random_idx = RNG::uniform(n);
-      phi_active[random_idx] = ~phi_active[random_idx];
+      int k = RNG::uniform(n);
+      phi_active[LIT(k)] = ~phi_active[LIT(k)];
+      phi_active[NEG_LIT(k)] = ~phi_active[NEG_LIT(k)];
     }
     phi_master = phi_active;
 
