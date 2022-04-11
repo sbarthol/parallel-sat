@@ -18,7 +18,6 @@ vector<vector<int>> CNFParser::parse_file(char* filename){
     fscanf(input, "%i \n", &n_variables);
     fscanf(input, "%i \n", &n_clauses);
 
-    printf("nclauses %i\n", n_clauses);
     int tmp;
     int k=3;
     vector<vector<int>> clauses(n_clauses, vector<int>(k, 0));
