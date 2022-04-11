@@ -6,6 +6,7 @@
 class CNFGenerator {
  private:
   CNFGenerator(){};
+  static int count_pairs(std::vector<std::vector<int>> clauses, int var_i, int clause_i);
 
  public:
   /*
