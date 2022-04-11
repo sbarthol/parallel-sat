@@ -1,8 +1,9 @@
 #include "cnf_generator.h"
 
-#include "rng.h"
-#include <queue>
 #include <iostream>
+#include <queue>
+
+#include "rng.h"
 
 using namespace std;
 
@@ -12,27 +13,27 @@ using namespace std;
 typedef pair<int, int> pairint;
 
 // Count the number of "repeated pairs" for from adding var_i to clause_i
-int CNFGenerator::count_pairs(vector<vector<int>> clauses, int var_i, int clause_i) {
-
+int CNFGenerator::count_pairs(vector<vector<int>> clauses, int var_i,
+                              int clause_i) {
   // For each variable already in this clause
   vector<int> possible_repetition = clauses[clause_i];
-  for(int y = 0; y < clauses[clause_i].size(); y++)
+  for (int y = 0; y < clauses[clause_i].size(); y++)
     if (clauses[clause_i][y] == var_i) return INT_MAX;
-    
+
   int result = 0;
-  for(auto pr : possible_repetition) {
+  for (auto pr : possible_repetition) {
     int count = 0;
 
-    for(int z = 0; z < clauses.size(); z++){
-      if(z == clause_i) continue;
+    for (int z = 0; z < clauses.size(); z++) {
+      if (z == clause_i) continue;
 
-      for(int y = 0; y < clauses[z].size(); y++) {
-        if (clauses[z][y] == pr) count ++;
+      for (int y = 0; y < clauses[z].size(); y++) {
+        if (clauses[z][y] == pr) count++;
       }
-    } 
+    }
 
     // if count >= 2, not a *new* repeated pair
-    if(count < 2) {
+    if (count < 2) {
       result += count;
     }
   }
@@ -40,9 +41,8 @@ int CNFGenerator::count_pairs(vector<vector<int>> clauses, int var_i, int clause
 }
 
 vector<vector<int>> CNFGenerator::generate(int n_variables, int n_clauses) {
-
   // Pair is: (count of # occurances, variable index)
-  priority_queue<pairint, vector<pairint>, greater<pairint> > pq;
+  priority_queue<pairint, vector<pairint>, greater<pairint>> pq;
   for (int i = 0; i < n_variables; i++) {
     pq.push(make_pair(0, i));
   }
@@ -53,7 +53,6 @@ vector<vector<int>> CNFGenerator::generate(int n_variables, int n_clauses) {
 
   for (int i = 0; i < n_clauses; i++) {
     for (int j = 0; j < k; j++) {
-
       // setup tiebreaking
       // https://stackoverflow.com/questions/16111337/declaring-a-priority-queue-in-c-with-a-custom-comparator
       auto comparator = [clauses, i](pairint a, pairint b) {
@@ -61,11 +60,12 @@ vector<vector<int>> CNFGenerator::generate(int n_variables, int n_clauses) {
         int b_pairs = CNFGenerator::count_pairs(clauses, b.second, i);
         return a_pairs < b_pairs;
       };
-      priority_queue<pairint, vector<pairint>, decltype(comparator)> ties(comparator);
+      priority_queue<pairint, vector<pairint>, decltype(comparator)> ties(
+          comparator);
 
       // execute tiebreaking
       int num_occ = pq.top().first;
-      while(pq.top().first == num_occ && pq.size() > 0) {
+      while (pq.top().first == num_occ && pq.size() > 0) {
         ties.push(pq.top());
         pq.pop();
       }
@@ -75,14 +75,14 @@ vector<vector<int>> CNFGenerator::generate(int n_variables, int n_clauses) {
       ties.pop();
 
       // add back the rest of the ties
-      while(ties.size()) {
+      while (ties.size()) {
         pq.push(ties.top());
         ties.pop();
       }
 
       // now assign clause
       clauses[i][j] = (best_pair.second << 1);
-      best_pair.first ++ ;
+      best_pair.first++;
       pq.push(best_pair);
     }
   }
@@ -96,14 +96,14 @@ vector<vector<int>> CNFGenerator::generate(int n_variables, int n_clauses) {
   }
 
   // for(bool b : assignment)
-  // cout << b; 
+  // cout << b;
   // printf("\n\n\n");
 
   for (int i = 0; i < n_clauses; i++) {
     for (int j = 0; j < k; j++) {
       // if we assigned this variable to be false, then enforce
-      if( !assignment[clauses[i][j] << 1 ] ) {
-        clauses[i][j] ++ ;
+      if (!assignment[clauses[i][j] << 1]) {
+        clauses[i][j]++;
       }
     }
   }
