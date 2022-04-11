@@ -1,3 +1,5 @@
+// #define NDEBUG
+
 #include "multi_bit_solver.h"
 
 #include <numeric>
@@ -37,7 +39,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   assert(m > 0);
   phi_master = vector<int>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    phi_master[NEG_LIT(i)] = ~0;
+    phi_master[NEG_LIT(i)] = -1;
   }
   inv_clauses = vector<vector<int>>(2 * n);
   for (int i = 0; i < m; i++) {
@@ -48,7 +50,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
 }
 
 int MultiBitSolver::satisfies(const vector<int>& phi) {
-  int conj = ~0;
+  int conj = -1;
   for (vector<int>& clause : clauses) {
     int disj = 0;
     for (int u : clause) {
@@ -119,7 +121,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
   // phi_master must not have conflicts or unassigned positions
   assert(phi_master.size() == 2 * n);
   for (int i = 0; i < n; i++) {
-    assert(!(~(phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)])));
+    assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
   }
 
   vector<int> pi(n);
@@ -137,23 +139,27 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         unit_propagation(phi_active);
         change = false;
       }
-      int unassigned = ~(phi_active[LIT(i)] | phi_active[NEG_LIT(i)]);
+      int unassigned = ~(phi_active[LIT(pi[i])] | phi_active[NEG_LIT(pi[i])]);
       if (unassigned) {
         phi_active[LIT(pi[i])] |= phi_master[LIT(pi[i])] & unassigned;
         phi_active[NEG_LIT(pi[i])] |= phi_master[NEG_LIT(pi[i])] & unassigned;
         change = true;
-        assert(!(~(phi_active[LIT(i)] | phi_active[NEG_LIT(i)])));
+        assert((phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])]) == -1);
       }
     }
+    for (int i = 0; i < n; i++) {
+      assert((phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)]) == -1);
+    }
     if (phi_active == phi_master) {
-      int random_idx = RNG::uniform(n);
-      phi_active[random_idx] = ~phi_active[random_idx];
+      int k = RNG::uniform(n);
+      phi_active[LIT(k)] = ~phi_active[LIT(k)];
+      phi_active[NEG_LIT(k)] = ~phi_active[NEG_LIT(k)];
     }
     phi_master = phi_active;
 
     // phi_master must not have conflicts or unassigned positions
     for (int i = 0; i < n; i++) {
-      assert(!(~(phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)])));
+      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
     }
     conj = satisfies(phi_master);
   }

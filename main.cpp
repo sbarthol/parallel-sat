@@ -2,19 +2,31 @@
 
 #include "cnf_parser.h"
 #include "single_bit_solver.h"
+#include "multi_bit_solver.h"
 
 using namespace std;
 
 int main() {
-
+  
   CNFParser *parser;
   std::vector<std::vector<int>> clauses = parser->parse_file("problems.cnf");
   int n_variables = parser->n_variables; 
   int n_clauses = parser->n_clauses; 
 
-  SingleBitSolver single_bit_solver = SingleBitSolver(clauses, n_variables);
+  MultiBitSolver multi_bit_solver = MultiBitSolver(clauses, n_variables);
   int periods;
-  vector<bool> assignment = single_bit_solver.solve(periods);
+  vector<bool> assignment = multi_bit_solver.solve(periods);
+
+  // make sure it works
+  bool conj = true;
+  for (vector<int>& clause : clauses) {
+    bool disj = false;
+    for (int u : clause) {
+      disj = disj || ((u & 1) ? !assignment[u >> 1] : assignment[u >> 1]);
+    }
+    conj = conj && disj;
+  }
+  assert(conj);
 
   printf("Assignment found after %d periods: \n", periods);
   for (int i = 0; i < n_variables; i++) {
