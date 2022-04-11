@@ -8,6 +8,7 @@ using namespace std;
 
 int main() {
   CNFParser* parser;
+
   std::vector<std::vector<int>> clauses =
       parser->parse_file("problems/problems50.cnf");
   int n_variables = parser->n_variables;
