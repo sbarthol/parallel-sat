@@ -1,3 +1,5 @@
+// #define NDEBUG
+
 #include "multi_bit_solver.h"
 
 #include <numeric>
