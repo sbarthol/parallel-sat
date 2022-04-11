@@ -9,7 +9,7 @@ using namespace std;
 int main() {
   
   CNFParser *parser;
-  std::vector<std::vector<int>> clauses = parser->parse_file("problems.cnf");
+  std::vector<std::vector<int>> clauses = parser->parse_file("problems250.cnf");
   int n_variables = parser->n_variables; 
   int n_clauses = parser->n_clauses; 
   printf("Completed parse of problem, %i n_variables %i n_clauses\n", n_variables, n_clauses);
