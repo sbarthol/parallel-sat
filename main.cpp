@@ -12,6 +12,7 @@ int main() {
   std::vector<std::vector<int>> clauses = parser->parse_file("problems.cnf");
   int n_variables = parser->n_variables; 
   int n_clauses = parser->n_clauses; 
+  printf("Completed parse of problem, %i n_variables %i n_clauses\n", n_variables, n_clauses);
 
   MultiBitSolver multi_bit_solver = MultiBitSolver(clauses, n_variables);
   int periods;

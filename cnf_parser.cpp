@@ -18,20 +18,20 @@ vector<vector<int>> CNFParser::parse_file(char* filename){
     fscanf(input, "%i \n", &n_variables);
     fscanf(input, "%i \n", &n_clauses);
 
+    printf("nclauses %i\n", n_clauses);
     int tmp;
     int k=3;
     vector<vector<int>> clauses(n_clauses, vector<int>(k, 0));
+    // return clauses;
     // clauses = &vector<vector<int>>(n_clauses, vector<int>(k, 0));
     for(int j = 0; j < n_clauses; j ++) {
-        fscanf(input, "%i %i %i %i", &clauses[j][0], &clauses[j][1], &clauses[j][2], &tmp);     
-        for(int kk = 0; kk < k; k++) {
-            int signedval = clauses[j][kk];
-            clauses[j][kk] = (signedval << 1) + int(signedval < 0);
+        fscanf(input, "%i %i %i %i \n", &clauses[j][0], &clauses[j][1], &clauses[j][2], &tmp);  
+        for(int kk = 0; kk < k; kk++) {
+            clauses[j][kk] = (abs(clauses[j][kk])-1) << 1 | (clauses[j][kk] < 0);
         } 
     }
 
     fclose(input);
-    // clauses = clauses_;
     return clauses;
 
 };
