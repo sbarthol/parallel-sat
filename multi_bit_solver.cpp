@@ -37,7 +37,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   assert(m > 0);
   phi_master = vector<int>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    phi_master[NEG_LIT(i)] = ~0;
+    phi_master[NEG_LIT(i)] = -1;
   }
   inv_clauses = vector<vector<int>>(2 * n);
   for (int i = 0; i < m; i++) {
@@ -48,7 +48,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
 }
 
 int MultiBitSolver::satisfies(const vector<int>& phi) {
-  int conj = ~0;
+  int conj = -1;
   for (vector<int>& clause : clauses) {
     int disj = 0;
     for (int u : clause) {
