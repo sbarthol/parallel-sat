@@ -1,23 +1,16 @@
 #include <vector>
 
-#include "cnf_generator.h"
+#include "cnf_parser.h"
 #include "single_bit_solver.h"
 
 using namespace std;
 
 int main() {
-  int n_variables = 60;
-  int n_clauses = 5 * n_variables;
-  // 1000;
 
-  vector<vector<int>> clauses = CNFGenerator::generate(n_variables, n_clauses);
-  printf("Finished generating clauses\n");
-
-  // for(auto a: clauses){
-  // for(auto b: a)
-  // printf("value %d \n", b);
-  // printf("\n\n");
-  // }
+  CNFParser *parser;
+  std::vector<std::vector<int>> clauses = parser->parse_file("problems.cnf");
+  int n_variables = parser->n_variables; 
+  int n_clauses = parser->n_clauses; 
 
   SingleBitSolver single_bit_solver = SingleBitSolver(clauses, n_variables);
   int periods;
