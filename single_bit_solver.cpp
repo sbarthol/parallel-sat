@@ -60,7 +60,7 @@ bool SingleBitSolver::is_unit_clause(
       } else {
         return false;
       }
-    } else if (phi_active_map.at(u >> 1)) {
+    } else if ((u & 1) ^ phi_active_map.at(u >> 1)) {
       return false;
     }
   }
