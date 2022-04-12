@@ -21,8 +21,6 @@ class MultiBitSolver : Solver {
                                                 const std::vector<int>& phi);
 
  public:
-  MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_,
-                 std::vector<int> phi_master_);
   MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);
   std::vector<bool> solve(int& periods);
   std::vector<bool> solve();

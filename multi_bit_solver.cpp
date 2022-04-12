@@ -14,32 +14,14 @@
 
 using namespace std;
 
-MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_,
-                               vector<int> phi_master_)
-    : clauses(clauses_), n(n_) {
-  m = clauses_.size();
-  assert(m > 0);
-  assert(phi_master_.size() == n);
-  phi_master = vector<int>(2 * n);
-  for (int i = 0; i < n; i++) {
-    phi_master[LIT(i)] = phi_master_[i];
-    phi_master[NEG_LIT(i)] = ~phi_master[i];
-  }
-  inv_clauses = vector<vector<int>>(2 * n);
-  for (int i = 0; i < m; i++) {
-    for (int j : clauses[i]) {
-      inv_clauses[j].push_back(i);
-    }
-  }
-}
-
 MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
     : clauses(clauses_), n(n_) {
   m = clauses_.size();
   assert(m > 0);
   phi_master = vector<int>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    phi_master[NEG_LIT(i)] = -1;
+    phi_master[LIT(i)] = RNG::uniform();
+    phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
   }
   inv_clauses = vector<vector<int>>(2 * n);
   for (int i = 0; i < m; i++) {
@@ -106,7 +88,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi) {
         assert(p.first != u);
         assert(p.first != -1);
         phi[p.first] |= p.second;
-        if (!in_queue.count(p.first)) {
+        if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
           // Todo: how to be sure that !v is not in the queue?
           assert(!in_queue.count(COMPL(p.first)));
           q.push(p.first);

@@ -6,3 +6,5 @@ int RNG::uniform(int n) {
   std::uniform_int_distribution<int> u(0, n - 1);
   return u(m_mt);
 }
+
+int RNG::uniform() { return m_mt(); }

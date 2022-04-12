@@ -9,7 +9,7 @@ using namespace std;
 #define SINGLE_BIT 0
 #define MULTI_BIT 1
 
-#define CURRENT 0
+#define CURRENT MULTI_BIT
 
 int main(int argc, char* argv[]) {
   if (argc != 2) {
