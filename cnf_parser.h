@@ -7,10 +7,9 @@
 class CNFParser {
  public:
   CNFParser(){};
-  std::vector<std::vector<int>> parse_file(std::string filename);
+  std::vector<std::vector<int>> parse_file(char* filename);
   int n_variables;
   int n_clauses;
-  // std::vector<std::vector<int>> clauses;
 };
 
 #endif

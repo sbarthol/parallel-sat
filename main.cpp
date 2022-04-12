@@ -6,17 +6,21 @@
 
 using namespace std;
 
-int main() {
-  CNFParser* parser;
+#define SINGLE_BIT 0
+#define MULTI_BIT 1
 
-  std::vector<std::vector<int>> clauses =
-      parser->parse_file("problems/problems50.cnf");
-  int n_variables = parser->n_variables;
-  int n_clauses = parser->n_clauses;
+int main(int argc, char* argv[]) {
+  if (argc != 2) {
+    printf("Please provide filename as input\n");
+    exit(-1);
+  }
+  CNFParser parser;
+
+  std::vector<std::vector<int>> clauses = parser.parse_file(argv[1]);
   printf("Completed parse of problem, %i n_variables %i n_clauses\n",
-         n_variables, n_clauses);
+         parser.n_variables, parser.n_clauses);
 
-  MultiBitSolver multi_bit_solver = MultiBitSolver(clauses, n_variables);
+  MultiBitSolver multi_bit_solver = MultiBitSolver(clauses, parser.n_variables);
   int periods;
   vector<bool> assignment = multi_bit_solver.solve(periods);
 
@@ -32,7 +36,7 @@ int main() {
   assert(conj);
 
   printf("Assignment found after %d periods: \n", periods);
-  for (int i = 0; i < n_variables; i++) {
+  for (int i = 0; i < parser.n_variables; i++) {
     printf("x%d: %s\n", i + 1, assignment[i] ? "true" : "false");
   }
 }
