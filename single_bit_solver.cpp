@@ -10,24 +10,14 @@
 
 using namespace std;
 
-SingleBitSolver::SingleBitSolver(vector<vector<int>> clauses_, int n_,
-                                 vector<bool> phi_master_)
-    : clauses(clauses_), n(n_), phi_master(phi_master_) {
-  m = clauses_.size();
-  assert(m > 0);
-  inv_clauses = vector<vector<int>>(2 * n);
-  for (int i = 0; i < m; i++) {
-    for (int j : clauses[i]) {
-      inv_clauses[j].push_back(i);
-    }
-  }
-}
-
 SingleBitSolver::SingleBitSolver(vector<vector<int>> clauses_, int n_)
     : clauses(clauses_), n(n_) {
   m = clauses_.size();
   assert(m > 0);
-  phi_master = vector<bool>(n, false);
+  phi_master = vector<bool>(n);
+  for (int i = 0; i < n; i++) {
+    phi_master[i] = RNG::uniform_bool();
+  }
   inv_clauses = vector<vector<int>>(2 * n);
   for (int i = 0; i < m; i++) {
     for (int j : clauses[i]) {
@@ -133,7 +123,7 @@ vector<bool> SingleBitSolver::solve(int& periods) {
     }
 
     if (phi_active == phi_master) {
-      int random_idx = RNG::uniform(n);
+      int random_idx = RNG::uniform_int(n);
       phi_active[random_idx] = !phi_active[random_idx];
     }
     phi_master = phi_active;

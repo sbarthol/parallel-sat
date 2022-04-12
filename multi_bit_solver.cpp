@@ -20,7 +20,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   assert(m > 0);
   phi_master = vector<int>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    phi_master[LIT(i)] = RNG::uniform();
+    phi_master[LIT(i)] = RNG::uniform_int();
     phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
   }
   inv_clauses = vector<vector<int>>(2 * n);
@@ -133,7 +133,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
       assert((phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)]) == -1);
     }
     if (phi_active == phi_master) {
-      int k = RNG::uniform(n);
+      int k = RNG::uniform_int(n);
       phi_active[LIT(k)] = ~phi_active[LIT(k)];
       phi_active[NEG_LIT(k)] = ~phi_active[NEG_LIT(k)];
     }

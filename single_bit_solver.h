@@ -22,8 +22,6 @@ class SingleBitSolver : Solver {
                       int& remaining_literal);
 
  public:
-  SingleBitSolver(std::vector<std::vector<int>> clauses_, int n_,
-                  std::vector<bool> phi_master_);
   SingleBitSolver(std::vector<std::vector<int>> clauses_, int n_);
   std::vector<bool> solve(int& periods);
   std::vector<bool> solve();
