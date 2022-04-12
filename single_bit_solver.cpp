@@ -84,8 +84,7 @@ void SingleBitSolver::unit_propagation(
       if (is_unit_clause(clauses[i], phi_active_map, v)) {
         assert(v != u);
         phi_active_map[v >> 1] = !(v & 1);
-        if (!in_queue.count(v)) {
-          // Todo: how to be sure that !v is not in the queue?
+        if (!in_queue.count(v) && !in_queue.count(v ^ 1)) {
           assert(!in_queue.count(v ^ 1));
           q.push(v);
           in_queue.insert(v);
