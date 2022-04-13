@@ -45,19 +45,21 @@ int MultiBitSolver::satisfies(const vector<int>& phi) {
 
 vector<pair<int, int>> MultiBitSolver::get_rem_lits(const vector<int>& clause,
                                                     const vector<int>& phi) {
-  vector<pair<int, int>> rem_lits;
-  // Todo, turn O(k^2) into O(k) using mask technique
+  int m_lt1 = -1, m_lt2 = -1;
   for (int u : clause) {
-    int ass = ~(phi[u] | phi[COMPL(u)]);
-    for (int v : clause) {
-      if (u != v) {
-        ass &= phi[COMPL(v)];
-      }
-    }
+    m_lt2 = (m_lt2 & phi[COMPL(u)]) | m_lt1;
+    m_lt1 = m_lt1 & phi[COMPL(u)];
+  }
+  int m_1 = m_lt1 ^ m_lt2;
+
+  vector<pair<int, int>> rem_lits;
+  for (int u : clause) {
+    int ass = m_1 & (~(phi[u] | phi[COMPL(u)]));
     if (ass) {
       rem_lits.push_back({u, ass});
     }
   }
+
   return rem_lits;
 }
 
