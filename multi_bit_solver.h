@@ -14,8 +14,6 @@ class MultiBitSolver : Solver {
   int n, m;
 
   int satisfies(const std::vector<int>& phi);
-  void update_clauses(std::vector<std::vector<int>>& clauses, int var,
-                      int value);
   void unit_propagation(std::vector<int>& phi);
   std::vector<std::pair<int, int>> get_rem_lits(const std::vector<int>& clause,
                                                 const std::vector<int>& phi);
