@@ -21,6 +21,9 @@ class MultiBitSolver : Solver {
   void unit_propagation(std::vector<uintk_t>& phi);
   std::vector<std::pair<int, uintk_t>> get_rem_lits(
       const std::vector<int>& clause, const std::vector<uintk_t>& phi);
+  uintk_t compute_duplicate_mask(const std::vector<uintk_t>& phi);
+
+  int count_dups(const std::vector<uintk_t>& phi);
 
  public:
   MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);

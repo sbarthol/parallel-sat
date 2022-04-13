@@ -43,6 +43,66 @@ MultiBitSolver::uintk_t MultiBitSolver::get_random() {
   }
 }
 
+int MultiBitSolver::count_dups(const std::vector<uintk_t>& phi) {
+  int count = 0;
+  for (int i = 1; i < sizeof(uintk_t) * 8; i++) {
+    bool is_dupe = false;
+    for (int j = 0; j < i && !is_dupe; j++) {
+      bool same = true;
+      for (int k = 0; k < n && same; k++) {
+        bool both_ones =
+            (phi[LIT(k)] & (1L << i)) > 0 && (phi[LIT(k)] & (1L << j)) > 0;
+        bool both_zeros =
+            (phi[LIT(k)] & (1L << i)) == 0 && (phi[LIT(k)] & (1L << j)) == 0;
+        same = same && (both_ones || both_zeros);
+      }
+      if (same) {
+        is_dupe = true;
+      }
+    }
+    if (is_dupe) {
+      count++;
+    }
+  }
+  return count;
+}
+
+MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
+    const std::vector<uintk_t>& phi) {
+  uintk_t m_dups = 0;
+  int p = sizeof(uintk_t) * 8;
+  for (int j = 1; j < p; j++) {
+    uintk_t m_col = (1L << (p - j)) - 1;
+    for (int i = 0; i < n; i++) {
+      if (phi[LIT(i)] & (1L << j)) {
+        m_col &= phi[LIT(i)];
+      } else {
+        m_col &= phi[NEG_LIT(i)];
+      }
+      if (!m_col) {
+        break;
+      }
+    }
+    m_dups |= m_col;
+  }
+
+  for (int i = 1; i < p; i++) {
+    if (m_dups & (1L << i)) {
+      for (int j = 0; j < i; j++) {
+        for (int k = 0; k < n; k++) {
+          bool both_ones =
+              (phi[LIT(k)] & (1L << i)) > 0 && (phi[LIT(k)] & (1L << j)) > 0;
+          bool both_zeros =
+              (phi[LIT(k)] & (1L << i)) == 0 && (phi[LIT(k)] & (1L << j)) == 0;
+          assert(both_ones || both_zeros);
+        }
+      }
+    }
+  }
+
+  return m_dups;
+}
+
 MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t>& phi) {
   uintk_t conj = -1;
   for (vector<int>& clause : clauses) {
@@ -160,6 +220,19 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     for (int i = 0; i < n; i++) {
       assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
     }
+
+    printf("before dups = %d\n", count_dups(phi_master));
+    uintk_t dup_mask = compute_duplicate_mask(phi_master);
+    for (int i = 0; i < n; i++) {
+      phi_master[LIT(i)] ^= dup_mask & get_random();
+    }
+    printf("after dups = %d\n", count_dups(phi_master));
+
+    // phi_master must not have conflicts or unassigned positions
+    for (int i = 0; i < n; i++) {
+      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
+    }
+
     conj = satisfies(phi_master);
   }
 
