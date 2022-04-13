@@ -1,4 +1,4 @@
-// #define NDEBUG
+#define NDEBUG
 
 #include "multi_bit_solver.h"
 
@@ -18,9 +18,13 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
     : clauses(clauses_), n(n_) {
   m = clauses_.size();
   assert(m > 0);
-  phi_master = vector<int>(2 * n, 0);
+  phi_master = vector<uintk_t>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    phi_master[LIT(i)] = RNG::uniform_int();
+    for (int j = 0; j < sizeof(uintk_t) * 8; j++) {
+      if (RNG::uniform_bool()) {
+        phi_master[LIT(i)] |= 1L << j;
+      }
+    }
     phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
   }
   inv_clauses = vector<vector<int>>(2 * n);
@@ -31,10 +35,10 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   }
 }
 
-int MultiBitSolver::satisfies(const vector<int>& phi) {
-  int conj = -1;
+MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t>& phi) {
+  uintk_t conj = -1;
   for (vector<int>& clause : clauses) {
-    int disj = 0;
+    uintk_t disj = 0;
     for (int u : clause) {
       disj |= phi[u];
     }
@@ -46,18 +50,18 @@ int MultiBitSolver::satisfies(const vector<int>& phi) {
   return conj;
 }
 
-vector<pair<int, int>> MultiBitSolver::get_rem_lits(const vector<int>& clause,
-                                                    const vector<int>& phi) {
-  int m_lt1 = -1, m_lt2 = -1;
+vector<pair<int, MultiBitSolver::uintk_t>> MultiBitSolver::get_rem_lits(
+    const vector<int>& clause, const vector<uintk_t>& phi) {
+  uintk_t m_lt1 = -1, m_lt2 = -1;
   for (int u : clause) {
     m_lt2 = (m_lt2 & phi[COMPL(u)]) | m_lt1;
     m_lt1 = m_lt1 & phi[COMPL(u)];
   }
-  int m_1 = m_lt1 ^ m_lt2;
+  uintk_t m_1 = m_lt1 ^ m_lt2;
 
-  vector<pair<int, int>> rem_lits;
+  vector<pair<int, uintk_t>> rem_lits;
   for (int u : clause) {
-    int ass = m_1 & (~(phi[u] | phi[COMPL(u)]));
+    uintk_t ass = m_1 & (~(phi[u] | phi[COMPL(u)]));
     if (ass) {
       rem_lits.push_back({u, ass});
     }
@@ -66,12 +70,12 @@ vector<pair<int, int>> MultiBitSolver::get_rem_lits(const vector<int>& clause,
   return rem_lits;
 }
 
-void MultiBitSolver::unit_propagation(vector<int>& phi) {
+void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
   queue<int> q;
   unordered_set<int> in_queue;
 
   for (int i = 0; i < m; i++) {
-    vector<pair<int, int>> rem_lits = get_rem_lits(clauses[i], phi);
+    vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
     for (auto p : rem_lits) {
       assert(p.first != -1);
       phi[p.first] |= p.second;
@@ -88,7 +92,7 @@ void MultiBitSolver::unit_propagation(vector<int>& phi) {
     in_queue.erase(u);
 
     for (int i : inv_clauses[COMPL(u)]) {
-      vector<pair<int, int>> rem_lits = get_rem_lits(clauses[i], phi);
+      vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
       for (auto p : rem_lits) {
         assert(p.first != u);
         assert(p.first != -1);
@@ -113,11 +117,11 @@ vector<bool> MultiBitSolver::solve(int& periods) {
   vector<int> pi(n);
   iota(pi.begin(), pi.end(), 0);
 
-  int conj = satisfies(phi_master);
+  uintk_t conj = satisfies(phi_master);
   int period;
   for (period = 0; !conj; period++) {
     shuffle(pi.begin(), pi.end(), RNG::m_mt);
-    vector<int> phi_active(2 * n, 0);
+    vector<uintk_t> phi_active(2 * n, 0);
     bool change = true;
 
     for (int i = 0; i < n; i++) {
@@ -125,7 +129,8 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         unit_propagation(phi_active);
         change = false;
       }
-      int unassigned = ~(phi_active[LIT(pi[i])] | phi_active[NEG_LIT(pi[i])]);
+      uintk_t unassigned =
+          ~(phi_active[LIT(pi[i])] | phi_active[NEG_LIT(pi[i])]);
       if (unassigned) {
         phi_active[LIT(pi[i])] |= phi_master[LIT(pi[i])] & unassigned;
         phi_active[NEG_LIT(pi[i])] |= phi_master[NEG_LIT(pi[i])] & unassigned;
