@@ -39,6 +39,9 @@ int MultiBitSolver::satisfies(const vector<int>& phi) {
       disj |= phi[u];
     }
     conj &= disj;
+    if (!conj) {
+      return false;
+    }
   }
   return conj;
 }
