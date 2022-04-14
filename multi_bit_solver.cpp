@@ -20,11 +20,7 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   assert(m > 0);
   phi_master = vector<uintk_t>(2 * n, 0);
   for (int i = 0; i < n; i++) {
-    for (int j = 0; j < sizeof(uintk_t) * 8; j++) {
-      if (RNG::uniform_bool()) {
-        phi_master[LIT(i)] |= 1L << j;
-      }
-    }
+    phi_master[LIT(i)] = get_random();
     phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
   }
   inv_clauses = vector<vector<int>>(2 * n);
