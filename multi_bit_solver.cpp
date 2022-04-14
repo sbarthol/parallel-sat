@@ -67,10 +67,10 @@ MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
     const std::vector<uintk_t>& phi) {
   uintk_t m_dups = 0;
   int p = sizeof(uintk_t) * 8;
-  for (int j = 1; j < p; j++) {
-    uintk_t m_col = (1L << (p - j)) - 1;
+  for (int j = 0; j < p - 1; j++) {
+    uintk_t m_col = (1L << (p - j - 1)) - 1;
     for (int i = 0; i < n; i++) {
-      if (phi[LIT(i)] & (1L << j)) {
+      if (phi[LIT(i)] & (1L << (p - j - 1))) {
         m_col &= phi[LIT(i)];
       } else {
         m_col &= phi[NEG_LIT(i)];
@@ -82,17 +82,25 @@ MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
     m_dups |= m_col;
   }
 
+  // Todo: remove all these assert loops (here and other places) once it is
+  // battle tested
   for (int i = 1; i < p; i++) {
-    if (m_dups & (1L << i)) {
-      for (int j = 0; j < i; j++) {
-        for (int k = 0; k < n; k++) {
-          bool both_ones =
-              (phi[LIT(k)] & (1L << i)) > 0 && (phi[LIT(k)] & (1L << j)) > 0;
-          bool both_zeros =
-              (phi[LIT(k)] & (1L << i)) == 0 && (phi[LIT(k)] & (1L << j)) == 0;
-          assert(both_ones || both_zeros);
+    if (m_dups & (1L << (p - i - 1))) {
+      bool is_dupe = false;
+      for (int j = 0; j < i && !is_dupe; j++) {
+        bool is_dupe_pos = true;
+        for (int k = 0; k < n && is_dupe_pos; k++) {
+          bool both_ones = (phi[LIT(k)] & (1L << (p - i - 1))) > 0 &&
+                           (phi[LIT(k)] & (1L << (p - j - 1))) > 0;
+          bool both_zeros = (phi[LIT(k)] & (1L << (p - i - 1))) == 0 &&
+                            (phi[LIT(k)] & (1L << (p - j - 1))) == 0;
+          is_dupe_pos &= both_ones || both_zeros;
+        }
+        if (is_dupe_pos) {
+          is_dupe = true;
         }
       }
+      assert(is_dupe);
     }
   }
 
