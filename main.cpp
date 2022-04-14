@@ -24,20 +24,20 @@ int main(int argc, char* argv[]) {
   int periods;
 
   if (!strcmp("--single", argv[2])) {
-    SingleBitSolver single_bit_solver =
-        SingleBitSolver(clauses, parser.n_variables);
     printf("Solving using single bit solver...\n");
     clock_t begin = clock();
+    SingleBitSolver single_bit_solver =
+        SingleBitSolver(clauses, parser.n_variables);
     assignment = single_bit_solver.solve(periods);
     clock_t end = clock();
     printf("Solution found in %.4lf seconds\n",
            double(end - begin) / CLOCKS_PER_SEC);
   } else if (!strcmp("--multi", argv[2])) {
-    MultiBitSolver multi_bit_solver =
-        MultiBitSolver(clauses, parser.n_variables);
     printf("Solving using %lu-bit solver...\n",
            8 * sizeof(MultiBitSolver::uintk_t));
     clock_t begin = clock();
+    MultiBitSolver multi_bit_solver =
+        MultiBitSolver(clauses, parser.n_variables);
     assignment = multi_bit_solver.solve(periods);
     clock_t end = clock();
     printf("Solution found in %.4lf seconds\n",
