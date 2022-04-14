@@ -15,6 +15,8 @@ class MultiBitSolver : Solver {
   std::vector<std::vector<int>> inv_clauses;
   int n, m;
 
+  uintk_t get_random();
+
   uintk_t satisfies(const std::vector<uintk_t>& phi);
   void unit_propagation(std::vector<uintk_t>& phi);
   std::vector<std::pair<int, uintk_t>> get_rem_lits(

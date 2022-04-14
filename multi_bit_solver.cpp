@@ -35,6 +35,14 @@ MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
   }
 }
 
+MultiBitSolver::uintk_t MultiBitSolver::get_random() {
+  if (sizeof(uintk_t) <= 4) {
+    return (uintk_t)RNG::m_mt();
+  } else {
+    return (uintk_t)(long(RNG::m_mt()) << 32) | RNG::m_mt();
+  }
+}
+
 MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t>& phi) {
   uintk_t conj = -1;
   for (vector<int>& clause : clauses) {
