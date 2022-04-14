@@ -67,10 +67,10 @@ MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
     const std::vector<uintk_t>& phi) {
   uintk_t m_dups = 0;
   int p = sizeof(uintk_t) * 8;
-  for (int j = 0; j < p - 1; j++) {
-    uintk_t m_col = (1L << (p - j - 1)) - 1;
+  for (int j = p - 1; j > 0; j--) {
+    uintk_t m_col = (1L << j) - 1;
     for (int i = 0; i < n; i++) {
-      if (phi[LIT(i)] & (1L << (p - j - 1))) {
+      if (phi[LIT(i)] & (1L << j)) {
         m_col &= phi[LIT(i)];
       } else {
         m_col &= phi[NEG_LIT(i)];
