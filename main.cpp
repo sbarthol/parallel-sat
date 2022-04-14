@@ -1,3 +1,4 @@
+#include <ctime>
 #include <vector>
 
 #include "cnf_parser.h"
@@ -6,14 +7,11 @@
 
 using namespace std;
 
-#define SINGLE_BIT 0
-#define MULTI_BIT 1
-
-#define CURRENT MULTI_BIT
-
 int main(int argc, char* argv[]) {
-  if (argc != 2) {
-    printf("Please provide filename as input\n");
+  if (argc != 3) {
+    printf(
+        "Please use the program as \"./parallel-sat <filename> <--single or "
+        "--multi>\"\n");
     return -1;
   }
   CNFParser parser;
@@ -25,19 +23,29 @@ int main(int argc, char* argv[]) {
   vector<bool> assignment;
   int periods;
 
-  if (CURRENT == SINGLE_BIT) {
+  if (!strcmp("--single", argv[2])) {
     SingleBitSolver single_bit_solver =
         SingleBitSolver(clauses, parser.n_variables);
-
     printf("Solving using single bit solver...\n");
+    clock_t begin = clock();
     assignment = single_bit_solver.solve(periods);
-  } else if (CURRENT == MULTI_BIT) {
+    clock_t end = clock();
+    printf("Solution found in %.4lf seconds\n",
+           double(end - begin) / CLOCKS_PER_SEC);
+  } else if (!strcmp("--multi", argv[2])) {
     MultiBitSolver multi_bit_solver =
         MultiBitSolver(clauses, parser.n_variables);
-    printf("Solving using multi bit solver...\n");
+    printf("Solving using %lu-bit solver...\n",
+           8 * sizeof(MultiBitSolver::uintk_t));
+    clock_t begin = clock();
     assignment = multi_bit_solver.solve(periods);
+    clock_t end = clock();
+    printf("Solution found in %.4lf seconds\n",
+           double(end - begin) / CLOCKS_PER_SEC);
   } else {
-    printf("error\n");
+    printf(
+        "Please use the program as \"./parallel-sat <filename> <--single or "
+        "--multi>\"\n");
     return -1;
   }
 
@@ -52,8 +60,8 @@ int main(int argc, char* argv[]) {
   }
   assert(conj);
 
-  printf("Assignment found after %d periods: \n", periods);
+  /*printf("Assignment found after %d periods: \n", periods);
   for (int i = 0; i < parser.n_variables; i++) {
     printf("x%d: %s\n", i + 1, assignment[i] ? "true" : "false");
-  }
+  }*/
 }
