@@ -14,8 +14,11 @@ vector<vector<int>> CNFParser::parse_file(char* filename) {
   if (!input) {
     printf("Unable to open file: %s.\n", filename);
   }
-
-  fscanf(input, "%i %i", &n_variables, &n_clauses);
+  while (!fscanf(input, "p cnf %i %i", &n_variables, &n_clauses)) {
+    fscanf(input, "%*[^\n]\n");
+    printf("skipped a line\n");
+  }
+  printf("read %d and %d\n", n_variables, n_clauses);
 
   vector<vector<int>> clauses(n_clauses);
   for (int i = 0; i < n_clauses; i++) {
