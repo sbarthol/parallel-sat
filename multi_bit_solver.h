@@ -8,7 +8,7 @@
 
 class MultiBitSolver : Solver {
  private:
-  typedef uint16_t uintk_t;
+  typedef uint64_t uintk_t;
 
   std::vector<uintk_t> phi_master;
   std::vector<std::vector<int>> clauses;

@@ -226,13 +226,17 @@ vector<bool> MultiBitSolver::solve(int& periods) {
       assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
     }
 
-    printf("before dups = %d\n", count_dups(phi_master));
-    uintk_t dup_mask = compute_duplicate_mask(phi_master);
-    for (int i = 0; i < n; i++) {
-      phi_master[LIT(i)] ^= dup_mask & get_random();
-      phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
+    // Todo: remove this part once it has been battletested
+    int ttt = count_dups(phi_master);
+    if (ttt) {
+      printf("before dups = %d\n", ttt);
+      uintk_t dup_mask = compute_duplicate_mask(phi_master);
+      for (int i = 0; i < n; i++) {
+        phi_master[LIT(i)] ^= dup_mask & get_random();
+        phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
+      }
+      printf("after dups = %d\n", count_dups(phi_master));
     }
-    printf("after dups = %d\n", count_dups(phi_master));
 
     // phi_master must not have conflicts or unassigned positions
     for (int i = 0; i < n; i++) {
