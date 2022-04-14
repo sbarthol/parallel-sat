@@ -34,7 +34,8 @@ int main(int argc, char* argv[]) {
   } else if (CURRENT == MULTI_BIT) {
     MultiBitSolver multi_bit_solver =
         MultiBitSolver(clauses, parser.n_variables);
-    printf("Solving using multi bit solver...\n");
+    printf("Solving using %lu-bit solver...\n",
+           8 * sizeof(MultiBitSolver::uintk_t));
     assignment = multi_bit_solver.solve(periods);
   } else {
     printf("error\n");

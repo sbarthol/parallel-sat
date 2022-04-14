@@ -7,9 +7,13 @@
 #define MULTI_BIT_SOLVER_H
 
 class MultiBitSolver : Solver {
- private:
+ public:
   typedef uint64_t uintk_t;
+  MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);
+  std::vector<bool> solve(int& periods);
+  std::vector<bool> solve();
 
+ private:
   std::vector<uintk_t> phi_master;
   std::vector<std::vector<int>> clauses;
   std::vector<std::vector<int>> inv_clauses;
@@ -24,11 +28,6 @@ class MultiBitSolver : Solver {
   uintk_t compute_duplicate_mask(const std::vector<uintk_t>& phi);
 
   int count_dups(const std::vector<uintk_t>& phi);
-
- public:
-  MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);
-  std::vector<bool> solve(int& periods);
-  std::vector<bool> solve();
 };
 
 #endif
