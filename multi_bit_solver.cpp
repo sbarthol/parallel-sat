@@ -179,7 +179,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
   // phi_master must not have conflicts or unassigned positions
   assert(phi_master.size() == 2 * n);
   for (int i = 0; i < n; i++) {
-    assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
+    assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
   }
 
   vector<int> pi(n);
@@ -203,11 +203,12 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         phi_active[LIT(pi[i])] |= phi_master[LIT(pi[i])] & unassigned;
         phi_active[NEG_LIT(pi[i])] |= phi_master[NEG_LIT(pi[i])] & unassigned;
         change = true;
-        assert((phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])]) == -1);
+        assert((phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])]) ==
+               (uintk_t)(-1));
       }
     }
     for (int i = 0; i < n; i++) {
-      assert((phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)]) == -1);
+      assert((phi_active[LIT(i)] ^ phi_active[NEG_LIT(i)]) == (uintk_t)(-1));
     }
     if (phi_active == phi_master) {
       int k = RNG::uniform_int(n);
@@ -218,7 +219,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
 
     // phi_master must not have conflicts or unassigned positions
     for (int i = 0; i < n; i++) {
-      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
+      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
     }
 
     printf("before dups = %d\n", count_dups(phi_master));
@@ -231,7 +232,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
 
     // phi_master must not have conflicts or unassigned positions
     for (int i = 0; i < n; i++) {
-      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == -1);
+      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
     }
 
     conj = satisfies(phi_master);
