@@ -225,6 +225,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     uintk_t dup_mask = compute_duplicate_mask(phi_master);
     for (int i = 0; i < n; i++) {
       phi_master[LIT(i)] ^= dup_mask & get_random();
+      phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
     }
     printf("after dups = %d\n", count_dups(phi_master));
 
