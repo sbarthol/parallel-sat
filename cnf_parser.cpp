@@ -15,18 +15,13 @@ vector<vector<int>> CNFParser::parse_file(char* filename) {
     printf("Unable to open file: %s.\n", filename);
   }
 
-  fscanf(input, "%i \n", &n_variables);
-  fscanf(input, "%i \n", &n_clauses);
+  fscanf(input, "%i %i", &n_variables, &n_clauses);
 
-  int k = 3;
-  vector<vector<int>> clauses(n_clauses, vector<int>(k, 0));
-  // return clauses;
-  // clauses = &vector<vector<int>>(n_clauses, vector<int>(k, 0));
-
-  for (int j = 0; j < n_clauses; j++) {
-    fscanf(input, "%i %i %i 0", &clauses[j][0], &clauses[j][1], &clauses[j][2]);
-    for (int kk = 0; kk < k; kk++) {
-      clauses[j][kk] = (abs(clauses[j][kk]) - 1) << 1 | (clauses[j][kk] < 0);
+  vector<vector<int>> clauses(n_clauses);
+  for (int i = 0; i < n_clauses; i++) {
+    int x;
+    while (fscanf(input, "%i", &x) && x) {
+      clauses[i].push_back((abs(x) - 1) << 1 | (x < 0));
     }
   }
 
