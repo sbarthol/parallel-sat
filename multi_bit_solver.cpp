@@ -12,6 +12,8 @@
 #define NEG_LIT(i) (((i) << 1) | 1)
 #define COMPL(i) ((i) ^ 1)
 
+#define REMOVE_DUPS_FREQ 5
+
 using namespace std;
 
 MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
@@ -234,8 +236,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     }
     phi_master = phi_active;
 
-    // Todo: better modulo
-    if (!(period % 1)) {
+    if (!(period % REMOVE_DUPS_FREQ)) {
       in_q.push(phi_master);
     }
     if (!out_q.empty()) {
