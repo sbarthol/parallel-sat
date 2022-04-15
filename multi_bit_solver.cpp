@@ -239,8 +239,11 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     if (!(period % REMOVE_DUPS_FREQ)) {
       in_q.push(phi_master);
     }
+    int kkk = count_dups(phi_master);
+    if (kkk) {
+      printf("before: %d\n", kkk);
+    }
     if (!out_q.empty()) {
-      printf("before: %d\n", count_dups(phi_master));
       uintk_t dup_mask;
       while (out_q.try_pop(dup_mask)) {
       }
