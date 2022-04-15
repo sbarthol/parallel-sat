@@ -1,6 +1,8 @@
+#include <thread>
 #include <unordered_map>
 #include <vector>
 
+#include "concurrent_queue.h"
 #include "solver.h"
 
 #ifndef MULTI_BIT_SOLVER_H
@@ -18,6 +20,12 @@ class MultiBitSolver : Solver {
   std::vector<std::vector<int>> clauses;
   std::vector<std::vector<int>> inv_clauses;
   int n, m;
+
+  // Duplicate removal task
+  std::thread dup_task;
+  void remove_dups();
+  ConcurrentQueue<std::vector<uintk_t>> in_q;
+  ConcurrentQueue<uintk_t> out_q;
 
   uintk_t get_random();
 

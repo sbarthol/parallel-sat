@@ -179,7 +179,20 @@ void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
   }
 }
 
+void MultiBitSolver::remove_dups() {
+  while (true) {
+    vector<uintk_t> phi = in_q.wait_and_pop();
+    uintk_t dup_mask = compute_duplicate_mask(phi);
+    if (dup_mask) {
+      out_q.push(dup_mask);
+    }
+  }
+}
+
 vector<bool> MultiBitSolver::solve(int& periods) {
+  dup_task = thread(&MultiBitSolver::remove_dups, this);
+  dup_task.detach();
+
   // phi_master must not have conflicts or unassigned positions
   assert(phi_master.size() == 2 * n);
   for (int i = 0; i < n; i++) {
@@ -221,21 +234,25 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     }
     phi_master = phi_active;
 
-    // phi_master must not have conflicts or unassigned positions
-    for (int i = 0; i < n; i++) {
-      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
+    // Todo: better modulo
+    if (!(period % 1)) {
+      in_q.push(phi_master);
     }
-
-    // Todo: remove this part once it has been battletested
-    int ttt = count_dups(phi_master);
-    if (ttt) {
-      printf("before dups = %d\n", ttt);
-      uintk_t dup_mask = compute_duplicate_mask(phi_master);
+    if (!out_q.empty()) {
+      printf("before: %d\n", count_dups(phi_master));
+      uintk_t dup_mask;
+      while (out_q.try_pop(dup_mask)) {
+      }
       for (int i = 0; i < n; i++) {
         phi_master[LIT(i)] ^= dup_mask & get_random();
         phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
       }
-      printf("after dups = %d\n", count_dups(phi_master));
+      printf("after: %d\n", count_dups(phi_master));
+    }
+
+    // phi_master must not have conflicts or unassigned positions
+    for (int i = 0; i < n; i++) {
+      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
     }
 
     // phi_master must not have conflicts or unassigned positions

@@ -16,7 +16,7 @@ class ConcurrentQueue {
   void push(T const& v);
   bool empty() const;
   bool try_pop(T& v);
-  void wait_and_pop(T& v);
+  T wait_and_pop();
 };
 
 #endif

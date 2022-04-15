@@ -1,5 +1,9 @@
 #include "concurrent_queue.h"
 
+#include <vector>
+
+#include "multi_bit_solver.h"
+
 using namespace std;
 
 template <typename T>
@@ -28,13 +32,15 @@ bool ConcurrentQueue<T>::try_pop(T& v) {
 }
 
 template <typename T>
-void ConcurrentQueue<T>::wait_and_pop(T& v) {
+T ConcurrentQueue<T>::wait_and_pop() {
   unique_lock lock(mx);
   while (q.empty()) {
     cv.wait(lock);
   }
-  v = q.front();
+  T v = q.front();
   q.pop();
+  return v;
 }
 
-template class ConcurrentQueue<int>;
+template class ConcurrentQueue<MultiBitSolver::uintk_t>;
+template class ConcurrentQueue<vector<MultiBitSolver::uintk_t>>;
