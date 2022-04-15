@@ -30,8 +30,8 @@ int main(int argc, char* argv[]) {
         SingleBitSolver(clauses, parser.n_variables);
     assignment = single_bit_solver.solve(periods);
     clock_t end = clock();
-    printf("Solution found in %.4lf seconds\n",
-           double(end - begin) / CLOCKS_PER_SEC);
+    printf("Solution found in %.4lf seconds and %d periods\n",
+           double(end - begin) / CLOCKS_PER_SEC, periods);
   } else if (!strcmp("--multi", argv[1])) {
     printf("Solving using %lu-bit solver...\n",
            8 * sizeof(MultiBitSolver::uintk_t));
@@ -40,8 +40,8 @@ int main(int argc, char* argv[]) {
         MultiBitSolver(clauses, parser.n_variables);
     assignment = multi_bit_solver.solve(periods);
     clock_t end = clock();
-    printf("Solution found in %.4lf seconds\n",
-           double(end - begin) / CLOCKS_PER_SEC);
+    printf("Solution found in %.4lf seconds and %d periods\n",
+           double(end - begin) / CLOCKS_PER_SEC, periods);
   } else {
     printf(
         "Please use the program as \"./parallel-sat <filename> <--single or "
