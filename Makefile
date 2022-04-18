@@ -1,5 +1,5 @@
 parallel-sat: cnf_parser.o main.o single_bit_solver.o multi_bit_solver.o rng.o concurrent_queue.o
-	g++ -std=c++17 -O3 -I. -o parallel-sat cnf_parser.o main.o concurrent_queue.o single_bit_solver.o multi_bit_solver.o rng.o 
+	g++ -std=c++17 -O3 -I. -Xpreprocessor -fopenmp -o parallel-sat cnf_parser.o main.o concurrent_queue.o single_bit_solver.o multi_bit_solver.o rng.o -lomp 
 
 cnf_parser.o: cnf_parser.cpp cnf_parser.h
 	g++ -std=c++17 -O3 -I. -c cnf_parser.cpp
@@ -11,7 +11,7 @@ single_bit_solver.o: single_bit_solver.cpp single_bit_solver.h
 	g++ -std=c++17 -O3 -I. -c single_bit_solver.cpp
 
 multi_bit_solver.o: multi_bit_solver.cpp multi_bit_solver.h
-	g++ -std=c++17 -O3 -I. -c multi_bit_solver.cpp
+	g++ -std=c++17 -O3  -I. -Xpreprocessor -fopenmp -c multi_bit_solver.cpp 
 
 concurrent_queue.o: concurrent_queue.cpp concurrent_queue.h
 	g++ -std=c++17 -O3 -I. -c concurrent_queue.cpp
