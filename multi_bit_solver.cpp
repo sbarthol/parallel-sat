@@ -15,7 +15,7 @@
 #define COMPL(i) ((i) ^ 1)
 
 #define REMOVE_DUPS_FREQ 5
-#define N_OMP_THREADS 2
+#define N_OMP_THREADS 1
 
 using namespace std;
 
@@ -42,30 +42,6 @@ MultiBitSolver::uintk_t MultiBitSolver::get_random() {
   } else {
     return (uintk_t)(long(RNG::m_mt()) << 32) | RNG::m_mt();
   }
-}
-
-int MultiBitSolver::count_dups(const std::vector<uintk_t>& phi) {
-  int count = 0;
-  for (int i = 1; i < sizeof(uintk_t) * 8; i++) {
-    bool is_dupe = false;
-    for (int j = 0; j < i && !is_dupe; j++) {
-      bool same = true;
-      for (int k = 0; k < n && same; k++) {
-        bool both_ones =
-            (phi[LIT(k)] & (1L << i)) > 0 && (phi[LIT(k)] & (1L << j)) > 0;
-        bool both_zeros =
-            (phi[LIT(k)] & (1L << i)) == 0 && (phi[LIT(k)] & (1L << j)) == 0;
-        same = same && (both_ones || both_zeros);
-      }
-      if (same) {
-        is_dupe = true;
-      }
-    }
-    if (is_dupe) {
-      count++;
-    }
-  }
-  return count;
 }
 
 MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
@@ -267,10 +243,7 @@ vector<bool> MultiBitSolver::solve(int& periods) {
     if (!(period % REMOVE_DUPS_FREQ)) {
       in_q.push(phi_master);
     }
-    int kkk = count_dups(phi_master);
-    if (kkk) {
-      printf("before: %d\n", kkk);
-    }
+
     if (!out_q.empty()) {
       uintk_t dup_mask;
       while (out_q.try_pop(dup_mask)) {
@@ -279,7 +252,6 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         phi_master[LIT(i)] ^= dup_mask & get_random();
         phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
       }
-      printf("after: %d\n", count_dups(phi_master));
     }
 
     // phi_master must not have conflicts or unassigned positions
