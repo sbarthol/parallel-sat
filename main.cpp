@@ -1,4 +1,5 @@
-#include <ctime>
+#include <omp.h>
+
 #include <vector>
 
 #include "cnf_parser.h"
@@ -25,23 +26,23 @@ int main(int argc, char* argv[]) {
 
   if (!strcmp("--single", argv[1])) {
     printf("Solving using single bit solver...\n");
-    clock_t begin = clock();
+    double begin = omp_get_wtime();
     SingleBitSolver single_bit_solver =
         SingleBitSolver(clauses, parser.n_variables);
     assignment = single_bit_solver.solve(periods);
-    clock_t end = clock();
-    printf("Solution found in %.4lf seconds and %d periods\n",
-           double(end - begin) / CLOCKS_PER_SEC, periods);
+    double end = omp_get_wtime();
+    printf("Solution found in %.4lf seconds and %d periods\n", end - begin,
+           periods);
   } else if (!strcmp("--multi", argv[1])) {
     printf("Solving using %lu-bit solver...\n",
            8 * sizeof(MultiBitSolver::uintk_t));
-    clock_t begin = clock();
+    double begin = omp_get_wtime();
     MultiBitSolver multi_bit_solver =
         MultiBitSolver(clauses, parser.n_variables);
     assignment = multi_bit_solver.solve(periods);
-    clock_t end = clock();
-    printf("Solution found in %.4lf seconds and %d periods\n",
-           double(end - begin) / CLOCKS_PER_SEC, periods);
+    double end = omp_get_wtime();
+    printf("Solution found in %.4lf seconds and %d periods\n", end - begin,
+           periods);
   } else {
     printf(
         "Please use the program as \"./parallel-sat <filename> <--single or "
