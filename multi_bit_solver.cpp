@@ -15,7 +15,7 @@
 #define COMPL(i) ((i) ^ 1)
 
 #define REMOVE_DUPS_FREQ 5
-#define N_OMP_THREADS 8
+#define N_OMP_THREADS 4
 
 using namespace std;
 
@@ -148,101 +148,52 @@ vector<pair<int, MultiBitSolver::uintk_t>> MultiBitSolver::get_rem_lits(
 }
 
 void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
-  // critical, omp parallel, for, single, static (evenly, not round robin)
-
-  /*#pragma omp parallel shared(q, in_queue) {
-
-  }
-
-  #pragma omp parallel for schedule(static), shared(q, in_queue) {
-
-
-  }*/
-
-  printf("a\n");
-
-  uintk_t tmp[2 * n][64];
-  bzero(tmp, 2 * n * sizeof(uintk_t));
+  vector<vector<pair<int, uintk_t>>> tmp(m);
+  vector<int> all_rem_lits;
+  unordered_set<int> all_rem_lits_set;
 
 #pragma omp parallel for schedule(static), shared(tmp)
   for (int i = 0; i < m; i++) {
     vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
+    tmp[i] = rem_lits;
+  }
+
+  for (auto& rem_lits : tmp) {
     for (auto p : rem_lits) {
-      assert(p.first != -1);
-#pragma omp atomic
-      tmp[p.first][0] |= p.second;
+      if (!all_rem_lits_set.count(COMPL(p.first))) {
+        // Avoid bit conflicts
+        phi[p.first] |= p.second;
+        all_rem_lits_set.insert(p.first);
+      }
     }
   }
 
-  int count;
+  all_rem_lits = vector<int>(all_rem_lits_set.begin(), all_rem_lits_set.end());
 
-  do {
-    // parallelize the write or not (beware of false sharing!)
-    count = 0;
-    for (int i = 0; i < n; i++) {
-      if (tmp[LIT(i)][0] | tmp[NEG_LIT(i)][0]) {
-        int u = tmp[LIT(i)][0] ? LIT(i) : NEG_LIT(i);
-        count++;
-        phi[u] |= tmp[u][0];
+  while (all_rem_lits.size()) {
+    tmp = vector<vector<pair<int, uintk_t>>>(m);
+#pragma omp parallel for schedule(static)
+    for (int i = 0; i < all_rem_lits.size(); i++) {
+      int u = all_rem_lits[i];
+      for (int j : inv_clauses[COMPL(u)]) {
+        vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[j], phi);
+        tmp[i] = rem_lits;
       }
     }
 
-    // if count == 0 we lose time with that loop:
-
-#pragma omp parallel for schedule(static), shared(tmp)
-    for (int i = 0; i < n; i++) {
-      if (tmp[LIT(i)][0] | tmp[NEG_LIT(i)][0]) {
-        int u = tmp[LIT(i)][0] ? LIT(i) : NEG_LIT(i);
-        tmp[LIT(i)][0] = tmp[NEG_LIT(i)][0] = 0;
-        for (int i : inv_clauses[COMPL(u)]) {
-          vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
-
-          for (auto p : rem_lits) {
-            assert(p.first != -1);
-#pragma omp atomic
-            tmp[p.first][0] |= p.second;
-          }
-        }
-      }
-    }
-
-  } while (count);
-
-  /*for (int i = 0; i < m; i++) {
-    printf("%d is doing %d, total = %d\n", omp_get_thread_num(), i,
-           omp_get_num_threads());
-    vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
-    for (auto p : rem_lits) {
-      assert(p.first != -1);
-      phi[p.first] |= p.second;
-      if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
-        q.push(p.first);
-        in_queue.insert(p.first);
-      }
-    }
-  }*/
-
-  /*while (!q.empty()) {
-    int u = q.front();
-    q.pop();
-    in_queue.erase(u);
-
-    for (int i : inv_clauses[COMPL(u)]) {
-      vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
+    all_rem_lits_set.clear();
+    for (auto& rem_lits : tmp) {
       for (auto p : rem_lits) {
-        assert(p.first != u);
-        assert(p.first != -1);
-        phi[p.first] |= p.second;
-        if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
-          assert(!in_queue.count(COMPL(p.first)));
-          q.push(p.first);
-          in_queue.insert(p.first);
+        if (!all_rem_lits_set.count(COMPL(p.first))) {
+          // Avoid bit conflicts
+          phi[p.first] |= p.second;
+          all_rem_lits_set.insert(p.first);
         }
       }
     }
-  }*/
-
-  printf("b\n");
+    all_rem_lits =
+        vector<int>(all_rem_lits_set.begin(), all_rem_lits_set.end());
+  }
 }
 
 void MultiBitSolver::remove_dups() {
@@ -290,6 +241,9 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         change = true;
         assert((phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])]) ==
                (uintk_t)(-1));
+      } else {
+        assert((phi_active[LIT(pi[i])] ^ phi_active[NEG_LIT(pi[i])]) ==
+               (uintk_t)(-1));
       }
     }
     for (int i = 0; i < n; i++) {
@@ -318,11 +272,6 @@ vector<bool> MultiBitSolver::solve(int& periods) {
         phi_master[NEG_LIT(i)] = ~phi_master[LIT(i)];
       }
       printf("after: %d\n", count_dups(phi_master));
-    }
-
-    // phi_master must not have conflicts or unassigned positions
-    for (int i = 0; i < n; i++) {
-      assert((phi_master[LIT(i)] ^ phi_master[NEG_LIT(i)]) == (uintk_t)(-1));
     }
 
     // phi_master must not have conflicts or unassigned positions
