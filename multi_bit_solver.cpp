@@ -148,14 +148,17 @@ vector<pair<int, MultiBitSolver::uintk_t>> MultiBitSolver::get_rem_lits(
 }
 
 void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
-  vector<vector<pair<int, uintk_t>>> tmp(m);
+  vector<vector<pair<int, uintk_t>>> tmp(N_OMP_THREADS);
   vector<int> all_rem_lits;
   unordered_set<int> all_rem_lits_set;
 
 #pragma omp parallel for schedule(static), shared(tmp)
   for (int i = 0; i < m; i++) {
     vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
-    tmp[i] = rem_lits;
+    int thread_num = omp_get_thread_num();
+    for (auto p : rem_lits) {
+      tmp[thread_num].push_back(p);
+    }
   }
 
   for (auto& rem_lits : tmp) {
@@ -171,17 +174,22 @@ void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
   all_rem_lits = vector<int>(all_rem_lits_set.begin(), all_rem_lits_set.end());
 
   while (all_rem_lits.size()) {
-    tmp = vector<vector<pair<int, uintk_t>>>(m);
-#pragma omp parallel for schedule(static)
+    tmp = vector<vector<pair<int, uintk_t>>>(N_OMP_THREADS);
+
+#pragma omp parallel for schedule(dynamic)
     for (int i = 0; i < all_rem_lits.size(); i++) {
       int u = all_rem_lits[i];
+      int thread_num = omp_get_thread_num();
       for (int j : inv_clauses[COMPL(u)]) {
         vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[j], phi);
-        tmp[i] = rem_lits;
+        for (auto p : rem_lits) {
+          tmp[thread_num].push_back(p);
+        }
       }
     }
 
     all_rem_lits_set.clear();
+
     for (auto& rem_lits : tmp) {
       for (auto p : rem_lits) {
         if (!all_rem_lits_set.count(COMPL(p.first))) {
