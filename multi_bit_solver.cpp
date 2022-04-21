@@ -15,7 +15,7 @@
 #define COMPL(i) ((i) ^ 1)
 
 #define REMOVE_DUPS_FREQ 5
-#define N_OMP_THREADS 4
+#define N_OMP_THREADS 2
 
 using namespace std;
 
