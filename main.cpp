@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
   CNFParser parser;
 
   std::vector<std::vector<int>> clauses = parser.parse_file(argv[2]);
-  printf("Completed parse of problem, %i n_variables %i n_clauses\n",
-         parser.n_variables, parser.n_clauses);
+  // printf("Completed parse of problem, %i n_variables %i n_clauses\n",
+  //      parser.n_variables, parser.n_clauses);
 
   vector<bool> assignment;
   int periods;
@@ -35,15 +35,14 @@ int main(int argc, char *argv[]) {
     printf("Solution found in %.4lf seconds and %d periods\n", end - begin,
            periods);
   } else if (!strcmp("--multi", argv[1])) {
-    printf("Solving using %lu-bit solver...\n",
-           8 * sizeof(MultiBitSolver::uintk_t));
+    // printf("Solving using %lu-bit solver...\n",
+    // 8 * sizeof(MultiBitSolver::uintk_t));
     double begin = omp_get_wtime();
     MultiBitSolver multi_bit_solver =
         MultiBitSolver(clauses, parser.n_variables);
     assignment = multi_bit_solver.solve(periods);
     double end = omp_get_wtime();
-    printf("Solution found in %.4lf seconds and %d periods\n", end - begin,
-           periods);
+    printf("%.7lf\n", (end - begin) / periods);
   } else {
     printf("Please use the program as \"./parallel-sat <filename> <--single or "
            "--multi>\"\n");
