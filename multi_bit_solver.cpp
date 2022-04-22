@@ -2,6 +2,8 @@
 
 #include "multi_bit_solver.h"
 
+#include <algorithm>
+#include <cassert>
 #include <numeric>
 #include <queue>
 #include <unordered_set>
@@ -41,7 +43,7 @@ MultiBitSolver::uintk_t MultiBitSolver::get_random() {
   }
 }
 
-int MultiBitSolver::count_dups(const std::vector<uintk_t>& phi) {
+int MultiBitSolver::count_dups(const std::vector<uintk_t> &phi) {
   int count = 0;
   for (int i = 1; i < sizeof(uintk_t) * 8; i++) {
     bool is_dupe = false;
@@ -65,8 +67,8 @@ int MultiBitSolver::count_dups(const std::vector<uintk_t>& phi) {
   return count;
 }
 
-MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
-    const std::vector<uintk_t>& phi) {
+MultiBitSolver::uintk_t
+MultiBitSolver::compute_duplicate_mask(const std::vector<uintk_t> &phi) {
   uintk_t m_dups = 0;
   int p = sizeof(uintk_t) * 8;
   for (int j = p - 1; j > 0; j--) {
@@ -109,9 +111,9 @@ MultiBitSolver::uintk_t MultiBitSolver::compute_duplicate_mask(
   return m_dups;
 }
 
-MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t>& phi) {
+MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t> &phi) {
   uintk_t conj = -1;
-  for (vector<int>& clause : clauses) {
+  for (vector<int> &clause : clauses) {
     uintk_t disj = 0;
     for (int u : clause) {
       disj |= phi[u];
@@ -124,8 +126,9 @@ MultiBitSolver::uintk_t MultiBitSolver::satisfies(const vector<uintk_t>& phi) {
   return conj;
 }
 
-vector<pair<int, MultiBitSolver::uintk_t>> MultiBitSolver::get_rem_lits(
-    const vector<int>& clause, const vector<uintk_t>& phi) {
+vector<pair<int, MultiBitSolver::uintk_t>>
+MultiBitSolver::get_rem_lits(const vector<int> &clause,
+                             const vector<uintk_t> &phi) {
   uintk_t m_lt1 = -1, m_lt2 = -1;
   for (int u : clause) {
     m_lt2 = (m_lt2 & phi[COMPL(u)]) | m_lt1;
@@ -144,7 +147,7 @@ vector<pair<int, MultiBitSolver::uintk_t>> MultiBitSolver::get_rem_lits(
   return rem_lits;
 }
 
-void MultiBitSolver::unit_propagation(vector<uintk_t>& phi) {
+void MultiBitSolver::unit_propagation(vector<uintk_t> &phi) {
   queue<int> q;
   unordered_set<int> in_queue;
 
@@ -191,7 +194,7 @@ void MultiBitSolver::remove_dups() {
   }
 }
 
-vector<bool> MultiBitSolver::solve(int& periods) {
+vector<bool> MultiBitSolver::solve(int &periods) {
   dup_task = thread(&MultiBitSolver::remove_dups, this);
   dup_task.detach();
 

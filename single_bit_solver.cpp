@@ -2,6 +2,8 @@
 
 #include "single_bit_solver.h"
 
+#include <algorithm>
+#include <cassert>
 #include <numeric>
 #include <queue>
 #include <unordered_set>
@@ -26,8 +28,8 @@ SingleBitSolver::SingleBitSolver(vector<vector<int>> clauses_, int n_)
   }
 }
 
-bool SingleBitSolver::satisfies(const vector<bool>& assigment) {
-  for (vector<int>& clause : clauses) {
+bool SingleBitSolver::satisfies(const vector<bool> &assigment) {
+  for (vector<int> &clause : clauses) {
     bool clause_value = false;
     for (int j = 0; j < clause.size() && !clause_value; j++) {
       clause_value = assigment[clause[j] >> 1] == !(clause[j] & 1);
@@ -40,8 +42,8 @@ bool SingleBitSolver::satisfies(const vector<bool>& assigment) {
 }
 
 bool SingleBitSolver::is_unit_clause(
-    const vector<int>& clause, const unordered_map<int, bool>& phi_active_map,
-    int& rem_lit) {
+    const vector<int> &clause, const unordered_map<int, bool> &phi_active_map,
+    int &rem_lit) {
   rem_lit = -1;
   for (int u : clause) {
     if (phi_active_map.count(u >> 1) == 0) {
@@ -58,7 +60,7 @@ bool SingleBitSolver::is_unit_clause(
 }
 
 void SingleBitSolver::unit_propagation(
-    unordered_map<int, bool>& phi_active_map) {
+    unordered_map<int, bool> &phi_active_map) {
   queue<int> q;
   unordered_set<int> in_queue;
 
@@ -94,7 +96,7 @@ void SingleBitSolver::unit_propagation(
   }
 }
 
-vector<bool> SingleBitSolver::solve(int& periods) {
+vector<bool> SingleBitSolver::solve(int &periods) {
   vector<int> pi(n);
   iota(pi.begin(), pi.end(), 0);
 
