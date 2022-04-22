@@ -4,14 +4,15 @@
 #include "cnf_parser.h"
 #include "multi_bit_solver.h"
 #include "single_bit_solver.h"
+#include <cassert>
+#include <cstring>
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
   if (argc != 3) {
-    printf(
-        "Please use the program as \"./parallel-sat <--single or --multi> "
-        "<filename>\"\n");
+    printf("Please use the program as \"./parallel-sat <--single or --multi> "
+           "<filename>\"\n");
     return -1;
   }
   CNFParser parser;
@@ -43,15 +44,14 @@ int main(int argc, char* argv[]) {
     printf("Solution found in %.4lf seconds and %d periods\n",
            double(end - begin) / CLOCKS_PER_SEC, periods);
   } else {
-    printf(
-        "Please use the program as \"./parallel-sat <filename> <--single or "
-        "--multi>\"\n");
+    printf("Please use the program as \"./parallel-sat <filename> <--single or "
+           "--multi>\"\n");
     return -1;
   }
 
   // make sure it works
   bool conj = true;
-  for (vector<int>& clause : clauses) {
+  for (vector<int> &clause : clauses) {
     bool disj = false;
     for (int u : clause) {
       disj = disj || ((u & 1) ? !assignment[u >> 1] : assignment[u >> 1]);
