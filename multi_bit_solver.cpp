@@ -164,6 +164,9 @@ void MultiBitSolver::unit_propagation(vector<uintk_t> &phi) {
 void MultiBitSolver::remove_dups() {
   while (true) {
     vector<uintk_t> phi = in_q.wait_and_pop();
+    if (phi.size() == 0) {
+      return;
+    }
     uintk_t dup_mask = compute_duplicate_mask(phi);
     if (dup_mask) {
       out_q.push(dup_mask);
@@ -173,7 +176,6 @@ void MultiBitSolver::remove_dups() {
 
 vector<bool> MultiBitSolver::solve(int &periods) {
   dup_task = thread(&MultiBitSolver::remove_dups, this);
-  dup_task.detach();
 
   omp_set_num_threads(N_OMP_THREADS);
 
@@ -242,6 +244,9 @@ vector<bool> MultiBitSolver::solve(int &periods) {
 
     conj = satisfies(phi_master);
   }
+
+  in_q.push(vector<uintk_t>());
+  dup_task.join();
 
   periods = period;
   assert(conj);
