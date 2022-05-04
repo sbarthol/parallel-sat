@@ -1,0 +1,5150 @@
+	.file	"multi_bit_solver.cpp"
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver5solveEv
+	.type	_ZN14MultiBitSolver5solveEv, @function
+_ZN14MultiBitSolver5solveEv:
+.LFB4573:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	movq	(%rsi), %rax
+	leaq	12(%rsp), %rdx
+	call	*(%rax)
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 16
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE4573:
+	.size	_ZN14MultiBitSolver5solveEv, .-_ZN14MultiBitSolver5solveEv
+	.section	.text._ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv,"axG",@progbits,_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.type	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, @function
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
+.LFB5188:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	je	.L3
+	movq	(%rdi), %rax
+	movq	8(%rax), %rax
+	jmp	*%rax
+	.p2align 4,,10
+	.p2align 3
+.L3:
+	rep ret
+	.cfi_endproc
+.LFE5188:
+	.size	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, .-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.section	.text._ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev,"axG",@progbits,_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.type	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, @function
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev:
+.LFB5419:
+	.cfi_startproc
+	movq	$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE+16, (%rdi)
+	ret
+	.cfi_endproc
+.LFE5419:
+	.size	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, .-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.weak	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED1Ev
+	.set	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED1Ev,_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.section	.text._ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev,"axG",@progbits,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.type	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev, @function
+_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev:
+.LFB5930:
+	.cfi_startproc
+	movq	$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE+16, (%rdi)
+	ret
+	.cfi_endproc
+.LFE5930:
+	.size	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev, .-_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED1Ev
+	.set	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED1Ev,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED2Ev
+	.section	.text._ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv,"axG",@progbits,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+	.type	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, @function
+_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
+.LFB5933:
+	.cfi_startproc
+	movq	16(%rdi), %rdi
+	movq	(%rdi), %rax
+	movq	(%rax), %rax
+	jmp	*%rax
+	.cfi_endproc
+.LFE5933:
+	.size	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, .-_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+	.section	.text._ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev,"axG",@progbits,_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.type	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, @function
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev:
+.LFB5421:
+	.cfi_startproc
+	movq	$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE+16, (%rdi)
+	jmp	_ZdlPv
+	.cfi_endproc
+.LFE5421:
+	.size	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, .-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.section	.text._ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev,"axG",@progbits,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.type	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev, @function
+_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
+.LFB5932:
+	.cfi_startproc
+	movq	$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE+16, (%rdi)
+	jmp	_ZdlPv
+	.cfi_endproc
+.LFE5932:
+	.size	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev, .-_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.section	.text._ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv,"axG",@progbits,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.type	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, @function
+_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
+.LFB5934:
+	.cfi_startproc
+	movq	$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE+16, (%rdi)
+	jmp	_ZdlPv
+	.cfi_endproc
+.LFE5934:
+	.size	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, .-_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.section	.text._ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info,"axG",@progbits,_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info
+	.type	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info, @function
+_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info:
+.LFB5935:
+	.cfi_startproc
+	movq	8(%rsi), %rsi
+	movq	%rdi, %r8
+	cmpq	$_ZTSSt19_Sp_make_shared_tag, %rsi
+	je	.L13
+	xorl	%eax, %eax
+	cmpb	$42, (%rsi)
+	je	.L20
+	movl	$_ZTSSt19_Sp_make_shared_tag, %edi
+	movl	$24, %ecx
+	repz cmpsb
+	je	.L13
+.L20:
+	rep ret
+	.p2align 4,,10
+	.p2align 3
+.L13:
+	leaq	24(%r8), %rax
+	ret
+	.cfi_endproc
+.LFE5935:
+	.size	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info, .-_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info
+	.section	.text._ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv,"axG",@progbits,_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv
+	.type	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv, @function
+_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv:
+.LFB5936:
+	.cfi_startproc
+	movq	24(%rdi), %rdx
+	movq	32(%rdi), %rax
+	addq	40(%rdi), %rdx
+	testb	$1, %al
+	movq	%rdx, %rdi
+	je	.L25
+	movq	(%rdx), %rdx
+	movq	-1(%rdx,%rax), %rax
+.L25:
+	jmp	*%rax
+	.cfi_endproc
+.LFE5936:
+	.size	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv, .-_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv
+	.section	.text._ZNSt6thread10_Impl_baseD2Ev,"axG",@progbits,_ZNSt6thread10_Impl_baseD5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6thread10_Impl_baseD2Ev
+	.type	_ZNSt6thread10_Impl_baseD2Ev, @function
+_ZNSt6thread10_Impl_baseD2Ev:
+.LFB1890:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	movq	16(%rdi), %rbx
+	movq	$_ZTVNSt6thread10_Impl_baseE+16, (%rdi)
+	testq	%rbx, %rbx
+	je	.L26
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %ebp
+	leaq	8(%rbx), %rax
+	testq	%rbp, %rbp
+	je	.L29
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L30:
+	cmpl	$1, %eax
+	je	.L35
+.L26:
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	.cfi_restore_state
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	call	*16(%rax)
+	testq	%rbp, %rbp
+	leaq	12(%rbx), %rax
+	je	.L32
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L33:
+	cmpl	$1, %eax
+	jne	.L26
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	movq	24(%rax), %rax
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	jmp	*%rax
+.L29:
+	.cfi_restore_state
+	movl	8(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rbx)
+	jmp	.L30
+.L32:
+	movl	12(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbx)
+	jmp	.L33
+	.cfi_endproc
+.LFE1890:
+	.size	_ZNSt6thread10_Impl_baseD2Ev, .-_ZNSt6thread10_Impl_baseD2Ev
+	.weak	_ZNSt6thread10_Impl_baseD1Ev
+	.set	_ZNSt6thread10_Impl_baseD1Ev,_ZNSt6thread10_Impl_baseD2Ev
+	.section	.text._ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev,"axG",@progbits,_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev
+	.type	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev, @function
+_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev:
+.LFB5910:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	movq	16(%rdi), %rbx
+	movq	$_ZTVNSt6thread10_Impl_baseE+16, (%rdi)
+	testq	%rbx, %rbx
+	je	.L36
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %ebp
+	leaq	8(%rbx), %rax
+	testq	%rbp, %rbp
+	je	.L39
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L40:
+	cmpl	$1, %eax
+	je	.L45
+.L36:
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L45:
+	.cfi_restore_state
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	call	*16(%rax)
+	testq	%rbp, %rbp
+	leaq	12(%rbx), %rax
+	je	.L42
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L43:
+	cmpl	$1, %eax
+	jne	.L36
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	movq	24(%rax), %rax
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	jmp	*%rax
+.L39:
+	.cfi_restore_state
+	movl	8(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rbx)
+	jmp	.L40
+.L42:
+	movl	12(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbx)
+	jmp	.L43
+	.cfi_endproc
+.LFE5910:
+	.size	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev, .-_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev
+	.weak	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED1Ev
+	.set	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED1Ev,_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED2Ev
+	.section	.text._ZNSt6thread10_Impl_baseD0Ev,"axG",@progbits,_ZNSt6thread10_Impl_baseD0Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6thread10_Impl_baseD0Ev
+	.type	_ZNSt6thread10_Impl_baseD0Ev, @function
+_ZNSt6thread10_Impl_baseD0Ev:
+.LFB1892:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	16(%rdi), %rbp
+	movq	%rdi, %rbx
+	movq	$_ZTVNSt6thread10_Impl_baseE+16, (%rdi)
+	testq	%rbp, %rbp
+	je	.L48
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %r12d
+	leaq	8(%rbp), %rax
+	testq	%r12, %r12
+	je	.L49
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L50:
+	cmpl	$1, %eax
+	je	.L55
+.L48:
+	movq	%rbx, %rdi
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 4,,10
+	.p2align 3
+.L55:
+	.cfi_restore_state
+	movq	0(%rbp), %rax
+	movq	%rbp, %rdi
+	call	*16(%rax)
+	testq	%r12, %r12
+	leaq	12(%rbp), %rax
+	je	.L52
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L53:
+	cmpl	$1, %eax
+	jne	.L48
+	movq	0(%rbp), %rax
+	movq	%rbp, %rdi
+	call	*24(%rax)
+	jmp	.L48
+.L49:
+	movl	8(%rbp), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rbp)
+	jmp	.L50
+.L52:
+	movl	12(%rbp), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbp)
+	jmp	.L53
+	.cfi_endproc
+.LFE1892:
+	.size	_ZNSt6thread10_Impl_baseD0Ev, .-_ZNSt6thread10_Impl_baseD0Ev
+	.section	.text._ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev,"axG",@progbits,_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev
+	.type	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev, @function
+_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev:
+.LFB5912:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	16(%rdi), %rbp
+	movq	%rdi, %rbx
+	movq	$_ZTVNSt6thread10_Impl_baseE+16, (%rdi)
+	testq	%rbp, %rbp
+	je	.L58
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %r12d
+	leaq	8(%rbp), %rax
+	testq	%r12, %r12
+	je	.L59
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L60:
+	cmpl	$1, %eax
+	je	.L65
+.L58:
+	movq	%rbx, %rdi
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 4,,10
+	.p2align 3
+.L65:
+	.cfi_restore_state
+	movq	0(%rbp), %rax
+	movq	%rbp, %rdi
+	call	*16(%rax)
+	testq	%r12, %r12
+	leaq	12(%rbp), %rax
+	je	.L62
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L63:
+	cmpl	$1, %eax
+	jne	.L58
+	movq	0(%rbp), %rax
+	movq	%rbp, %rdi
+	call	*24(%rax)
+	jmp	.L58
+.L59:
+	movl	8(%rbp), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rbp)
+	jmp	.L60
+.L62:
+	movl	12(%rbp), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbp)
+	jmp	.L63
+	.cfi_endproc
+.LFE5912:
+	.size	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev, .-_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver11remove_dupsEv
+	.type	_ZN14MultiBitSolver11remove_dupsEv, @function
+_ZN14MultiBitSolver11remove_dupsEv:
+.LFB4571:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA4571
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	leaq	264(%rdi), %r13
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	leaq	96(%rdi), %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	movq	%rdi, %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movl	$1, %ebx
+	subq	$48, %rsp
+	.cfi_def_cfa_offset 96
+.L76:
+	leaq	16(%rsp), %rdi
+	movq	%r12, %rsi
+.LEHB0:
+	call	_ZN15ConcurrentQueueISt6vectorItSaItEEE12wait_and_popEv
+.LEHE0:
+	movq	16(%rsp), %rdi
+	movq	24(%rsp), %rax
+	subq	%rdi, %rax
+	shrq	%rax
+	je	.L67
+	movl	80(%rbp), %r11d
+	xorl	%r14d, %r14d
+	movl	$15, %ecx
+	.p2align 4,,10
+	.p2align 3
+.L73:
+	movq	%rbx, %r10
+	salq	%cl, %r10
+	testl	%r11d, %r11d
+	leal	-1(%r10), %edx
+	jle	.L68
+	xorl	%eax, %eax
+	jmp	.L71
+	.p2align 4,,10
+	.p2align 3
+.L96:
+	andl	%r8d, %edx
+	testw	%dx, %dx
+	je	.L68
+.L97:
+	addl	$1, %eax
+	cmpl	%r11d, %eax
+	je	.L68
+.L71:
+	leal	(%rax,%rax), %esi
+	movslq	%esi, %r8
+	movzwl	(%rdi,%r8,2), %r8d
+	movzwl	%r8w, %r9d
+	testq	%r9, %r10
+	jne	.L96
+	orl	$1, %esi
+	movslq	%esi, %rsi
+	andw	(%rdi,%rsi,2), %dx
+	testw	%dx, %dx
+	jne	.L97
+.L68:
+	orl	%edx, %r14d
+	subl	$1, %ecx
+	jne	.L73
+	testw	%r14w, %r14w
+	movw	%r14w, (%rsp)
+	jne	.L98
+.L74:
+	testq	%rdi, %rdi
+	je	.L76
+	call	_ZdlPv
+	.p2align 4,,5
+	jmp	.L76
+.L98:
+	movq	%rsp, %rsi
+	movq	%r13, %rdi
+.LEHB1:
+	call	_ZN15ConcurrentQueueItE4pushERKt
+.LEHE1:
+	movq	16(%rsp), %rdi
+	jmp	.L74
+.L67:
+	testq	%rdi, %rdi
+	je	.L66
+	call	_ZdlPv
+.L66:
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+.L81:
+	.cfi_restore_state
+	movq	16(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L79
+	call	_ZdlPv
+.L79:
+	movq	%rbx, %rdi
+.LEHB2:
+	call	_Unwind_Resume
+.LEHE2:
+	.cfi_endproc
+.LFE4571:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA4571:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE4571-.LLSDACSB4571
+.LLSDACSB4571:
+	.uleb128 .LEHB0-.LFB4571
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB4571
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L81-.LFB4571
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB4571
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE4571:
+	.text
+	.size	_ZN14MultiBitSolver11remove_dupsEv, .-_ZN14MultiBitSolver11remove_dupsEv
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver10get_randomEv
+	.type	_ZN14MultiBitSolver10get_randomEv, @function
+_ZN14MultiBitSolver10get_randomEv:
+.LFB4550:
+	.cfi_startproc
+	movq	_ZN3RNG4m_mtE+4992(%rip), %rax
+	cmpq	$623, %rax
+	ja	.L100
+	leaq	1(%rax), %rdx
+	movq	_ZN3RNG4m_mtE(,%rax,8), %rax
+.L101:
+	movq	%rdx, _ZN3RNG4m_mtE+4992(%rip)
+	movq	%rax, %rdx
+	shrq	$11, %rdx
+	movl	%edx, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$7, %rax
+	andl	$2636928640, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	salq	$15, %rdx
+	andl	$4022730752, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	shrq	$18, %rax
+	xorq	%rdx, %rax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L100:
+	movl	$_ZN3RNG4m_mtE+8, %eax
+	movq	_ZN3RNG4m_mtE(%rip), %rdx
+	movl	$2567483615, %r8d
+	xorl	%edi, %edi
+	jmp	.L103
+	.p2align 4,,10
+	.p2align 3
+.L108:
+	movq	%rsi, %rdx
+.L103:
+	movq	(%rax), %rsi
+	andq	$-2147483648, %rdx
+	movq	%rsi, %rcx
+	andl	$2147483647, %ecx
+	orq	%rdx, %rcx
+	movq	%rdi, %rdx
+	testb	$1, %cl
+	cmovne	%r8, %rdx
+	xorq	3168(%rax), %rdx
+	shrq	%rcx
+	addq	$8, %rax
+	xorq	%rcx, %rdx
+	movq	%rdx, -16(%rax)
+	cmpq	$_ZN3RNG4m_mtE+1824, %rax
+	jne	.L108
+	movl	$_ZN3RNG4m_mtE+1824, %eax
+	movq	_ZN3RNG4m_mtE+1816(%rip), %rdx
+	movl	$2567483615, %r8d
+	xorl	%edi, %edi
+	jmp	.L105
+	.p2align 4,,10
+	.p2align 3
+.L109:
+	movq	%rsi, %rdx
+.L105:
+	movq	(%rax), %rsi
+	andq	$-2147483648, %rdx
+	movq	%rsi, %rcx
+	andl	$2147483647, %ecx
+	orq	%rdx, %rcx
+	movq	%rdi, %rdx
+	testb	$1, %cl
+	cmovne	%r8, %rdx
+	xorq	-1824(%rax), %rdx
+	shrq	%rcx
+	addq	$8, %rax
+	xorq	%rcx, %rdx
+	movq	%rdx, -16(%rax)
+	cmpq	$_ZN3RNG4m_mtE+4992, %rax
+	jne	.L109
+	movq	_ZN3RNG4m_mtE(%rip), %rax
+	movq	_ZN3RNG4m_mtE+4984(%rip), %rdx
+	movl	$2567483615, %esi
+	movq	%rax, %rcx
+	andq	$-2147483648, %rdx
+	andl	$2147483647, %ecx
+	orq	%rdx, %rcx
+	movq	%rcx, %rdx
+	shrq	%rdx
+	xorq	_ZN3RNG4m_mtE+3168(%rip), %rdx
+	andl	$1, %ecx
+	movl	$0, %ecx
+	cmove	%rcx, %rsi
+	xorq	%rsi, %rdx
+	movq	%rdx, _ZN3RNG4m_mtE+4984(%rip)
+	movl	$1, %edx
+	jmp	.L101
+	.cfi_endproc
+.LFE4550:
+	.size	_ZN14MultiBitSolver10get_randomEv, .-_ZN14MultiBitSolver10get_randomEv
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver22compute_duplicate_maskERKSt6vectorItSaItEE
+	.type	_ZN14MultiBitSolver22compute_duplicate_maskERKSt6vectorItSaItEE, @function
+_ZN14MultiBitSolver22compute_duplicate_maskERKSt6vectorItSaItEE:
+.LFB4551:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	movl	$15, %ecx
+	xorl	%eax, %eax
+	movl	$1, %r12d
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movl	80(%rdi), %ebp
+	.p2align 4,,10
+	.p2align 3
+.L116:
+	movq	%r12, %rbx
+	salq	%cl, %rbx
+	testl	%ebp, %ebp
+	leal	-1(%rbx), %edi
+	jle	.L111
+	movq	(%rsi), %r11
+	xorl	%edx, %edx
+	jmp	.L114
+	.p2align 4,,10
+	.p2align 3
+.L121:
+	andl	%r9d, %edi
+	testw	%di, %di
+	je	.L111
+.L122:
+	addl	$1, %edx
+	cmpl	%ebp, %edx
+	je	.L111
+.L114:
+	leal	(%rdx,%rdx), %r8d
+	movslq	%r8d, %r9
+	movzwl	(%r11,%r9,2), %r9d
+	movzwl	%r9w, %r10d
+	testq	%r10, %rbx
+	jne	.L121
+	orl	$1, %r8d
+	movslq	%r8d, %r8
+	andw	(%r11,%r8,2), %di
+	testw	%di, %di
+	jne	.L122
+.L111:
+	orl	%edi, %eax
+	subl	$1, %ecx
+	jne	.L116
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE4551:
+	.size	_ZN14MultiBitSolver22compute_duplicate_maskERKSt6vectorItSaItEE, .-_ZN14MultiBitSolver22compute_duplicate_maskERKSt6vectorItSaItEE
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver9satisfiesERKSt6vectorItSaItEE
+	.type	_ZN14MultiBitSolver9satisfiesERKSt6vectorItSaItEE, @function
+_ZN14MultiBitSolver9satisfiesERKSt6vectorItSaItEE:
+.LFB4552:
+	.cfi_startproc
+	movq	32(%rdi), %r10
+	movq	40(%rdi), %r11
+	movl	$-1, %eax
+	cmpq	%r11, %r10
+	je	.L124
+	.p2align 4,,10
+	.p2align 3
+.L127:
+	movq	(%r10), %rdx
+	movq	8(%r10), %r8
+	cmpq	%r8, %rdx
+	je	.L130
+	movq	(%rsi), %r9
+	xorl	%ecx, %ecx
+	.p2align 4,,10
+	.p2align 3
+.L126:
+	movslq	(%rdx), %rdi
+	addq	$4, %rdx
+	orw	(%r9,%rdi,2), %cx
+	cmpq	%rdx, %r8
+	jne	.L126
+	andw	%cx, %ax
+	je	.L130
+	addq	$24, %r10
+	cmpq	%r10, %r11
+	jne	.L127
+	rep ret
+.L130:
+	xorl	%eax, %eax
+.L124:
+	.p2align 4,,2
+	rep ret
+	.cfi_endproc
+.LFE4552:
+	.size	_ZN14MultiBitSolver9satisfiesERKSt6vectorItSaItEE, .-_ZN14MultiBitSolver9satisfiesERKSt6vectorItSaItEE
+	.section	.text._ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev,"axG",@progbits,_ZNSt6vectorIS_IiSaIiEESaIS1_EED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev
+	.type	_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev, @function
+_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev:
+.LFB4665:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	movq	%rdi, %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	8(%rdi), %rbp
+	movq	(%rdi), %rbx
+	cmpq	%rbx, %rbp
+	je	.L138
+	.p2align 4,,10
+	.p2align 3
+.L136:
+	movq	(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L134
+	call	_ZdlPv
+.L134:
+	addq	$24, %rbx
+	cmpq	%rbx, %rbp
+	jne	.L136
+	movq	(%r12), %rdi
+.L133:
+	testq	%rdi, %rdi
+	je	.L132
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 4,,10
+	.p2align 3
+.L132:
+	.cfi_restore_state
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+.L138:
+	.cfi_restore_state
+	movq	%rbp, %rdi
+	jmp	.L133
+	.cfi_endproc
+.LFE4665:
+	.size	_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev, .-_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev
+	.weak	_ZNSt6vectorIS_IiSaIiEESaIS1_EED1Ev
+	.set	_ZNSt6vectorIS_IiSaIiEESaIS1_EED1Ev,_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev
+	.section	.text._ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev,"axG",@progbits,_ZNSt5dequeISt6vectorItSaItEESaIS2_EED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev
+	.type	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev, @function
+_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev:
+.LFB4671:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movq	%rdi, %r15
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	48(%rdi), %rax
+	movq	40(%rdi), %rdx
+	movq	32(%rdi), %rcx
+	movq	56(%rdi), %r13
+	movq	16(%rdi), %r12
+	movq	%rax, 8(%rsp)
+	movq	72(%rdi), %rax
+	leaq	8(%rdx), %rbp
+	movq	%rcx, 16(%rsp)
+	movq	%rdx, 24(%rsp)
+	cmpq	%rbp, %rax
+	movq	%rax, (%rsp)
+	jbe	.L150
+	.p2align 4,,10
+	.p2align 3
+.L176:
+	movq	0(%rbp), %r14
+	leaq	504(%r14), %rbx
+	.p2align 4,,10
+	.p2align 3
+.L149:
+	movq	(%r14), %rdi
+	testq	%rdi, %rdi
+	je	.L147
+	call	_ZdlPv
+.L147:
+	addq	$24, %r14
+	cmpq	%rbx, %r14
+	jne	.L149
+	addq	$8, %rbp
+	cmpq	%rbp, (%rsp)
+	ja	.L176
+.L150:
+	movq	24(%rsp), %rax
+	cmpq	%rax, (%rsp)
+	je	.L189
+	cmpq	16(%rsp), %r12
+	je	.L188
+	.p2align 4,,10
+	.p2align 3
+.L178:
+	movq	(%r12), %rdi
+	testq	%rdi, %rdi
+	je	.L158
+	call	_ZdlPv
+.L158:
+	addq	$24, %r12
+	cmpq	%r12, 16(%rsp)
+	jne	.L178
+	cmpq	%r13, 8(%rsp)
+	je	.L157
+	.p2align 4,,10
+	.p2align 3
+.L179:
+	movq	0(%r13), %rdi
+	testq	%rdi, %rdi
+	je	.L161
+	call	_ZdlPv
+.L161:
+	addq	$24, %r13
+.L188:
+	cmpq	%r13, 8(%rsp)
+	jne	.L179
+.L157:
+	movq	(%r15), %rdi
+	testq	%rdi, %rdi
+	je	.L190
+.L153:
+	movq	72(%r15), %rax
+	movq	40(%r15), %rbx
+	leaq	8(%rax), %rbp
+	cmpq	%rbx, %rbp
+	jbe	.L165
+	.p2align 4,,10
+	.p2align 3
+.L167:
+	movq	(%rbx), %rdi
+	addq	$8, %rbx
+	call	_ZdlPv
+	cmpq	%rbx, %rbp
+	ja	.L167
+	movq	(%r15), %rdi
+.L165:
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+.L177:
+	.cfi_restore_state
+	movq	(%r12), %rdi
+	testq	%rdi, %rdi
+	je	.L163
+	call	_ZdlPv
+.L163:
+	addq	$24, %r12
+.L189:
+	cmpq	%r12, 8(%rsp)
+	jne	.L177
+	movq	(%r15), %rdi
+	testq	%rdi, %rdi
+	jne	.L153
+.L190:
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE4671:
+	.size	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev, .-_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev
+	.weak	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED1Ev
+	.set	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED1Ev,_ZNSt5dequeISt6vectorItSaItEESaIS2_EED2Ev
+	.section	.text._ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv,"axG",@progbits,_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv
+	.type	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv, @function
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv:
+.LFB4708:
+	.cfi_startproc
+	movq	4992(%rdi), %rax
+	cmpq	$623, %rax
+	ja	.L192
+	leaq	1(%rax), %rdx
+	movq	(%rdi,%rax,8), %rax
+.L193:
+	movq	%rdx, 4992(%rdi)
+	movq	%rax, %rdx
+	shrq	$11, %rdx
+	movl	%edx, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$7, %rax
+	andl	$2636928640, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	salq	$15, %rdx
+	andl	$4022730752, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	shrq	$18, %rax
+	xorq	%rdx, %rax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L192:
+	leaq	8(%rdi), %rdx
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movl	$2567483615, %r10d
+	xorl	%r9d, %r9d
+	jmp	.L195
+	.p2align 4,,10
+	.p2align 3
+.L200:
+	movq	%r8, %rax
+.L195:
+	movq	(%rdx), %r8
+	andq	$-2147483648, %rax
+	addq	$1, %rsi
+	movq	%r8, %rcx
+	andl	$2147483647, %ecx
+	orq	%rax, %rcx
+	movq	%r9, %rax
+	testb	$1, %cl
+	cmovne	%r10, %rax
+	xorq	3168(%rdx), %rax
+	shrq	%rcx
+	addq	$8, %rdx
+	xorq	%rcx, %rax
+	movq	%rax, -16(%rdx)
+	cmpq	$227, %rsi
+	jne	.L200
+	leaq	1824(%rdi), %rdx
+	movq	1816(%rdi), %rax
+	movl	$227, %esi
+	movl	$2567483615, %r10d
+	xorl	%r9d, %r9d
+	jmp	.L197
+	.p2align 4,,10
+	.p2align 3
+.L201:
+	movq	%r8, %rax
+.L197:
+	movq	(%rdx), %r8
+	andq	$-2147483648, %rax
+	addq	$1, %rsi
+	movq	%r8, %rcx
+	andl	$2147483647, %ecx
+	orq	%rax, %rcx
+	movq	%r9, %rax
+	testb	$1, %cl
+	cmovne	%r10, %rax
+	xorq	-1824(%rdx), %rax
+	shrq	%rcx
+	addq	$8, %rdx
+	xorq	%rcx, %rax
+	movq	%rax, -16(%rdx)
+	cmpq	$623, %rsi
+	jne	.L201
+	movq	(%rdi), %rax
+	movq	4984(%rdi), %rdx
+	movl	$2567483615, %esi
+	movq	%rax, %rcx
+	andq	$-2147483648, %rdx
+	andl	$2147483647, %ecx
+	orq	%rdx, %rcx
+	movq	%rcx, %rdx
+	shrq	%rdx
+	xorq	3168(%rdi), %rdx
+	andl	$1, %ecx
+	movl	$0, %ecx
+	cmove	%rcx, %rsi
+	xorq	%rsi, %rdx
+	movq	%rdx, 4984(%rdi)
+	movl	$1, %edx
+	jmp	.L193
+	.cfi_endproc
+.LFE4708:
+	.size	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv, .-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv
+	.section	.text._ZNSt6vectorItSaItEEaSERKS1_,"axG",@progbits,_ZNSt6vectorItSaItEEaSERKS1_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorItSaItEEaSERKS1_
+	.type	_ZNSt6vectorItSaItEEaSERKS1_, @function
+_ZNSt6vectorItSaItEEaSERKS1_:
+.LFB4816:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	cmpq	%rdi, %rsi
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	movq	%rsi, %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	%rdi, %rbx
+	je	.L203
+	movq	8(%rsi), %rcx
+	movq	(%rsi), %r13
+	movq	(%rdi), %rdi
+	movq	16(%rbx), %rax
+	movq	%rcx, %rbp
+	subq	%r13, %rbp
+	subq	%rdi, %rax
+	sarq	%rbp
+	sarq	%rax
+	cmpq	%rax, %rbp
+	ja	.L225
+	movq	8(%rbx), %rax
+	movq	%rax, %rdx
+	subq	%rdi, %rdx
+	sarq	%rdx
+	cmpq	%rdx, %rbp
+	ja	.L210
+	testq	%rbp, %rbp
+	jne	.L226
+	movq	%rdi, 8(%rbx)
+	.p2align 4,,10
+	.p2align 3
+.L203:
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L210:
+	.cfi_restore_state
+	testq	%rdx, %rdx
+	leaq	0(%r13,%rdx,2), %rsi
+	jne	.L227
+	subq	%rsi, %rcx
+	sarq	%rcx
+	jne	.L213
+.L230:
+	leaq	(%rdi,%rbp,2), %rdi
+	movq	%rdi, 8(%rbx)
+	jmp	.L203
+	.p2align 4,,10
+	.p2align 3
+.L225:
+	testq	%rbp, %rbp
+	je	.L214
+	testq	%rbp, %rbp
+	js	.L228
+	leaq	(%rbp,%rbp), %r14
+	movq	%r14, %rdi
+	call	_Znwm
+	testq	%rbp, %rbp
+	movq	%rax, %r12
+	jne	.L229
+.L207:
+	movq	(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L208
+.L231:
+	call	_ZdlPv
+.L208:
+	leaq	(%r12,%r14), %rdi
+	movq	%r12, (%rbx)
+	movq	%rdi, 16(%rbx)
+	movq	%rdi, 8(%rbx)
+	jmp	.L203
+	.p2align 4,,10
+	.p2align 3
+.L226:
+	addq	%rbp, %rbp
+	movq	%r13, %rsi
+	movq	%rbp, %rdx
+	call	memmove
+	movq	%rbp, %rdi
+	addq	(%rbx), %rdi
+	movq	%rdi, 8(%rbx)
+	jmp	.L203
+	.p2align 4,,10
+	.p2align 3
+.L227:
+	addq	%rdx, %rdx
+	movq	%r13, %rsi
+	call	memmove
+	movq	8(%rbx), %rax
+	movq	(%rbx), %rdi
+	movq	8(%r12), %rcx
+	movq	%rax, %rsi
+	subq	%rdi, %rsi
+	andq	$-2, %rsi
+	addq	(%r12), %rsi
+	subq	%rsi, %rcx
+	sarq	%rcx
+	je	.L230
+.L213:
+	leaq	(%rcx,%rcx), %rdx
+	movq	%rax, %rdi
+	call	memmove
+	movq	(%rbx), %rax
+	leaq	(%rax,%rbp,2), %rdi
+	movq	%rdi, 8(%rbx)
+	jmp	.L203
+	.p2align 4,,10
+	.p2align 3
+.L229:
+	movq	%rax, %rdi
+	movq	%r14, %rdx
+	movq	%r13, %rsi
+	call	memmove
+	movq	(%rbx), %rdi
+	testq	%rdi, %rdi
+	jne	.L231
+	jmp	.L208
+	.p2align 4,,10
+	.p2align 3
+.L214:
+	xorl	%r14d, %r14d
+	xorl	%r12d, %r12d
+	jmp	.L207
+.L228:
+	.p2align 4,,5
+	call	_ZSt17__throw_bad_allocv
+	.cfi_endproc
+.LFE4816:
+	.size	_ZNSt6vectorItSaItEEaSERKS1_, .-_ZNSt6vectorItSaItEEaSERKS1_
+	.section	.text._ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv,"axG",@progbits,_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+	.type	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv, @function
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv:
+.LFB4877:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %ebp
+	leaq	8(%rdi), %rax
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	testq	%rbp, %rbp
+	je	.L233
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L234:
+	cmpl	$1, %eax
+	je	.L241
+.L232:
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L241:
+	.cfi_restore_state
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	call	*16(%rax)
+	testq	%rbp, %rbp
+	leaq	12(%rbx), %rax
+	je	.L237
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L238:
+	cmpl	$1, %eax
+	jne	.L232
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	movq	24(%rax), %rax
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	jmp	*%rax
+.L233:
+	.cfi_restore_state
+	movl	8(%rdi), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rdi)
+	jmp	.L234
+.L237:
+	movl	12(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbx)
+	jmp	.L238
+	.cfi_endproc
+.LFE4877:
+	.size	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv, .-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+	.section	.text._ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_,"axG",@progbits,_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_
+	.type	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_, @function
+_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_:
+.LFB4975:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	movl	$4, %r12d
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	movq	%rdi, %rbx
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movq	8(%rdi), %rdx
+	subq	(%rdi), %rdx
+	sarq	$2, %rdx
+	testq	%rdx, %rdx
+	jne	.L261
+.L244:
+	movq	%r12, %rdi
+	movq	%rsi, 8(%rsp)
+	call	_Znwm
+	movq	(%rbx), %rcx
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	8(%rsp), %rsi
+	movq	%rbp, %r13
+	subq	%rcx, %rax
+	sarq	$2, %rax
+	movl	(%rsi), %esi
+	leaq	0(,%rax,4), %rdx
+	addq	%rdx, %r13
+	je	.L245
+	movl	%esi, 0(%r13)
+.L245:
+	testq	%rax, %rax
+	movq	%rcx, %rdi
+	je	.L246
+	movq	%rbp, %rdi
+	movq	%rcx, %rsi
+	call	memmove
+	movq	(%rbx), %rdi
+.L246:
+	addq	$4, %r13
+	testq	%rdi, %rdi
+	je	.L247
+	call	_ZdlPv
+.L247:
+	movq	%rbp, (%rbx)
+	addq	%r12, %rbp
+	movq	%r13, 8(%rbx)
+	movq	%rbp, 16(%rbx)
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L261:
+	.cfi_restore_state
+	leaq	(%rdx,%rdx), %rax
+	cmpq	%rax, %rdx
+	jbe	.L262
+	movq	$-4, %r12
+	jmp	.L244
+.L262:
+	movabsq	$4611686018427387903, %rcx
+	salq	$3, %rdx
+	movq	$-4, %r12
+	cmpq	%rcx, %rax
+	cmovbe	%rdx, %r12
+	jmp	.L244
+	.cfi_endproc
+.LFE4975:
+	.size	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_, .-_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_
+	.weak	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIJRKiEEEvDpOT_
+	.set	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIJRKiEEEvDpOT_,_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_
+	.section	.text._ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv,"axG",@progbits,_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv
+	.type	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv, @function
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv:
+.LFB4976:
+	.cfi_startproc
+	leaq	8(%rdi), %rdx
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movl	$2567483615, %r10d
+	xorl	%r9d, %r9d
+	jmp	.L265
+	.p2align 4,,10
+	.p2align 3
+.L270:
+	movq	%r8, %rax
+.L265:
+	movq	(%rdx), %r8
+	andq	$-2147483648, %rax
+	addq	$1, %rsi
+	movq	%r8, %rcx
+	andl	$2147483647, %ecx
+	orq	%rax, %rcx
+	movq	%r9, %rax
+	testb	$1, %cl
+	cmovne	%r10, %rax
+	xorq	3168(%rdx), %rax
+	shrq	%rcx
+	addq	$8, %rdx
+	xorq	%rcx, %rax
+	movq	%rax, -16(%rdx)
+	cmpq	$227, %rsi
+	jne	.L270
+	leaq	1824(%rdi), %rdx
+	movq	1816(%rdi), %rax
+	movl	$227, %esi
+	movl	$2567483615, %r10d
+	xorl	%r9d, %r9d
+	jmp	.L267
+	.p2align 4,,10
+	.p2align 3
+.L271:
+	movq	%r8, %rax
+.L267:
+	movq	(%rdx), %r8
+	andq	$-2147483648, %rax
+	addq	$1, %rsi
+	movq	%r8, %rcx
+	andl	$2147483647, %ecx
+	orq	%rax, %rcx
+	movq	%r9, %rax
+	testb	$1, %cl
+	cmovne	%r10, %rax
+	xorq	-1824(%rdx), %rax
+	shrq	%rcx
+	addq	$8, %rdx
+	xorq	%rcx, %rax
+	movq	%rax, -16(%rdx)
+	cmpq	$623, %rsi
+	jne	.L271
+	movq	4984(%rdi), %rdx
+	movq	(%rdi), %rax
+	movl	$2567483615, %ecx
+	movq	$0, 4992(%rdi)
+	andq	$-2147483648, %rdx
+	andl	$2147483647, %eax
+	orq	%rdx, %rax
+	movq	%rax, %rdx
+	shrq	%rdx
+	xorq	3168(%rdi), %rdx
+	testb	$1, %al
+	movl	$0, %eax
+	cmove	%rax, %rcx
+	xorq	%rcx, %rdx
+	movq	%rdx, 4984(%rdi)
+	ret
+	.cfi_endproc
+.LFE4976:
+	.size	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv, .-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"multi_bit_solver.cpp"
+.LC1:
+	.string	"m > 0"
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi
+	.type	_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi, @function
+_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi:
+.LFB4548:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA4548
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	xorl	%r15d, %r15d
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	xorl	%ebp, %ebp
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	movq	%rdi, %rbx
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	$_ZTV14MultiBitSolver+16, (%rdi)
+	movq	8(%rsi), %rax
+	subq	(%rsi), %rax
+	movl	%edx, 12(%rsp)
+	movabsq	$-6148914691236517205, %rdx
+	movq	%rsi, (%rsp)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	movq	$0, 24(%rdi)
+	movq	$0, 32(%rdi)
+	movq	$0, 40(%rdi)
+	sarq	$3, %rax
+	movq	$0, 48(%rdi)
+	imulq	%rax, %rdx
+	testq	%rdx, %rdx
+	jne	.L379
+.L273:
+	movq	(%rsp), %rax
+	addq	%r15, %rbp
+	movq	%r15, 32(%rbx)
+	movq	%rbp, 48(%rbx)
+	movq	%r15, 40(%rbx)
+	movq	%r15, %rbp
+	movq	8(%rax), %r14
+	movq	(%rax), %r12
+	cmpq	%r12, %r14
+	jne	.L280
+	jmp	.L275
+	.p2align 4,,10
+	.p2align 3
+.L277:
+	addq	%r8, %r13
+	movq	%r8, 0(%rbp)
+	movq	%r8, 8(%rbp)
+	movq	%r13, 16(%rbp)
+	movq	(%r12), %rsi
+	xorl	%r13d, %r13d
+	movq	8(%r12), %rcx
+	subq	%rsi, %rcx
+	sarq	$2, %rcx
+	testq	%rcx, %rcx
+	je	.L279
+	leaq	0(,%rcx,4), %r13
+	movq	%r8, %rdi
+	movq	%r13, %rdx
+	call	memmove
+	movq	%rax, %r8
+.L279:
+	addq	%r13, %r8
+	movq	%r8, 8(%rbp)
+.L276:
+	addq	$24, %r12
+	addq	$24, %rbp
+	cmpq	%r12, %r14
+	je	.L275
+.L280:
+	testq	%rbp, %rbp
+	je	.L276
+	movq	8(%r12), %rdx
+	subq	(%r12), %rdx
+	xorl	%r13d, %r13d
+	xorl	%r8d, %r8d
+	movq	$0, 0(%rbp)
+	movq	$0, 8(%rbp)
+	movq	$0, 16(%rbp)
+	sarq	$2, %rdx
+	testq	%rdx, %rdx
+	je	.L277
+	movabsq	$4611686018427387903, %rax
+	cmpq	%rax, %rdx
+	ja	.L380
+	leaq	0(,%rdx,4), %r13
+	movq	%r13, %rdi
+.LEHB3:
+	call	_Znwm
+.LEHE3:
+	movq	%rax, %r8
+	jmp	.L277
+.L275:
+	movl	12(%rsp), %eax
+	leaq	96(%rbx), %r12
+	movq	%rbp, 40(%rbx)
+	movq	$0, 56(%rbx)
+	movq	$0, 64(%rbx)
+	movq	$0, 72(%rbx)
+	movq	$0, 88(%rbx)
+	movq	%r12, %rdi
+	movl	%eax, 80(%rbx)
+.LEHB4:
+	call	_ZN15ConcurrentQueueISt6vectorItSaItEEEC1Ev
+.LEHE4:
+	leaq	264(%rbx), %rdi
+.LEHB5:
+	call	_ZN15ConcurrentQueueItEC1Ev
+.LEHE5:
+	movq	(%rsp), %rcx
+	movabsq	$-6148914691236517205, %rdx
+	movq	8(%rcx), %rax
+	subq	(%rcx), %rax
+	sarq	$3, %rax
+	imulq	%rdx, %rax
+	testl	%eax, %eax
+	movl	%eax, 84(%rbx)
+	jle	.L381
+	movl	80(%rbx), %eax
+	xorl	%ebp, %ebp
+	xorl	%r13d, %r13d
+	addl	%eax, %eax
+	cltq
+	testq	%rax, %rax
+	jne	.L382
+.L291:
+	movq	8(%rbx), %rdi
+	movq	%rbp, 16(%rbx)
+	movq	%r13, 8(%rbx)
+	movq	%rbp, 24(%rbx)
+	testq	%rdi, %rdi
+	je	.L293
+	call	_ZdlPv
+.L293:
+	movl	80(%rbx), %edi
+	testl	%edi, %edi
+	jle	.L294
+	movq	8(%rbx), %rsi
+	movq	_ZN3RNG4m_mtE+4992(%rip), %rax
+	xorl	%ebp, %ebp
+	jmp	.L296
+	.p2align 4,,10
+	.p2align 3
+.L383:
+	movq	%rcx, %rax
+.L296:
+	leal	(%rbp,%rbp), %r13d
+	movslq	%r13d, %r15
+	addq	%r15, %r15
+	cmpq	$623, %rax
+	leaq	(%rsi,%r15), %r14
+	movq	%r14, %r8
+	jbe	.L295
+	movl	$_ZN3RNG4m_mtE, %edi
+	call	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv
+	movq	8(%rbx), %rsi
+	movq	_ZN3RNG4m_mtE+4992(%rip), %rax
+	movl	80(%rbx), %edi
+	leaq	(%rsi,%r15), %r8
+.L295:
+	movq	_ZN3RNG4m_mtE(,%rax,8), %rdx
+	leaq	1(%rax), %rcx
+	orl	$1, %r13d
+	addl	$1, %ebp
+	movslq	%r13d, %r13
+	movq	%rcx, _ZN3RNG4m_mtE+4992(%rip)
+	movq	%rdx, %rax
+	shrq	$11, %rax
+	movl	%eax, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	salq	$7, %rdx
+	andl	$2636928640, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$15, %rax
+	andl	$4022730752, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	shrq	$18, %rdx
+	xorq	%rax, %rdx
+	cmpl	%edi, %ebp
+	movw	%dx, (%r14)
+	movzwl	(%r8), %eax
+	notl	%eax
+	movw	%ax, (%rsi,%r13,2)
+	jl	.L383
+.L294:
+	addl	%edi, %edi
+	xorl	%ecx, %ecx
+	xorl	%eax, %eax
+	movslq	%edi, %rbp
+	testq	%rbp, %rbp
+	jne	.L384
+.L297:
+	movq	56(%rbx), %r14
+	movq	64(%rbx), %r13
+	movq	%rax, 56(%rbx)
+	movq	%rcx, 64(%rbx)
+	movq	%rcx, 72(%rbx)
+	cmpq	%r13, %r14
+	movq	%r14, %rbp
+	je	.L305
+	.p2align 4,,10
+	.p2align 3
+.L360:
+	movq	0(%rbp), %rdi
+	testq	%rdi, %rdi
+	je	.L304
+	call	_ZdlPv
+.L304:
+	addq	$24, %rbp
+	cmpq	%rbp, %r13
+	jne	.L360
+.L305:
+	testq	%r14, %r14
+	je	.L303
+	movq	%r14, %rdi
+	call	_ZdlPv
+.L303:
+	movl	84(%rbx), %ecx
+	xorl	%eax, %eax
+	movl	$0, 16(%rsp)
+	testl	%ecx, %ecx
+	jle	.L272
+	.p2align 4,,10
+	.p2align 3
+.L376:
+	movslq	%eax, %rdx
+	leaq	(%rdx,%rdx,2), %rsi
+	movq	32(%rbx), %rdx
+	leaq	(%rdx,%rsi,8), %rdx
+	movq	(%rdx), %rbp
+	movq	8(%rdx), %r13
+	cmpq	%r13, %rbp
+	jne	.L313
+	jmp	.L308
+	.p2align 4,,10
+	.p2align 3
+.L386:
+	testq	%rax, %rax
+	movl	16(%rsp), %edx
+	je	.L310
+	movl	%edx, (%rax)
+.L310:
+	addq	$4, %rbp
+	addq	$4, %rax
+	cmpq	%rbp, %r13
+	movq	%rax, 8(%rdi)
+	je	.L385
+.L313:
+	movslq	0(%rbp), %rax
+	leaq	(%rax,%rax,2), %rdx
+	movq	56(%rbx), %rax
+	leaq	(%rax,%rdx,8), %rdi
+	movq	8(%rdi), %rax
+	cmpq	16(%rdi), %rax
+	jne	.L386
+	leaq	16(%rsp), %rsi
+.LEHB6:
+	call	_ZNSt6vectorIiSaIiEE19_M_emplace_back_auxIIRKiEEEvDpOT_
+.LEHE6:
+	addq	$4, %rbp
+	cmpq	%rbp, %r13
+	jne	.L313
+	.p2align 4,,10
+	.p2align 3
+.L385:
+	movl	84(%rbx), %ecx
+	movl	16(%rsp), %eax
+.L308:
+	addl	$1, %eax
+	cmpl	%ecx, %eax
+	movl	%eax, 16(%rsp)
+	jl	.L376
+.L272:
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L379:
+	.cfi_restore_state
+	movabsq	$768614336404564650, %rcx
+	cmpq	%rcx, %rdx
+	ja	.L387
+	leaq	0(,%rax,8), %rbp
+	movq	%rbp, %rdi
+.LEHB7:
+	call	_Znwm
+.LEHE7:
+	movq	%rax, %r15
+	jmp	.L273
+.L384:
+	movabsq	$768614336404564650, %rax
+	cmpq	%rax, %rbp
+	ja	.L388
+	leaq	0(%rbp,%rbp,2), %r13
+	salq	$3, %r13
+	movq	%r13, %rdi
+.LEHB8:
+	call	_Znwm
+	leaq	(%rax,%r13), %rcx
+	movq	%rax, %rdx
+	.p2align 4,,10
+	.p2align 3
+.L300:
+	testq	%rdx, %rdx
+	je	.L299
+	movq	$0, (%rdx)
+	movq	$0, 8(%rdx)
+	movq	$0, 16(%rdx)
+.L299:
+	addq	$24, %rdx
+	subq	$1, %rbp
+	jne	.L300
+	jmp	.L297
+.L382:
+	testq	%rax, %rax
+	js	.L389
+	leaq	(%rax,%rax), %r14
+	movq	%r14, %rdi
+	call	_Znwm
+.LEHE8:
+	movq	%r14, %rdx
+	xorl	%esi, %esi
+	movq	%rax, %rdi
+	movq	%rax, %r13
+	leaq	(%rax,%r14), %rbp
+	call	memset
+	jmp	.L291
+.L387:
+.LEHB9:
+	call	_ZSt17__throw_bad_allocv
+.LEHE9:
+.L333:
+	movq	%rax, %rbp
+.L289:
+	movq	8(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L324
+	call	_ZdlPv
+.L324:
+	movq	%rbp, %rdi
+.LEHB10:
+	call	_Unwind_Resume
+.LEHE10:
+.L388:
+.LEHB11:
+	call	_ZSt17__throw_bad_allocv
+.L389:
+	call	_ZSt17__throw_bad_allocv
+.LEHE11:
+.L336:
+	leaq	384(%rbx), %rdi
+	movq	%rax, %r14
+	call	_ZNSt18condition_variableD1Ev
+	movq	264(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L317
+	movq	336(%rbx), %rax
+	movq	304(%rbx), %rbp
+	leaq	8(%rax), %r13
+	cmpq	%rbp, %r13
+	jbe	.L318
+.L320:
+	movq	0(%rbp), %rdi
+	addq	$8, %rbp
+	call	_ZdlPv
+	cmpq	%rbp, %r13
+	ja	.L320
+	movq	264(%rbx), %rdi
+.L318:
+	call	_ZdlPv
+.L317:
+	movq	%r14, %rbp
+.L321:
+	leaq	216(%rbx), %rdi
+	call	_ZNSt18condition_variableD1Ev
+	movq	%r12, %rdi
+	call	_ZNSt5dequeISt6vectorItSaItEESaIS2_EED1Ev
+.L322:
+	cmpq	$0, 88(%rbx)
+	jne	.L390
+	leaq	56(%rbx), %rdi
+	call	_ZNSt6vectorIS_IiSaIiEESaIS1_EED1Ev
+	leaq	32(%rbx), %rdi
+	call	_ZNSt6vectorIS_IiSaIiEESaIS1_EED1Ev
+	jmp	.L289
+.L381:
+	movl	$_ZZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEiE19__PRETTY_FUNCTION__, %ecx
+	movl	$27, %edx
+	movl	$.LC0, %esi
+	movl	$.LC1, %edi
+	call	__assert_fail
+.L335:
+	movq	%rax, %rbp
+	jmp	.L321
+.L338:
+	movq	%rax, %rdi
+	call	__cxa_begin_catch
+	cmpq	%r15, %rbp
+	je	.L285
+.L359:
+	movq	(%r15), %rdi
+	testq	%rdi, %rdi
+	je	.L284
+	call	_ZdlPv
+.L284:
+	addq	$24, %r15
+	cmpq	%r15, %rbp
+	jne	.L359
+.L285:
+.LEHB12:
+	call	__cxa_rethrow
+.LEHE12:
+.L380:
+.LEHB13:
+	call	_ZSt17__throw_bad_allocv
+.LEHE13:
+.L337:
+	movq	%rax, %rbp
+	call	__cxa_end_catch
+	movq	32(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L289
+	call	_ZdlPv
+	jmp	.L289
+.L334:
+	movq	%rax, %rbp
+	.p2align 4,,5
+	jmp	.L322
+.L390:
+	.p2align 4,,8
+	call	_ZSt9terminatev
+	.cfi_endproc
+.LFE4548:
+	.section	.gcc_except_table
+	.align 4
+.LLSDA4548:
+	.byte	0xff
+	.byte	0x3
+	.uleb128 .LLSDATT4548-.LLSDATTD4548
+.LLSDATTD4548:
+	.byte	0x1
+	.uleb128 .LLSDACSE4548-.LLSDACSB4548
+.LLSDACSB4548:
+	.uleb128 .LEHB3-.LFB4548
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L338-.LFB4548
+	.uleb128 0x1
+	.uleb128 .LEHB4-.LFB4548
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 .L334-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB4548
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 .L335-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB6-.LFB4548
+	.uleb128 .LEHE6-.LEHB6
+	.uleb128 .L336-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB7-.LFB4548
+	.uleb128 .LEHE7-.LEHB7
+	.uleb128 .L333-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB8-.LFB4548
+	.uleb128 .LEHE8-.LEHB8
+	.uleb128 .L336-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB9-.LFB4548
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .L333-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB4548
+	.uleb128 .LEHE10-.LEHB10
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB11-.LFB4548
+	.uleb128 .LEHE11-.LEHB11
+	.uleb128 .L336-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB12-.LFB4548
+	.uleb128 .LEHE12-.LEHB12
+	.uleb128 .L337-.LFB4548
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB4548
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .L338-.LFB4548
+	.uleb128 0x1
+.LLSDACSE4548:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	0
+
+.LLSDATT4548:
+	.text
+	.size	_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi, .-_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi
+	.globl	_ZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEi
+	.set	_ZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEi,_ZN14MultiBitSolverC2ESt6vectorIS0_IiSaIiEESaIS2_EEi
+	.align 2
+	.p2align 4,,15
+	.type	_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199, @function
+_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199:
+.LFB6153:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movl	$4294967294, %eax
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	movq	%rsi, %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	movq	%rdx, %rbx
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	8(%rdx), %r14
+	cmpq	%rax, %r14
+	ja	.L392
+	addq	$1, %r14
+	movb	$-1, %al
+	xorl	%edx, %edx
+	divq	%r14
+	movl	$2567483615, %r11d
+	movq	4992(%rsi), %rdx
+	movq	%rax, %rdi
+	movq	%r14, %rax
+	imulq	%rdi, %rax
+	jmp	.L401
+	.p2align 4,,10
+	.p2align 3
+.L414:
+	leaq	1(%rdx), %rsi
+	movq	0(%rbp,%rdx,8), %rdx
+.L394:
+	movq	%rdx, %rcx
+	movq	%rsi, 4992(%rbp)
+	shrq	$11, %rcx
+	movl	%ecx, %ecx
+	xorq	%rdx, %rcx
+	movq	%rcx, %rdx
+	salq	$7, %rdx
+	andl	$2636928640, %edx
+	xorq	%rcx, %rdx
+	movq	%rdx, %rcx
+	salq	$15, %rcx
+	andl	$4022730752, %ecx
+	xorq	%rdx, %rcx
+	movq	%rcx, %rdx
+	shrq	$18, %rdx
+	xorq	%rcx, %rdx
+	cmpq	%rdx, %rax
+	ja	.L400
+	movq	%rsi, %rdx
+.L401:
+	cmpq	$623, %rdx
+	jbe	.L414
+	leaq	8(%rbp), %r8
+	movq	0(%rbp), %rcx
+	xorl	%r9d, %r9d
+	xorl	%r10d, %r10d
+	jmp	.L396
+	.p2align 4,,10
+	.p2align 3
+.L415:
+	movq	%rsi, %rcx
+.L396:
+	movq	(%r8), %rsi
+	andq	$-2147483648, %rcx
+	addq	$1, %r9
+	movq	%rsi, %rdx
+	andl	$2147483647, %edx
+	orq	%rcx, %rdx
+	movq	%r10, %rcx
+	testb	$1, %dl
+	cmovne	%r11, %rcx
+	xorq	3168(%r8), %rcx
+	shrq	%rdx
+	addq	$8, %r8
+	xorq	%rdx, %rcx
+	movq	%rcx, -16(%r8)
+	cmpq	$227, %r9
+	jne	.L415
+	leaq	1824(%rbp), %r8
+	movq	1816(%rbp), %rcx
+	movl	$227, %edx
+	xorl	%esi, %esi
+	jmp	.L398
+	.p2align 4,,10
+	.p2align 3
+.L416:
+	movq	%r10, %rcx
+.L398:
+	movq	(%r8), %r10
+	andq	$-2147483648, %rcx
+	addq	$1, %rdx
+	movq	%r10, %r9
+	andl	$2147483647, %r9d
+	orq	%rcx, %r9
+	movq	%rsi, %rcx
+	testb	$1, %r9b
+	cmovne	%r11, %rcx
+	xorq	-1824(%r8), %rcx
+	shrq	%r9
+	addq	$8, %r8
+	xorq	%r9, %rcx
+	movq	%rcx, -16(%r8)
+	cmpq	$623, %rdx
+	jne	.L416
+	movq	0(%rbp), %rdx
+	movq	4984(%rbp), %rcx
+	movq	%rdx, %rsi
+	andq	$-2147483648, %rcx
+	andl	$2147483647, %esi
+	orq	%rcx, %rsi
+	movq	%rsi, %rcx
+	shrq	%rcx
+	xorq	3168(%rbp), %rcx
+	andl	$1, %esi
+	movl	$0, %esi
+	cmovne	%r11, %rsi
+	xorq	%rsi, %rcx
+	movl	$1, %esi
+	movq	%rcx, 4984(%rbp)
+	jmp	.L394
+.L392:
+	movl	$4294967295, %eax
+	cmpq	%rax, %r14
+	je	.L403
+	movq	%r14, %r13
+	movq	%rdi, %r12
+	shrq	$32, %r13
+	.p2align 4,,10
+	.p2align 3
+.L406:
+	movq	%rsp, %rdx
+	movq	%rbp, %rsi
+	movq	%r12, %rdi
+	movq	$0, (%rsp)
+	movq	%r13, 8(%rsp)
+	call	_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199
+	movq	4992(%rbp), %rdx
+	movq	%rax, %r15
+	salq	$32, %r15
+	cmpq	$623, %rdx
+	jbe	.L404
+	movq	%rbp, %rdi
+	call	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv
+	movq	4992(%rbp), %rdx
+.L404:
+	leaq	1(%rdx), %rcx
+	movq	%rcx, 4992(%rbp)
+	movq	0(%rbp,%rdx,8), %rcx
+	movq	%rcx, %rdx
+	shrq	$11, %rdx
+	movl	%edx, %edx
+	xorq	%rcx, %rdx
+	movq	%rdx, %rcx
+	salq	$7, %rcx
+	andl	$2636928640, %ecx
+	xorq	%rdx, %rcx
+	movq	%rcx, %rdx
+	salq	$15, %rdx
+	andl	$4022730752, %edx
+	xorq	%rcx, %rdx
+	movq	%rdx, %rcx
+	shrq	$18, %rcx
+	xorq	%rdx, %rcx
+	movq	%rcx, %rax
+	addq	%r15, %rax
+	jc	.L406
+	cmpq	%rax, %r14
+	jb	.L406
+	jmp	.L402
+	.p2align 4,,10
+	.p2align 3
+.L400:
+	movq	%rdx, %rax
+	xorl	%edx, %edx
+	divq	%rdi
+.L402:
+	addq	(%rbx), %rax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L403:
+	.cfi_restore_state
+	movq	%rsi, %rdi
+	call	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv
+	jmp	.L402
+	.cfi_endproc
+.LFE6153:
+	.size	_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199, .-_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199
+	.section	.text._ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_,"axG",@progbits,_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_
+	.type	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_, @function
+_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_:
+.LFB5050:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	movl	$8, %r12d
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	movq	%rdi, %rbx
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movq	8(%rdi), %rax
+	subq	(%rdi), %rax
+	sarq	$3, %rax
+	testq	%rax, %rax
+	jne	.L440
+.L419:
+	movq	%r12, %rdi
+	movq	%rsi, 8(%rsp)
+	call	_Znwm
+	movq	8(%rbx), %r8
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+	leaq	8(%rax), %r13
+	movq	%r8, %rax
+	subq	%rdi, %rax
+	andq	$-8, %rax
+	addq	%rbp, %rax
+	movq	%rax, %rdx
+	je	.L420
+	movq	8(%rsp), %rsi
+	movq	(%rsi), %rax
+	movq	%rax, (%rdx)
+.L420:
+	cmpq	%r8, %rdi
+	je	.L421
+	movq	%rdi, %rdx
+	movq	%rbp, %rcx
+	.p2align 4,,10
+	.p2align 3
+.L424:
+	testq	%rcx, %rcx
+	je	.L422
+	movq	(%rdx), %rsi
+	movq	%rsi, (%rcx)
+.L422:
+	addq	$8, %rdx
+	addq	$8, %rcx
+	cmpq	%r8, %rdx
+	jne	.L424
+	leaq	8(%rdi), %rax
+	subq	%rax, %rdx
+	shrq	$3, %rdx
+	leaq	16(%rbp,%rdx,8), %r13
+.L421:
+	testq	%rdi, %rdi
+	je	.L425
+	call	_ZdlPv
+.L425:
+	movq	%rbp, (%rbx)
+	addq	%r12, %rbp
+	movq	%r13, 8(%rbx)
+	movq	%rbp, 16(%rbx)
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L440:
+	.cfi_restore_state
+	leaq	(%rax,%rax), %rdx
+	cmpq	%rdx, %rax
+	jbe	.L441
+.L428:
+	movq	$-8, %r12
+	jmp	.L419
+.L441:
+	movabsq	$2305843009213693951, %rcx
+	cmpq	%rcx, %rdx
+	ja	.L428
+	movq	%rax, %r12
+	salq	$4, %r12
+	jmp	.L419
+	.cfi_endproc
+.LFE5050:
+	.size	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_, .-_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_
+	.weak	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIJRKS1_EEEvDpOT_
+	.set	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIJRKS1_EEEvDpOT_,_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_
+	.section	.text._ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_,"axG",@progbits,_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_
+	.type	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_, @function
+_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_:
+.LFB5262:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	movl	$8, %r12d
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	movq	%rdi, %rbx
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movq	8(%rdi), %rax
+	subq	(%rdi), %rax
+	sarq	$3, %rax
+	testq	%rax, %rax
+	jne	.L465
+.L444:
+	movq	%r12, %rdi
+	movq	%rsi, 8(%rsp)
+	call	_Znwm
+	movq	8(%rbx), %r8
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+	leaq	8(%rax), %r13
+	movq	%r8, %rax
+	subq	%rdi, %rax
+	andq	$-8, %rax
+	addq	%rbp, %rax
+	movq	%rax, %rdx
+	je	.L445
+	movq	8(%rsp), %rsi
+	movq	(%rsi), %rax
+	movq	%rax, (%rdx)
+.L445:
+	cmpq	%r8, %rdi
+	je	.L446
+	movq	%rdi, %rdx
+	movq	%rbp, %rcx
+	.p2align 4,,10
+	.p2align 3
+.L449:
+	testq	%rcx, %rcx
+	je	.L447
+	movq	(%rdx), %rsi
+	movq	%rsi, (%rcx)
+.L447:
+	addq	$8, %rdx
+	addq	$8, %rcx
+	cmpq	%r8, %rdx
+	jne	.L449
+	leaq	8(%rdi), %rax
+	subq	%rax, %rdx
+	shrq	$3, %rdx
+	leaq	16(%rbp,%rdx,8), %r13
+.L446:
+	testq	%rdi, %rdi
+	je	.L450
+	call	_ZdlPv
+.L450:
+	movq	%rbp, (%rbx)
+	addq	%r12, %rbp
+	movq	%r13, 8(%rbx)
+	movq	%rbp, 16(%rbx)
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L465:
+	.cfi_restore_state
+	leaq	(%rax,%rax), %rdx
+	cmpq	%rdx, %rax
+	jbe	.L466
+.L453:
+	movq	$-8, %r12
+	jmp	.L444
+.L466:
+	movabsq	$2305843009213693951, %rcx
+	cmpq	%rcx, %rdx
+	ja	.L453
+	movq	%rax, %r12
+	salq	$4, %r12
+	jmp	.L444
+	.cfi_endproc
+.LFE5262:
+	.size	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_, .-_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_
+	.weak	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIJS1_EEEvDpOT_
+	.set	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIJS1_EEEvDpOT_,_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE
+	.type	_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE, @function
+_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE:
+.LFB4554:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA4554
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	movq	%rdi, %r13
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 64
+	movq	(%rdx), %rbx
+	movq	8(%rdx), %r12
+	cmpq	%r12, %rbx
+	je	.L468
+	movl	$-1, %edx
+	movq	%rcx, %r14
+	movq	(%rcx), %rax
+	movl	%edx, %ebp
+	movq	%rbx, %rcx
+	.p2align 4,,10
+	.p2align 3
+.L470:
+	movl	(%rcx), %esi
+	addq	$4, %rcx
+	xorl	$1, %esi
+	movslq	%esi, %rsi
+	movzwl	(%rax,%rsi,2), %esi
+	andl	%esi, %edx
+	orl	%ebp, %edx
+	andl	%esi, %ebp
+	cmpq	%rcx, %r12
+	jne	.L470
+	movq	$0, 0(%r13)
+	movq	$0, 8(%r13)
+	xorl	%edx, %ebp
+	movq	$0, 16(%r13)
+	jmp	.L476
+	.p2align 4,,10
+	.p2align 3
+.L471:
+	addq	$4, %rbx
+	cmpq	%rbx, %r12
+	je	.L467
+.L490:
+	movq	(%r14), %rax
+.L476:
+	movl	(%rbx), %ecx
+	movl	%ecx, %edx
+	movslq	%ecx, %rsi
+	xorl	$1, %edx
+	movslq	%edx, %rdx
+	movzwl	(%rax,%rdx,2), %edx
+	orw	(%rax,%rsi,2), %dx
+	notl	%edx
+	andw	%bp, %dx
+	je	.L471
+	movq	8(%r13), %rax
+	cmpq	16(%r13), %rax
+	movl	%ecx, (%rsp)
+	movw	%dx, 4(%rsp)
+	je	.L472
+	testq	%rax, %rax
+	je	.L473
+	movq	(%rsp), %rdx
+	movq	%rdx, (%rax)
+.L473:
+	addq	$4, %rbx
+	addq	$8, %rax
+	cmpq	%rbx, %r12
+	movq	%rax, 8(%r13)
+	jne	.L490
+.L467:
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	movq	%r13, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L472:
+	.cfi_restore_state
+	movq	%rsp, %rsi
+	movq	%r13, %rdi
+.LEHB14:
+	call	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIS1_EEEvDpOT_
+.LEHE14:
+	jmp	.L471
+.L468:
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	jmp	.L467
+.L479:
+	movq	0(%r13), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L478
+	call	_ZdlPv
+.L478:
+	movq	%rbx, %rdi
+.LEHB15:
+	call	_Unwind_Resume
+.LEHE15:
+	.cfi_endproc
+.LFE4554:
+	.section	.gcc_except_table
+.LLSDA4554:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE4554-.LLSDACSB4554
+.LLSDACSB4554:
+	.uleb128 .LEHB14-.LFB4554
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 .L479-.LFB4554
+	.uleb128 0
+	.uleb128 .LEHB15-.LFB4554
+	.uleb128 .LEHE15-.LEHB15
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE4554:
+	.text
+	.size	_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE, .-_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE
+	.p2align 4,,15
+	.type	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1, @function
+_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1:
+.LFB5951:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA5951
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movl	$1, %ecx
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	movq	%rdi, %r14
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$120, %rsp
+	.cfi_def_cfa_offset 176
+	movq	24(%rdi), %rdx
+	movq	(%rdi), %rax
+	leaq	48(%rsp), %r9
+	leaq	32(%rsp), %r8
+	movq	8(%rdi), %rbp
+	xorl	%edi, %edi
+	movq	%rax, 8(%rsp)
+	movq	8(%rdx), %rax
+	subq	(%rdx), %rax
+	movl	$1, %edx
+	sarq	$2, %rax
+	movslq	%eax, %rsi
+	call	GOMP_loop_dynamic_start
+	testb	%al, %al
+	je	.L492
+	call	omp_get_thread_num
+	cltq
+	leaq	(%rax,%rax,2), %r8
+	leaq	0(,%r8,8), %r15
+.L496:
+	movq	32(%rsp), %rax
+	movl	48(%rsp), %ebx
+	movl	%eax, 24(%rsp)
+	cltq
+	movl	%ebx, 28(%rsp)
+	salq	$2, %rax
+	movq	%rax, 16(%rsp)
+.L495:
+	movq	24(%r14), %rax
+	movq	16(%rsp), %rbx
+	movq	(%rax), %rax
+	movl	(%rax,%rbx), %eax
+	xorl	$1, %eax
+	cltq
+	leaq	(%rax,%rax,2), %rdx
+	movq	56(%rbp), %rax
+	leaq	(%rax,%rdx,8), %rax
+	movq	8(%rax), %rsi
+	movq	(%rax), %rbx
+	cmpq	%rsi, %rbx
+	movq	%rsi, (%rsp)
+	je	.L499
+	.p2align 4,,10
+	.p2align 3
+.L520:
+	movslq	(%rbx), %rax
+	movq	8(%rsp), %rcx
+	leaq	80(%rsp), %rdi
+	movq	%rbp, %rsi
+	leaq	(%rax,%rax,2), %rdx
+	movq	32(%rbp), %rax
+	leaq	(%rax,%rdx,8), %rdx
+	call	_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE
+	movq	80(%rsp), %rdi
+	movq	88(%rsp), %r13
+	cmpq	%r13, %rdi
+	movq	%rdi, %r12
+	je	.L505
+	.p2align 4,,10
+	.p2align 3
+.L515:
+	movq	16(%r14), %rax
+	movq	%r15, %rdi
+	movq	(%r12), %rcx
+	addq	(%rax), %rdi
+	movq	%rcx, 64(%rsp)
+	movq	8(%rdi), %rax
+	cmpq	16(%rdi), %rax
+	je	.L501
+	testq	%rax, %rax
+	je	.L502
+	movq	%rcx, (%rax)
+.L502:
+	addq	$8, %rax
+	movq	%rax, 8(%rdi)
+.L503:
+	addq	$8, %r12
+	cmpq	%r12, %r13
+	jne	.L515
+	movq	80(%rsp), %rdi
+.L505:
+	testq	%rdi, %rdi
+	je	.L498
+	call	_ZdlPv
+.L498:
+	addq	$4, %rbx
+	cmpq	%rbx, (%rsp)
+	jne	.L520
+.L499:
+	addl	$1, 24(%rsp)
+	addq	$4, 16(%rsp)
+	movl	24(%rsp), %eax
+	cmpl	%eax, 28(%rsp)
+	jg	.L495
+	leaq	48(%rsp), %rsi
+	leaq	32(%rsp), %rdi
+	call	GOMP_loop_dynamic_next
+	testb	%al, %al
+	jne	.L496
+.L492:
+	call	GOMP_loop_end_nowait
+	addq	$120, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L501:
+	.cfi_restore_state
+	leaq	64(%rsp), %rsi
+	call	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_
+	jmp	.L503
+	.cfi_endproc
+.LFE5951:
+	.section	.gcc_except_table
+.LLSDA5951:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE5951-.LLSDACSB5951
+.LLSDACSB5951:
+.LLSDACSE5951:
+	.text
+	.size	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1, .-_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1
+	.p2align 4,,15
+	.type	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0, @function
+_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0:
+.LFB5950:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA5950
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movq	%rdi, %r15
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$72, %rsp
+	.cfi_def_cfa_offset 128
+	movq	8(%rdi), %r12
+	movq	(%rdi), %rax
+	movl	84(%r12), %ebp
+	movq	%rax, (%rsp)
+	call	omp_get_num_threads
+	movl	%eax, %ebx
+	call	omp_get_thread_num
+	movslq	%eax, %rsi
+	movl	%ebp, %eax
+	cltd
+	idivl	%ebx
+	cmpl	%edx, %esi
+	movl	%eax, %ecx
+	jge	.L534
+	addl	$1, %ecx
+	xorl	%edx, %edx
+.L534:
+	movl	%ecx, %eax
+	imull	%esi, %eax
+	addl	%eax, %edx
+	addl	%edx, %ecx
+	cmpl	%ecx, %edx
+	jge	.L522
+	subl	%edx, %ecx
+	movslq	%edx, %rax
+	leaq	(%rsi,%rsi,2), %r8
+	leal	-1(%rcx), %edx
+	leaq	(%rax,%rax,2), %rbp
+	leaq	0(,%r8,8), %r13
+	leaq	1(%rax,%rdx), %rax
+	salq	$3, %rbp
+	leaq	(%rax,%rax,2), %r14
+	leaq	0(,%r14,8), %rax
+	movq	%rax, 8(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L527:
+	movq	%rbp, %rdx
+	addq	32(%r12), %rdx
+	movq	(%rsp), %rcx
+	leaq	32(%rsp), %rdi
+	movq	%r12, %rsi
+	call	_ZN14MultiBitSolver12get_rem_litsERKSt6vectorIiSaIiEERKS0_ItSaItEE
+	movq	32(%rsp), %rdi
+	movq	40(%rsp), %r14
+	cmpq	%r14, %rdi
+	movq	%rdi, %rbx
+	je	.L532
+	.p2align 4,,10
+	.p2align 3
+.L539:
+	movq	16(%r15), %rax
+	movq	%r13, %rdi
+	movq	(%rbx), %rcx
+	addq	(%rax), %rdi
+	movq	%rcx, 16(%rsp)
+	movq	8(%rdi), %rax
+	cmpq	16(%rdi), %rax
+	je	.L528
+	testq	%rax, %rax
+	je	.L529
+	movq	%rcx, (%rax)
+.L529:
+	addq	$8, %rax
+	movq	%rax, 8(%rdi)
+.L530:
+	addq	$8, %rbx
+	cmpq	%rbx, %r14
+	jne	.L539
+	movq	32(%rsp), %rdi
+.L532:
+	testq	%rdi, %rdi
+	je	.L526
+	call	_ZdlPv
+.L526:
+	addq	$24, %rbp
+	cmpq	8(%rsp), %rbp
+	jne	.L527
+.L522:
+	addq	$72, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L528:
+	.cfi_restore_state
+	leaq	16(%rsp), %rsi
+	call	_ZNSt6vectorISt4pairIitESaIS1_EE19_M_emplace_back_auxIIRKS1_EEEvDpOT_
+	jmp	.L530
+	.cfi_endproc
+.LFE5950:
+	.section	.gcc_except_table
+.LLSDA5950:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE5950-.LLSDACSB5950
+.LLSDACSB5950:
+.LLSDACSE5950:
+	.text
+	.size	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0, .-_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0
+	.section	.text._ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE,"axG",@progbits,_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE
+	.type	_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE, @function
+_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE:
+.LFB5539:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA5539
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	movq	%rsi, %r15
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	movq	%rdx, %r13
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	movq	%rcx, %r12
+	movl	$1, %ecx
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	movq	%rdi, %rbp
+	leaq	32(%rdi), %rdi
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+	movq	-8(%rdi), %rdx
+	movq	-24(%rdi), %rsi
+	movq	8(%rdi), %r14
+.LEHB16:
+	call	_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm
+.LEHE16:
+	testb	%al, %al
+	je	.L544
+	movabsq	$2305843009213693951, %rax
+	movq	%rdx, %rbx
+	cmpq	%rax, %rdx
+	ja	.L571
+	leaq	0(,%rdx,8), %r15
+	movq	%r15, %rdi
+.LEHB17:
+	call	_Znwm
+	xorl	%esi, %esi
+	movq	%rax, %rdi
+	movq	%r15, %rdx
+	movq	%rax, %r14
+	call	memset
+	movq	16(%rbp), %rsi
+	xorl	%edi, %edi
+	movq	$0, 16(%rbp)
+	leaq	16(%rbp), %r10
+	testq	%rsi, %rsi
+	jne	.L568
+	jmp	.L550
+	.p2align 4,,10
+	.p2align 3
+.L548:
+	movq	(%r9), %rax
+	movq	%rax, (%rsi)
+	movq	(%rcx), %rax
+	movq	%rsi, (%rax)
+.L549:
+	testq	%r8, %r8
+	je	.L550
+.L572:
+	movq	%r8, %rsi
+.L568:
+	movslq	8(%rsi), %rax
+	xorl	%edx, %edx
+	movq	(%rsi), %r8
+	divq	%rbx
+	leaq	(%r14,%rdx,8), %rcx
+	movq	(%rcx), %r9
+	testq	%r9, %r9
+	jne	.L548
+	movq	16(%rbp), %rax
+	movq	%rax, (%rsi)
+	movq	%rsi, 16(%rbp)
+	movq	%r10, (%rcx)
+	cmpq	$0, (%rsi)
+	je	.L558
+	testq	%r8, %r8
+	movq	%rsi, (%r14,%rdi,8)
+	movq	%rdx, %rdi
+	jne	.L572
+	.p2align 4,,10
+	.p2align 3
+.L550:
+	movq	0(%rbp), %rdi
+	call	_ZdlPv
+	xorl	%edx, %edx
+	movq	%r13, %rax
+	movq	%r14, 0(%rbp)
+	divq	%rbx
+	movq	%rbx, 8(%rbp)
+	movq	%rdx, %r15
+	salq	$3, %r15
+	leaq	(%r14,%r15), %rax
+	movq	(%rax), %rcx
+	testq	%rcx, %rcx
+	je	.L554
+.L573:
+	movq	(%rcx), %rdx
+	movq	%rdx, (%r12)
+	movq	(%rax), %rax
+	movq	%r12, (%rax)
+.L555:
+	addq	$1, 24(%rbp)
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	movq	%r12, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L544:
+	.cfi_restore_state
+	movq	0(%rbp), %r14
+	salq	$3, %r15
+	leaq	(%r14,%r15), %rax
+	movq	(%rax), %rcx
+	testq	%rcx, %rcx
+	jne	.L573
+.L554:
+	movq	16(%rbp), %rdx
+	movq	%rdx, (%r12)
+	movq	%r12, 16(%rbp)
+	movq	(%r12), %rdx
+	testq	%rdx, %rdx
+	je	.L556
+	movslq	8(%rdx), %rax
+	xorl	%edx, %edx
+	divq	8(%rbp)
+	movq	%r15, %rax
+	movq	%r12, (%r14,%rdx,8)
+	addq	0(%rbp), %rax
+.L556:
+	leaq	16(%rbp), %rdx
+	movq	%rdx, (%rax)
+	jmp	.L555
+	.p2align 4,,10
+	.p2align 3
+.L558:
+	movq	%rdx, %rdi
+	jmp	.L549
+.L571:
+	call	_ZSt17__throw_bad_allocv
+.LEHE17:
+.L561:
+	movq	%rax, %rdi
+	call	__cxa_begin_catch
+	movq	%r14, 40(%rbp)
+.LEHB18:
+	call	__cxa_rethrow
+.LEHE18:
+.L560:
+	movq	%rax, %rbx
+	call	__cxa_end_catch
+	movq	%rbx, %rdi
+	call	__cxa_begin_catch
+	movq	%r12, %rdi
+	call	_ZdlPv
+.LEHB19:
+	call	__cxa_rethrow
+.LEHE19:
+.L559:
+	movq	%rax, %rbx
+	call	__cxa_end_catch
+	movq	%rbx, %rdi
+.LEHB20:
+	call	_Unwind_Resume
+.LEHE20:
+	.cfi_endproc
+.LFE5539:
+	.section	.gcc_except_table
+	.align 4
+.LLSDA5539:
+	.byte	0xff
+	.byte	0x3
+	.uleb128 .LLSDATT5539-.LLSDATTD5539
+.LLSDATTD5539:
+	.byte	0x1
+	.uleb128 .LLSDACSE5539-.LLSDACSB5539
+.LLSDACSB5539:
+	.uleb128 .LEHB16-.LFB5539
+	.uleb128 .LEHE16-.LEHB16
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB17-.LFB5539
+	.uleb128 .LEHE17-.LEHB17
+	.uleb128 .L561-.LFB5539
+	.uleb128 0x1
+	.uleb128 .LEHB18-.LFB5539
+	.uleb128 .LEHE18-.LEHB18
+	.uleb128 .L560-.LFB5539
+	.uleb128 0x3
+	.uleb128 .LEHB19-.LFB5539
+	.uleb128 .LEHE19-.LEHB19
+	.uleb128 .L559-.LFB5539
+	.uleb128 0
+	.uleb128 .LEHB20-.LFB5539
+	.uleb128 .LEHE20-.LEHB20
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE5539:
+	.byte	0x1
+	.byte	0
+	.byte	0
+	.byte	0x7d
+	.align 4
+	.long	0
+
+.LLSDATT5539:
+	.section	.text._ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE,"axG",@progbits,_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE,comdat
+	.size	_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE, .-_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE
+	.section	.rodata.str1.1
+.LC3:
+	.string	"whilecount %i\n"
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE
+	.type	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE, @function
+_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE:
+.LFB4560:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA4560
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	movq	%rsi, %rbx
+	subq	$216, %rsp
+	.cfi_def_cfa_offset 272
+	movq	%rdi, 24(%rsp)
+	movl	$96, %edi
+	movq	$0, 32(%rsp)
+	movq	$0, 40(%rsp)
+	movq	$0, 48(%rsp)
+.LEHB21:
+	call	_Znwm
+.LEHE21:
+	leaq	96(%rax), %rcx
+	testq	%rax, %rax
+	movq	%rax, 32(%rsp)
+	movq	%rcx, 48(%rsp)
+	je	.L575
+	movq	%rax, %rdx
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	addq	$24, %rdx
+	movq	$0, 16(%rax)
+	je	.L576
+.L669:
+	movq	%rdx, %rax
+	movq	$0, (%rdx)
+	movq	$0, 8(%rdx)
+	addq	$24, %rax
+	movq	$0, 16(%rdx)
+	je	.L577
+.L670:
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	movq	$0, 16(%rax)
+	addq	$24, %rax
+	je	.L578
+.L671:
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	movq	$0, 16(%rax)
+.L578:
+	leaq	160(%rsp), %rax
+	movl	$10, %esi
+	movq	%rcx, 40(%rsp)
+	movq	$0, 64(%rsp)
+	movq	$0, 72(%rsp)
+	leaq	32(%rax), %rdi
+	movq	$0, 80(%rsp)
+	movq	$0, 168(%rsp)
+	movq	$0, 176(%rsp)
+	movq	$0, 184(%rsp)
+	movl	$0x3f800000, 192(%rsp)
+	movq	$0, 200(%rsp)
+.LEHB22:
+	call	_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm
+	movabsq	$2305843009213693951, %rdx
+	movq	%rax, 168(%rsp)
+	cmpq	%rdx, %rax
+	ja	.L786
+	leaq	0(,%rax,8), %rbp
+	movq	%rbp, %rdi
+	call	_Znwm
+.LEHE22:
+	xorl	%esi, %esi
+	movq	%rbp, %rdx
+	movq	%rax, %rdi
+	movq	%rax, %r12
+	call	memset
+	movq	24(%rsp), %rax
+	leaq	96(%rsp), %rsi
+	xorl	%edx, %edx
+	movl	$_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0, %edi
+	movq	%r12, 160(%rsp)
+	movq	%rbx, 96(%rsp)
+	movq	%rax, 104(%rsp)
+	leaq	32(%rsp), %rax
+	movq	%rax, 112(%rsp)
+	call	GOMP_parallel_start
+	leaq	96(%rsp), %rdi
+	call	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.0
+	call	GOMP_parallel_end
+	movq	40(%rsp), %rax
+	movq	32(%rsp), %r14
+	cmpq	%rax, %r14
+	movq	%rax, 8(%rsp)
+	je	.L585
+.L732:
+	movq	8(%r14), %rax
+	movq	(%r14), %rbp
+	cmpq	%rax, %rbp
+	movq	%rax, (%rsp)
+	je	.L597
+.L734:
+	movl	0(%rbp), %r12d
+	movq	168(%rsp), %rsi
+	xorl	%edx, %edx
+	movq	160(%rsp), %r10
+	movzwl	4(%rbp), %r11d
+	movl	%r12d, %r9d
+	xorl	$1, %r9d
+	movslq	%r9d, %rax
+	divq	%rsi
+	movq	(%r10,%rdx,8), %rax
+	movq	%rdx, %r13
+	testq	%rax, %rax
+	je	.L586
+	movq	(%rax), %rcx
+	testq	%rcx, %rcx
+	je	.L586
+	movl	8(%rcx), %edi
+	xorl	%r8d, %r8d
+	jmp	.L592
+	.p2align 4,,10
+	.p2align 3
+.L587:
+	testq	%r8, %r8
+	jne	.L589
+	movq	(%rcx), %rcx
+	testq	%rcx, %rcx
+	je	.L591
+.L590:
+	movl	8(%rcx), %edi
+	xorl	%edx, %edx
+	movslq	%edi, %rax
+	divq	%rsi
+	cmpq	%rdx, %r13
+	jne	.L591
+.L592:
+	cmpl	%edi, %r9d
+	jne	.L587
+	movq	(%rcx), %rcx
+	addq	$1, %r8
+	testq	%rcx, %rcx
+	jne	.L590
+.L591:
+	testq	%r8, %r8
+	je	.L586
+.L589:
+	addq	$8, %rbp
+	cmpq	%rbp, (%rsp)
+	jne	.L734
+.L597:
+	addq	$24, %r14
+	cmpq	%r14, 8(%rsp)
+	jne	.L732
+.L585:
+	movq	176(%rsp), %rbp
+	xorl	%eax, %eax
+	testq	%rbp, %rbp
+	movq	%rbp, %rdx
+	je	.L787
+.L733:
+	movq	(%rdx), %rdx
+	addq	$1, %rax
+	testq	%rdx, %rdx
+	jne	.L733
+	movabsq	$4611686018427387903, %rdx
+	cmpq	%rdx, %rax
+	ja	.L788
+	leaq	0(,%rax,4), %r12
+	movq	%r12, %rdi
+.LEHB23:
+	call	_Znwm
+	addq	%rax, %r12
+	movq	%rax, %rdx
+.L603:
+	movl	8(%rbp), %ecx
+	addq	$4, %rdx
+	movl	%ecx, -4(%rdx)
+	movq	0(%rbp), %rbp
+	testq	%rbp, %rbp
+	jne	.L603
+	jmp	.L582
+	.p2align 4,,10
+	.p2align 3
+.L586:
+	movq	(%rbx), %rax
+	movslq	%r12d, %r15
+	xorl	%edx, %edx
+	orw	%r11w, (%rax,%r15,2)
+	movq	%r15, %rax
+	divq	%rsi
+	movq	(%r10,%rdx,8), %rax
+	movq	%rdx, %r13
+	testq	%rax, %rax
+	je	.L593
+	movq	(%rax), %rcx
+	movl	8(%rcx), %edi
+.L595:
+	cmpl	%r12d, %edi
+	je	.L589
+	movq	(%rcx), %rcx
+	testq	%rcx, %rcx
+	je	.L593
+	movl	8(%rcx), %edi
+	xorl	%edx, %edx
+	movslq	%edi, %rax
+	divq	%rsi
+	cmpq	%rdx, %r13
+	je	.L595
+.L593:
+	movl	$16, %edi
+	call	_Znwm
+	testq	%rax, %rax
+	je	.L596
+	movq	$0, (%rax)
+	movl	%r12d, 8(%rax)
+.L596:
+	leaq	160(%rsp), %rdi
+	movq	%rax, %rcx
+	movq	%r15, %rdx
+	movq	%r13, %rsi
+	call	_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE
+.LEHE23:
+	jmp	.L589
+.L677:
+	movq	176(%rsp), %rdi
+	movq	%rax, %r12
+	testq	%rdi, %rdi
+	je	.L661
+.L740:
+	movq	(%rdi), %rbx
+	call	_ZdlPv
+	testq	%rbx, %rbx
+	je	.L661
+	movq	%rbx, %rdi
+	jmp	.L740
+.L576:
+	addq	$48, %rax
+	jmp	.L670
+.L575:
+	movl	$24, %edx
+	jmp	.L669
+.L661:
+	movq	168(%rsp), %rax
+	movq	160(%rsp), %rdi
+	xorl	%esi, %esi
+	leaq	0(,%rax,8), %rdx
+	call	memset
+	movq	160(%rsp), %rdi
+	movq	$0, 184(%rsp)
+	movq	$0, 176(%rsp)
+	call	_ZdlPv
+.L660:
+	movq	64(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L663
+	call	_ZdlPv
+.L663:
+	movq	40(%rsp), %rbp
+	movq	32(%rsp), %rbx
+	cmpq	%rbx, %rbp
+	je	.L675
+.L667:
+	movq	(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L665
+	call	_ZdlPv
+.L665:
+	addq	$24, %rbx
+	cmpq	%rbx, %rbp
+	jne	.L667
+	movq	32(%rsp), %rdi
+	jmp	.L664
+.L675:
+	movq	%rbp, %rdi
+.L664:
+	testq	%rdi, %rdi
+	je	.L668
+	call	_ZdlPv
+.L668:
+	movq	%r12, %rdi
+.LEHB24:
+	call	_Unwind_Resume
+.LEHE24:
+.L786:
+.LEHB25:
+	call	_ZSt17__throw_bad_allocv
+.LEHE25:
+.L787:
+	xorl	%r12d, %r12d
+	xorl	%edx, %edx
+.L582:
+	movq	64(%rsp), %rdi
+	movq	%rdx, 72(%rsp)
+	movq	%rax, 64(%rsp)
+	movq	%r12, 80(%rsp)
+	testq	%rdi, %rdi
+	je	.L604
+	call	_ZdlPv
+	movq	72(%rsp), %rdx
+	movq	64(%rsp), %rax
+.L604:
+	subq	%rax, %rdx
+	movl	$0, 20(%rsp)
+	movq	%rdx, %rax
+	sarq	$2, %rax
+	testq	%rax, %rax
+	je	.L649
+.L769:
+	movl	$96, %edi
+	addl	$1, 20(%rsp)
+.LEHB26:
+	call	_Znwm
+	testq	%rax, %rax
+	leaq	96(%rax), %rdx
+	je	.L610
+	cmpq	$-24, %rax
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	movq	$0, 16(%rax)
+	je	.L609
+.L610:
+	movq	$0, 24(%rax)
+	movq	$0, 32(%rax)
+	movq	$0, 40(%rax)
+.L609:
+	cmpq	$-48, %rax
+	je	.L611
+	movq	$0, 48(%rax)
+	movq	$0, 56(%rax)
+	movq	$0, 64(%rax)
+.L611:
+	cmpq	$-72, %rax
+	je	.L612
+	movq	$0, 72(%rax)
+	movq	$0, 80(%rax)
+	movq	$0, 88(%rax)
+.L612:
+	movq	32(%rsp), %rbp
+	movq	40(%rsp), %r13
+	movq	%rax, 32(%rsp)
+	movq	%rdx, 40(%rsp)
+	movq	%rdx, 48(%rsp)
+	cmpq	%r13, %rbp
+	movq	%rbp, %r12
+	je	.L617
+.L736:
+	movq	(%r12), %rdi
+	testq	%rdi, %rdi
+	je	.L616
+	call	_ZdlPv
+.L616:
+	addq	$24, %r12
+	cmpq	%r12, %r13
+	jne	.L736
+.L617:
+	testq	%rbp, %rbp
+	je	.L615
+	movq	%rbp, %rdi
+	call	_ZdlPv
+.L615:
+	movq	24(%rsp), %rax
+	leaq	128(%rsp), %rsi
+	xorl	%edx, %edx
+	movl	$_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1, %edi
+	movq	%rbx, 128(%rsp)
+	movq	%rax, 136(%rsp)
+	leaq	32(%rsp), %rax
+	movq	%rax, 144(%rsp)
+	leaq	64(%rsp), %rax
+	movq	%rax, 152(%rsp)
+	call	GOMP_parallel_start
+	leaq	128(%rsp), %rdi
+	call	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE._omp_fn.1
+	call	GOMP_parallel_end
+	movq	176(%rsp), %rdi
+	testq	%rdi, %rdi
+	jne	.L737
+	jmp	.L622
+	.p2align 4,,10
+	.p2align 3
+.L789:
+	movq	%rbp, %rdi
+.L737:
+	movq	(%rdi), %rbp
+	call	_ZdlPv
+	testq	%rbp, %rbp
+	jne	.L789
+.L622:
+	movq	168(%rsp), %rax
+	movq	160(%rsp), %rdi
+	xorl	%esi, %esi
+	leaq	0(,%rax,8), %rdx
+	call	memset
+	movq	40(%rsp), %rax
+	movq	32(%rsp), %rdi
+	movq	$0, 184(%rsp)
+	movq	$0, 176(%rsp)
+	cmpq	%rax, %rdi
+	movq	%rax, 8(%rsp)
+	movq	%rdi, (%rsp)
+	je	.L621
+.L738:
+	movq	(%rsp), %rax
+	movq	8(%rax), %r15
+	movq	(%rax), %r12
+	cmpq	%r15, %r12
+	je	.L638
+	.p2align 4,,10
+	.p2align 3
+.L739:
+	movl	(%r12), %ebp
+	movq	168(%rsp), %rdi
+	xorl	%edx, %edx
+	movq	160(%rsp), %r10
+	movzwl	4(%r12), %r11d
+	movl	%ebp, %r9d
+	xorl	$1, %r9d
+	movslq	%r9d, %rax
+	divq	%rdi
+	movq	(%r10,%rdx,8), %rax
+	movq	%rdx, %r13
+	testq	%rax, %rax
+	je	.L627
+	movq	(%rax), %rcx
+	testq	%rcx, %rcx
+	je	.L627
+	movl	8(%rcx), %esi
+	xorl	%r8d, %r8d
+	jmp	.L633
+	.p2align 4,,10
+	.p2align 3
+.L628:
+	testq	%r8, %r8
+	jne	.L630
+	movq	(%rcx), %rcx
+	testq	%rcx, %rcx
+	je	.L632
+.L631:
+	movl	8(%rcx), %esi
+	xorl	%edx, %edx
+	movslq	%esi, %rax
+	divq	%rdi
+	cmpq	%rdx, %r13
+	jne	.L632
+.L633:
+	cmpl	%esi, %r9d
+	jne	.L628
+	movq	(%rcx), %rcx
+	addq	$1, %r8
+	testq	%rcx, %rcx
+	jne	.L631
+	.p2align 4,,10
+	.p2align 3
+.L632:
+	testq	%r8, %r8
+	je	.L627
+.L630:
+	addq	$8, %r12
+	cmpq	%r12, %r15
+	jne	.L739
+.L638:
+	addq	$24, (%rsp)
+	movq	(%rsp), %rax
+	cmpq	%rax, 8(%rsp)
+	jne	.L738
+	movq	176(%rsp), %rbp
+	testq	%rbp, %rbp
+	je	.L621
+	movq	%rbp, %rax
+	xorl	%r12d, %r12d
+.L642:
+	movq	(%rax), %rax
+	addq	$1, %r12
+	testq	%rax, %rax
+	jne	.L642
+	movabsq	$4611686018427387903, %rax
+	cmpq	%rax, %r12
+	ja	.L790
+	salq	$2, %r12
+	movq	%r12, %rdi
+	call	_Znwm
+	addq	%rax, %r12
+	movq	%rax, %rdx
+.L645:
+	movl	8(%rbp), %ecx
+	addq	$4, %rdx
+	movl	%ecx, -4(%rdx)
+	movq	0(%rbp), %rbp
+	testq	%rbp, %rbp
+	jne	.L645
+.L644:
+	movq	64(%rsp), %rdi
+	movq	%rdx, 72(%rsp)
+	movq	%rax, 64(%rsp)
+	movq	%r12, 80(%rsp)
+	testq	%rdi, %rdi
+	je	.L646
+	call	_ZdlPv
+	movq	64(%rsp), %rax
+	movq	72(%rsp), %rdx
+.L646:
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	sarq	$2, %rax
+	testq	%rax, %rax
+	jne	.L769
+	cmpl	$10, 20(%rsp)
+	jle	.L649
+	movl	20(%rsp), %esi
+	movl	$.LC3, %edi
+	call	printf
+.L649:
+	movq	176(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L607
+.L735:
+	movq	(%rdi), %rbx
+	call	_ZdlPv
+	testq	%rbx, %rbx
+	je	.L607
+	movq	%rbx, %rdi
+	jmp	.L735
+	.p2align 4,,10
+	.p2align 3
+.L627:
+	movq	(%rbx), %rax
+	movslq	%ebp, %r14
+	xorl	%edx, %edx
+	orw	%r11w, (%rax,%r14,2)
+	movq	%r14, %rax
+	divq	%rdi
+	movq	(%r10,%rdx,8), %rax
+	movq	%rdx, %r13
+	testq	%rax, %rax
+	je	.L634
+	movq	(%rax), %rcx
+	movl	8(%rcx), %esi
+	.p2align 4,,10
+	.p2align 3
+.L636:
+	cmpl	%esi, %ebp
+	je	.L630
+	movq	(%rcx), %rcx
+	testq	%rcx, %rcx
+	je	.L634
+	movl	8(%rcx), %esi
+	xorl	%edx, %edx
+	movslq	%esi, %rax
+	divq	%rdi
+	cmpq	%rdx, %r13
+	je	.L636
+.L634:
+	movl	$16, %edi
+	call	_Znwm
+	testq	%rax, %rax
+	je	.L637
+	movq	$0, (%rax)
+	movl	%ebp, 8(%rax)
+.L637:
+	leaq	160(%rsp), %rdi
+	movq	%rax, %rcx
+	movq	%r14, %rdx
+	movq	%r13, %rsi
+	call	_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEE
+	jmp	.L630
+.L790:
+	call	_ZSt17__throw_bad_allocv
+.L621:
+	xorl	%r12d, %r12d
+	xorl	%eax, %eax
+	xorl	%edx, %edx
+	jmp	.L644
+.L788:
+	call	_ZSt17__throw_bad_allocv
+.LEHE26:
+.L607:
+	movq	168(%rsp), %rax
+	movq	160(%rsp), %rdi
+	xorl	%esi, %esi
+	leaq	0(,%rax,8), %rdx
+	call	memset
+	movq	160(%rsp), %rdi
+	movq	$0, 184(%rsp)
+	movq	$0, 176(%rsp)
+	call	_ZdlPv
+	movq	64(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L651
+	call	_ZdlPv
+.L651:
+	movq	40(%rsp), %rbp
+	movq	32(%rsp), %rbx
+	cmpq	%rbx, %rbp
+	je	.L674
+.L656:
+	movq	(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L654
+	call	_ZdlPv
+.L654:
+	addq	$24, %rbx
+	cmpq	%rbx, %rbp
+	jne	.L656
+	movq	32(%rsp), %rdi
+	jmp	.L653
+.L674:
+	movq	%rbp, %rdi
+.L653:
+	testq	%rdi, %rdi
+	je	.L574
+	call	_ZdlPv
+.L574:
+	addq	$216, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L676:
+	.cfi_restore_state
+	movq	%rax, %r12
+	jmp	.L660
+.L577:
+	leaq	48(%rdx), %rax
+	jmp	.L671
+	.cfi_endproc
+.LFE4560:
+	.section	.gcc_except_table
+.LLSDA4560:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE4560-.LLSDACSB4560
+.LLSDACSB4560:
+	.uleb128 .LEHB21-.LFB4560
+	.uleb128 .LEHE21-.LEHB21
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB22-.LFB4560
+	.uleb128 .LEHE22-.LEHB22
+	.uleb128 .L676-.LFB4560
+	.uleb128 0
+	.uleb128 .LEHB23-.LFB4560
+	.uleb128 .LEHE23-.LEHB23
+	.uleb128 .L677-.LFB4560
+	.uleb128 0
+	.uleb128 .LEHB24-.LFB4560
+	.uleb128 .LEHE24-.LEHB24
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB25-.LFB4560
+	.uleb128 .LEHE25-.LEHB25
+	.uleb128 .L676-.LFB4560
+	.uleb128 0
+	.uleb128 .LEHB26-.LFB4560
+	.uleb128 .LEHE26-.LEHB26
+	.uleb128 .L677-.LFB4560
+	.uleb128 0
+.LLSDACSE4560:
+	.text
+	.size	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE, .-_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE
+	.section	.rodata.str1.1
+.LC4:
+	.string	"phi_master.size() == 2 * n"
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC5:
+	.string	"(phi_master[((i) << 1)] ^ phi_master[(((i) << 1) | 1)]) == (uintk_t)(-1)"
+	.align 8
+.LC7:
+	.string	"(phi_active[((pi[i]) << 1)] ^ phi_active[(((pi[i]) << 1) | 1)]) == (uintk_t)(-1)"
+	.align 8
+.LC8:
+	.string	"(phi_active[((i) << 1)] ^ phi_active[(((i) << 1) | 1)]) == (uintk_t)(-1)"
+	.text
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN14MultiBitSolver5solveERi
+	.type	_ZN14MultiBitSolver5solveERi, @function
+_ZN14MultiBitSolver5solveERi:
+.LFB4572:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA4572
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	movq	%rsi, %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$120, %rsp
+	.cfi_def_cfa_offset 176
+	movq	%rdi, 32(%rsp)
+	movl	$72, %edi
+	movq	%rdx, 56(%rsp)
+	movq	$0, 64(%rsp)
+.LEHB27:
+	call	_Znwm
+.LEHE27:
+	testq	%rax, %rax
+	movq	%rax, %rbx
+	je	.L891
+	movl	$1, 8(%rax)
+	movl	$1, 12(%rax)
+	leaq	24(%rax), %rax
+	movq	$_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE+16, -24(%rax)
+	movl	$_ZTISt19_Sp_make_shared_tag, %esi
+	movq	$0, 32(%rbx)
+	movq	%rax, 16(%rbx)
+	movq	$0, 40(%rbx)
+	movq	%rbx, %rdi
+	movq	$_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE+16, 24(%rbx)
+	movq	%r12, 48(%rbx)
+	movq	$_ZN14MultiBitSolver11remove_dupsEv, 56(%rbx)
+	movq	$0, 64(%rbx)
+	call	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info
+.L792:
+	leaq	80(%rsp), %rsi
+	leaq	64(%rsp), %rdi
+	movq	%rax, 80(%rsp)
+	movq	%rbx, 88(%rsp)
+.LEHB28:
+	call	_ZNSt6thread15_M_start_threadESt10shared_ptrINS_10_Impl_baseEE
+.LEHE28:
+	movq	88(%rsp), %rbx
+	testq	%rbx, %rbx
+	je	.L798
+	movl	$_ZL28__gthrw___pthread_key_createPjPFvPvE, %ebp
+	leaq	8(%rbx), %rax
+	testq	%rbp, %rbp
+	je	.L794
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L795:
+	cmpl	$1, %eax
+	je	.L967
+.L798:
+	cmpq	$0, 88(%r12)
+	jne	.L968
+.L956:
+	movq	64(%rsp), %rax
+	movl	$4, %edi
+	movq	%rax, 88(%r12)
+	call	omp_set_num_threads
+	movslq	80(%r12), %r8
+	movq	8(%r12), %rcx
+	movq	16(%r12), %rax
+	leal	(%r8,%r8), %edx
+	subq	%rcx, %rax
+	sarq	%rax
+	movslq	%edx, %rdx
+	cmpq	%rax, %rdx
+	jne	.L801
+	testl	%r8d, %r8d
+	jle	.L802
+	movzwl	(%rcx), %eax
+	xorw	2(%rcx), %ax
+	cmpw	$-1, %ax
+	jne	.L803
+	xorl	%eax, %eax
+	jmp	.L805
+	.p2align 4,,10
+	.p2align 3
+.L806:
+	leal	(%rax,%rax), %edx
+	movl	%edx, %edi
+	movslq	%edx, %rsi
+	orl	$1, %edi
+	movslq	%edi, %rdi
+	movzwl	(%rcx,%rdi,2), %edx
+	xorw	(%rcx,%rsi,2), %dx
+	cmpw	$-1, %dx
+	jne	.L803
+.L805:
+	addl	$1, %eax
+	cmpl	%r8d, %eax
+	jne	.L806
+.L802:
+	xorl	%r15d, %r15d
+	xorl	%r13d, %r13d
+	testq	%r8, %r8
+	jne	.L969
+.L807:
+	movq	40(%r12), %r9
+	movq	32(%r12), %r8
+	leaq	8(%r12), %rax
+	movl	$-1, %ebx
+	movq	%rax, 16(%rsp)
+	cmpq	%r9, %r8
+	je	.L811
+.L935:
+	movq	(%r8), %rax
+	movq	8(%r8), %rsi
+	cmpq	%rsi, %rax
+	je	.L822
+	movq	8(%r12), %rdi
+	xorl	%edx, %edx
+	.p2align 4,,10
+	.p2align 3
+.L824:
+	movslq	(%rax), %rcx
+	addq	$4, %rax
+	orw	(%rdi,%rcx,2), %dx
+	cmpq	%rax, %rsi
+	jne	.L824
+	andw	%dx, %bx
+	je	.L822
+	addq	$24, %r8
+	cmpq	%r8, %r9
+	jne	.L935
+.L811:
+	movl	$0, 12(%rsp)
+.L866:
+	leaq	96(%r12), %rdi
+	leaq	80(%rsp), %rsi
+	movq	$0, 80(%rsp)
+	movq	$0, 88(%rsp)
+	movq	$0, 96(%rsp)
+.LEHB29:
+	call	_ZN15ConcurrentQueueISt6vectorItSaItEEE4pushERKS2_
+.LEHE29:
+	movq	80(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L868
+	call	_ZdlPv
+.L868:
+	leaq	88(%r12), %rdi
+.LEHB30:
+	call	_ZNSt6thread4joinEv
+.LEHE30:
+	movq	56(%rsp), %rax
+	movl	12(%rsp), %ecx
+	movl	%ecx, (%rax)
+	movslq	80(%r12), %rbp
+	movq	32(%rsp), %rax
+	leaq	63(%rbp), %r14
+	movq	$0, (%rax)
+	movl	$0, 8(%rax)
+	movq	$0, 16(%rax)
+	movl	$0, 24(%rax)
+	shrq	$6, %r14
+	movq	$0, 32(%rax)
+	salq	$3, %r14
+	movq	%r14, %rdi
+.LEHB31:
+	call	_Znwm
+.LEHE31:
+	movq	%rax, %r15
+	addq	%rax, %r14
+	movq	32(%rsp), %rax
+	testq	%rbp, %rbp
+	movq	%r14, 32(%rax)
+	movq	%r15, (%rax)
+	movl	$0, 8(%rax)
+	leaq	63(%rbp), %rax
+	cmovns	%rbp, %rax
+	sarq	$6, %rax
+	leaq	(%r15,%rax,8), %rdx
+	movq	%rbp, %rax
+	sarq	$63, %rax
+	shrq	$58, %rax
+	addq	%rax, %rbp
+	andl	$63, %ebp
+	subq	%rax, %rbp
+	js	.L970
+.L869:
+	movq	32(%rsp), %rax
+	cmpq	%r15, %r14
+	movq	%rdx, 16(%rax)
+	movl	%ebp, 24(%rax)
+	je	.L873
+	leaq	8(%r15), %rax
+	xorl	%esi, %esi
+	movq	%r15, %rdi
+	subq	%rax, %r14
+	movq	%r14, %rax
+	shrq	$3, %rax
+	leaq	8(,%rax,8), %rdx
+	call	memset
+.L873:
+	movl	80(%r12), %edi
+	testl	%edi, %edi
+	jle	.L872
+	movzwl	%bx, %ebx
+	movq	8(%r12), %r9
+	xorl	%ecx, %ecx
+	movl	%ebx, %edx
+	movl	$1, %r8d
+	negl	%edx
+	andl	%ebx, %edx
+	jmp	.L881
+.L971:
+	orq	(%rsi), %rax
+	addq	$1, %rcx
+	cmpl	%ecx, %edi
+	movq	%rax, (%rsi)
+	jle	.L872
+.L881:
+	leal	(%rcx,%rcx), %r10d
+	movq	%rcx, %rax
+	shrq	$6, %rax
+	movslq	%r10d, %r10
+	leaq	(%r15,%rax,8), %rsi
+	movq	%r8, %rax
+	movzwl	(%r9,%r10,2), %r10d
+	salq	%cl, %rax
+	testl	%edx, %r10d
+	jne	.L971
+	notq	%rax
+	andq	(%rsi), %rax
+	addq	$1, %rcx
+	cmpl	%ecx, %edi
+	movq	%rax, (%rsi)
+	jg	.L881
+.L872:
+	testq	%r13, %r13
+	je	.L791
+	movq	%r13, %rdi
+	call	_ZdlPv
+.L791:
+	movq	32(%rsp), %rax
+	addq	$120, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L822:
+	.cfi_restore_state
+	leaq	4(%r13), %rax
+	leaq	264(%r12), %r14
+	movl	$0, 12(%rsp)
+	movq	%rax, 24(%rsp)
+	leaq	96(%r12), %rax
+	movq	%rax, 48(%rsp)
+.L867:
+	cmpq	%r15, %r13
+	je	.L828
+	movq	24(%rsp), %rax
+	movq	$0, 64(%rsp)
+	movq	$-1, 72(%rsp)
+	cmpq	%rax, %r15
+	movq	%rax, %rbx
+	je	.L828
+	.p2align 4,,10
+	.p2align 3
+.L936:
+	movq	%rbx, %rax
+	leaq	80(%rsp), %rdx
+	leaq	64(%rsp), %rdi
+	subq	%r13, %rax
+	movl	$_ZN3RNG4m_mtE, %esi
+	movq	$0, 80(%rsp)
+	sarq	$2, %rax
+	addq	$4, %rbx
+	movq	%rax, 88(%rsp)
+	call	_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE.constprop.199
+	leaq	0(%r13,%rax,4), %rax
+	movl	-4(%rbx), %edx
+	movl	(%rax), %ecx
+	movl	%ecx, -4(%rbx)
+	cmpq	%rbx, %r15
+	movl	%edx, (%rax)
+	jne	.L936
+.L828:
+	movl	80(%r12), %ecx
+	movq	$0, 80(%rsp)
+	movq	$0, 88(%rsp)
+	movq	$0, 96(%rsp)
+	leal	(%rcx,%rcx), %ebx
+	movslq	%ebx, %rbx
+	testq	%rbx, %rbx
+	jne	.L972
+	xorl	%ebp, %ebp
+	xorl	%eax, %eax
+	testl	%ecx, %ecx
+	movq	$0, 96(%rsp)
+	movq	%rbp, 88(%rsp)
+	jle	.L901
+.L981:
+	movq	%r13, %rbp
+	xorl	%ebx, %ebx
+	movl	$1, %edx
+	jmp	.L838
+	.p2align 4,,10
+	.p2align 3
+.L976:
+	movq	8(%r12), %r11
+	movl	%edi, %r8d
+	andw	(%r11,%r10,2), %r8w
+	orl	%edx, %r8d
+	movw	%r8w, (%rcx)
+	andw	(%r11,%r9,2), %di
+	orw	(%rsi), %di
+	movw	%di, (%rsi)
+	xorw	(%rcx), %di
+	cmpw	$-1, %di
+	jne	.L973
+	movl	80(%r12), %ecx
+	addl	$1, %ebx
+	addq	$4, %rbp
+	movl	$1, %edx
+	cmpl	%ebx, %ecx
+	jle	.L974
+.L838:
+	testb	%dl, %dl
+	jne	.L975
+.L834:
+	movl	0(%rbp), %ecx
+	leal	(%rcx,%rcx), %esi
+	movslq	%esi, %r10
+	orl	$1, %esi
+	movslq	%esi, %r9
+	leaq	(%rax,%r10,2), %rcx
+	leaq	(%rax,%r9,2), %rsi
+	movzwl	(%rcx), %edx
+	movzwl	(%rsi), %r8d
+	movl	%r8d, %edi
+	orl	%edx, %edi
+	xorw	$-1, %di
+	jne	.L976
+	xorl	%r8d, %edx
+	cmpw	$-1, %dx
+	jne	.L977
+	movl	80(%r12), %ecx
+	addl	$1, %ebx
+	xorl	%edx, %edx
+	addq	$4, %rbp
+	cmpl	%ebx, %ecx
+	jg	.L838
+.L974:
+	testl	%ecx, %ecx
+	jle	.L962
+	movzwl	2(%rax), %edx
+	xorw	(%rax), %dx
+	cmpw	$-1, %dx
+	jne	.L840
+	xorl	%edx, %edx
+	jmp	.L842
+	.p2align 4,,10
+	.p2align 3
+.L843:
+	leal	(%rdx,%rdx), %esi
+	movl	%esi, %r8d
+	movslq	%esi, %rdi
+	orl	$1, %r8d
+	movslq	%r8d, %r8
+	movzwl	(%rax,%r8,2), %esi
+	xorw	(%rax,%rdi,2), %si
+	cmpw	$-1, %si
+	jne	.L840
+.L842:
+	addl	$1, %edx
+	cmpl	%ecx, %edx
+	jne	.L843
+.L962:
+	movq	88(%rsp), %rdi
+.L833:
+	movq	8(%r12), %rsi
+	movq	16(%r12), %rdx
+	subq	%rax, %rdi
+	sarq	%rdi
+	subq	%rsi, %rdx
+	sarq	%rdx
+	cmpq	%rdx, %rdi
+	je	.L978
+.L844:
+	movq	16(%rsp), %rdi
+	leaq	80(%rsp), %rsi
+.LEHB32:
+	call	_ZNSt6vectorItSaItEEaSERKS1_
+	movl	12(%rsp), %ebx
+	movl	$1717986919, %eax
+	imull	%ebx
+	movl	%ebx, %eax
+	sarl	$31, %eax
+	sarl	%edx
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	cmpl	%eax, %ebx
+	jne	.L848
+	movq	16(%rsp), %rsi
+	movq	48(%rsp), %rdi
+	call	_ZN15ConcurrentQueueISt6vectorItSaItEEE4pushERKS2_
+.L848:
+	movq	%r14, %rdi
+	call	_ZNK15ConcurrentQueueItE5emptyEv
+	testb	%al, %al
+	je	.L852
+	movl	80(%r12), %r8d
+.L850:
+	testl	%r8d, %r8d
+	jle	.L856
+	movq	8(%r12), %rcx
+	movzwl	(%rcx), %eax
+	xorw	2(%rcx), %ax
+	cmpw	$-1, %ax
+	jne	.L857
+	xorl	%eax, %eax
+	jmp	.L859
+	.p2align 4,,10
+	.p2align 3
+.L860:
+	leal	(%rax,%rax), %edx
+	movl	%edx, %edi
+	movslq	%edx, %rsi
+	orl	$1, %edi
+	movslq	%edi, %rdi
+	movzwl	(%rcx,%rdi,2), %edx
+	xorw	(%rcx,%rsi,2), %dx
+	cmpw	$-1, %dx
+	jne	.L857
+.L859:
+	addl	$1, %eax
+	cmpl	%r8d, %eax
+	jne	.L860
+.L856:
+	movq	32(%r12), %r8
+	movq	40(%r12), %r9
+	movl	$-1, %ebx
+	cmpq	%r9, %r8
+	je	.L861
+	.p2align 4,,10
+	.p2align 3
+.L864:
+	movq	(%r8), %rax
+	movq	8(%r8), %rsi
+	cmpq	%rsi, %rax
+	je	.L905
+	movq	8(%r12), %rdi
+	xorl	%edx, %edx
+	.p2align 4,,10
+	.p2align 3
+.L863:
+	movslq	(%rax), %rcx
+	addq	$4, %rax
+	orw	(%rdi,%rcx,2), %dx
+	cmpq	%rax, %rsi
+	jne	.L863
+	andw	%dx, %bx
+	je	.L861
+	addq	$24, %r8
+	cmpq	%r8, %r9
+	jne	.L864
+.L861:
+	movq	80(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L865
+	call	_ZdlPv
+.L865:
+	addl	$1, 12(%rsp)
+	testw	%bx, %bx
+	je	.L867
+	jmp	.L866
+	.p2align 4,,10
+	.p2align 3
+.L975:
+	leaq	80(%rsp), %rsi
+	movq	%r12, %rdi
+	call	_ZN14MultiBitSolver16unit_propagationERSt6vectorItSaItEE
+	movq	80(%rsp), %rax
+	jmp	.L834
+	.p2align 4,,10
+	.p2align 3
+.L852:
+	leaq	64(%rsp), %rsi
+	movq	%r14, %rdi
+	call	_ZN15ConcurrentQueueItE7try_popERt
+.LEHE32:
+	testb	%al, %al
+	jne	.L852
+	movl	80(%r12), %r8d
+	testl	%r8d, %r8d
+	jle	.L856
+	movq	_ZN3RNG4m_mtE+4992(%rip), %rax
+	xorl	%ebx, %ebx
+	jmp	.L855
+	.p2align 4,,10
+	.p2align 3
+.L979:
+	movq	%rdi, %rax
+.L855:
+	cmpq	$623, %rax
+	jbe	.L854
+	movl	$_ZN3RNG4m_mtE, %edi
+	call	_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv
+	movq	_ZN3RNG4m_mtE+4992(%rip), %rax
+	movl	80(%r12), %r8d
+.L854:
+	movq	_ZN3RNG4m_mtE(,%rax,8), %rdx
+	leaq	1(%rax), %rdi
+	leal	(%rbx,%rbx), %esi
+	movq	8(%r12), %rcx
+	addl	$1, %ebx
+	movslq	%esi, %r9
+	orl	$1, %esi
+	movq	%rdi, _ZN3RNG4m_mtE+4992(%rip)
+	movq	%rdx, %rax
+	movslq	%esi, %rsi
+	shrq	$11, %rax
+	leaq	(%rcx,%r9,2), %r9
+	movl	%eax, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	salq	$7, %rdx
+	andl	$2636928640, %edx
+	xorq	%rax, %rdx
+	movq	%rdx, %rax
+	salq	$15, %rax
+	andl	$4022730752, %eax
+	xorq	%rdx, %rax
+	movq	%rax, %rdx
+	shrq	$18, %rdx
+	xorq	%rax, %rdx
+	movl	%edx, %eax
+	andw	64(%rsp), %ax
+	xorw	(%r9), %ax
+	cmpl	%r8d, %ebx
+	movw	%ax, (%r9)
+	notl	%eax
+	movw	%ax, (%rcx,%rsi,2)
+	jl	.L979
+	jmp	.L850
+.L905:
+	xorl	%ebx, %ebx
+	jmp	.L861
+.L972:
+	movabsq	$9223372036854775807, %rax
+	cmpq	%rax, %rbx
+	ja	.L980
+	addq	%rbx, %rbx
+	movq	%rbx, %rdi
+.LEHB33:
+	call	_Znwm
+.LEHE33:
+	leaq	(%rax,%rbx), %rbp
+	xorl	%esi, %esi
+	movq	%rbx, %rdx
+	movq	%rax, %rdi
+	movq	%rax, 80(%rsp)
+	movq	%rax, 88(%rsp)
+	movq	%rbp, 96(%rsp)
+	movq	%rax, 40(%rsp)
+	call	memset
+	movl	80(%r12), %ecx
+	movq	40(%rsp), %r8
+	movq	%rbp, 88(%rsp)
+	testl	%ecx, %ecx
+	movq	%r8, %rax
+	jg	.L981
+.L901:
+	movq	%rbp, %rdi
+	jmp	.L833
+	.p2align 4,,10
+	.p2align 3
+.L978:
+	leaq	(%rdi,%rdi), %rdx
+	movq	%rax, %rdi
+	movl	%ecx, 40(%rsp)
+	call	memcmp
+	testl	%eax, %eax
+	movl	40(%rsp), %ecx
+	jne	.L844
+	movl	%ecx, %edi
+.LEHB34:
+	call	_ZN3RNG11uniform_intEi
+.LEHE34:
+	leal	(%rax,%rax), %edx
+	movq	80(%rsp), %rax
+	movslq	%edx, %rcx
+	orl	$1, %edx
+	notw	(%rax,%rcx,2)
+	movslq	%edx, %rdx
+	notw	(%rax,%rdx,2)
+	jmp	.L844
+.L969:
+	movabsq	$4611686018427387903, %rax
+	cmpq	%rax, %r8
+	ja	.L982
+	leaq	0(,%r8,4), %rbx
+	movq	%rbx, %rdi
+.LEHB35:
+	call	_Znwm
+	leaq	(%rax,%rbx), %r15
+	movq	%rax, %r13
+	xorl	%esi, %esi
+	movq	%rbx, %rdx
+	movq	%rax, %rdi
+	call	memset
+	cmpq	%r13, %r15
+	je	.L807
+	leaq	4(%r13), %rdx
+	movq	%r13, %rax
+	movq	%r15, %rsi
+	andl	$15, %eax
+	subq	%rdx, %rsi
+	shrq	$2, %rax
+	shrq	$2, %rsi
+	negq	%rax
+	addq	$1, %rsi
+	andl	$3, %eax
+	cmpq	%rax, %rsi
+	movq	%rsi, %rcx
+	cmovbe	%rsi, %rax
+	cmpq	$7, %rsi
+	ja	.L983
+.L812:
+	cmpq	$1, %rcx
+	movl	$0, 0(%r13)
+	jbe	.L895
+	cmpq	$2, %rcx
+	movl	$1, 4(%r13)
+	leaq	8(%r13), %rdx
+	jbe	.L896
+	cmpq	$3, %rcx
+	movl	$2, 8(%r13)
+	leaq	12(%r13), %rdx
+	jbe	.L897
+	cmpq	$4, %rcx
+	movl	$3, 12(%r13)
+	leaq	16(%r13), %rdx
+	jbe	.L898
+	cmpq	$5, %rcx
+	movl	$4, 16(%r13)
+	leaq	20(%r13), %rdx
+	jbe	.L899
+	cmpq	$6, %rcx
+	movl	$5, 20(%r13)
+	leaq	24(%r13), %rdx
+	jbe	.L900
+	leaq	28(%r13), %rdx
+	movl	$6, 24(%r13)
+	movl	$7, %eax
+.L814:
+	cmpq	%rsi, %rcx
+	je	.L807
+.L813:
+	subq	%rcx, %rsi
+	movq	%rsi, %r9
+	shrq	$2, %r9
+	leaq	0(,%r9,4), %rdi
+	testq	%rdi, %rdi
+	je	.L816
+	leal	1(%rax), %ebx
+	movdqa	.LC6(%rip), %xmm2
+	leaq	0(%r13,%rcx,4), %r8
+	xorl	%ecx, %ecx
+	movl	%ebx, 12(%rsp)
+	leal	2(%rax), %ebx
+	movd	12(%rsp), %xmm4
+	movl	%ebx, 16(%rsp)
+	leal	3(%rax), %ebx
+	movd	16(%rsp), %xmm1
+	movl	%eax, 16(%rsp)
+	movl	%ebx, 24(%rsp)
+	movd	16(%rsp), %xmm0
+	movd	24(%rsp), %xmm3
+	punpckldq	%xmm4, %xmm0
+	punpckldq	%xmm3, %xmm1
+	punpcklqdq	%xmm1, %xmm0
+.L821:
+	movdqa	%xmm0, %xmm1
+	addq	$1, %rcx
+	addq	$16, %r8
+	movdqa	%xmm0, -16(%r8)
+	cmpq	%r9, %rcx
+	paddd	%xmm2, %xmm1
+	jnb	.L984
+	movdqa	%xmm1, %xmm0
+	jmp	.L821
+.L984:
+	addl	%edi, %eax
+	cmpq	%rdi, %rsi
+	leaq	(%rdx,%rdi,4), %rdx
+	je	.L807
+.L816:
+	leaq	4(%rdx), %rsi
+	movl	%eax, (%rdx)
+	leal	1(%rax), %ecx
+	cmpq	%rsi, %r15
+	je	.L807
+	movl	%ecx, 4(%rdx)
+	leaq	8(%rdx), %rcx
+	addl	$2, %eax
+	cmpq	%rcx, %r15
+	je	.L807
+	movl	%eax, 8(%rdx)
+	jmp	.L807
+.L970:
+	addq	$64, %rbp
+	subq	$8, %rdx
+	jmp	.L869
+.L967:
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	call	*16(%rax)
+	testq	%rbp, %rbp
+	leaq	12(%rbx), %rax
+	je	.L796
+	movl	$-1, %edx
+	lock xaddl	%edx, (%rax)
+	movl	%edx, %eax
+.L797:
+	cmpl	$1, %eax
+	jne	.L798
+	movq	(%rbx), %rax
+	movq	%rbx, %rdi
+	call	*24(%rax)
+	cmpq	$0, 88(%r12)
+	je	.L956
+.L968:
+	call	_ZSt9terminatev
+	.p2align 4,,10
+	.p2align 3
+.L891:
+	xorl	%eax, %eax
+	jmp	.L792
+.L983:
+	testq	%rax, %rax
+	.p2align 4,,3
+	jne	.L985
+	xorl	%ecx, %ecx
+	movq	%r13, %rdx
+	xorl	%eax, %eax
+	jmp	.L813
+.L857:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$246, %edx
+	movl	$.LC0, %esi
+	movl	$.LC5, %edi
+	call	__assert_fail
+.L840:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$221, %edx
+	movl	$.LC0, %esi
+	movl	$.LC8, %edi
+	call	__assert_fail
+.L977:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$217, %edx
+	movl	$.LC0, %esi
+	movl	$.LC7, %edi
+	call	__assert_fail
+.L973:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$214, %edx
+	movl	$.LC0, %esi
+	movl	$.LC7, %edi
+	call	__assert_fail
+.L796:
+	movl	12(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 12(%rbx)
+	jmp	.L797
+.L895:
+	movl	$1, %eax
+	jmp	.L814
+.L896:
+	movl	$2, %eax
+	jmp	.L814
+.L897:
+	movl	$3, %eax
+	jmp	.L814
+.L898:
+	movl	$4, %eax
+	jmp	.L814
+.L899:
+	movl	$5, %eax
+	jmp	.L814
+.L900:
+	movl	$6, %eax
+	jmp	.L814
+.L909:
+	movq	88(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L886
+	call	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv
+.L886:
+	movq	%rbx, %rdi
+	call	_Unwind_Resume
+.LEHE35:
+.L794:
+	movl	8(%rbx), %eax
+	leal	-1(%rax), %edx
+	movl	%edx, 8(%rbx)
+	jmp	.L795
+.L801:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$187, %edx
+	movl	$.LC0, %esi
+	movl	$.LC4, %edi
+	call	__assert_fail
+.L980:
+.LEHB36:
+	call	_ZSt17__throw_bad_allocv
+.LEHE36:
+.L982:
+.LEHB37:
+	call	_ZSt17__throw_bad_allocv
+.LEHE37:
+.L803:
+	movl	$_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, %ecx
+	movl	$189, %edx
+	movl	$.LC0, %esi
+	movl	$.LC5, %edi
+	call	__assert_fail
+.L908:
+.L966:
+	movq	80(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L878
+.L964:
+	call	_ZdlPv
+.L878:
+	testq	%r13, %r13
+	je	.L886
+	movq	%r13, %rdi
+	call	_ZdlPv
+	.p2align 4,,2
+	jmp	.L886
+.L906:
+	movq	%rax, %rbx
+	.p2align 4,,2
+	jmp	.L878
+.L910:
+	movq	%rax, %rbx
+	movq	32(%rsp), %rax
+	movq	(%rax), %rdi
+	testq	%rdi, %rdi
+	jne	.L964
+	jmp	.L878
+.L907:
+	jmp	.L966
+.L985:
+	movq	%rax, %rcx
+	.p2align 4,,8
+	jmp	.L812
+	.cfi_endproc
+.LFE4572:
+	.section	.gcc_except_table
+.LLSDA4572:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE4572-.LLSDACSB4572
+.LLSDACSB4572:
+	.uleb128 .LEHB27-.LFB4572
+	.uleb128 .LEHE27-.LEHB27
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB28-.LFB4572
+	.uleb128 .LEHE28-.LEHB28
+	.uleb128 .L909-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB29-.LFB4572
+	.uleb128 .LEHE29-.LEHB29
+	.uleb128 .L908-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB30-.LFB4572
+	.uleb128 .LEHE30-.LEHB30
+	.uleb128 .L906-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB31-.LFB4572
+	.uleb128 .LEHE31-.LEHB31
+	.uleb128 .L910-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB32-.LFB4572
+	.uleb128 .LEHE32-.LEHB32
+	.uleb128 .L907-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB33-.LFB4572
+	.uleb128 .LEHE33-.LEHB33
+	.uleb128 .L906-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB34-.LFB4572
+	.uleb128 .LEHE34-.LEHB34
+	.uleb128 .L907-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB35-.LFB4572
+	.uleb128 .LEHE35-.LEHB35
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB36-.LFB4572
+	.uleb128 .LEHE36-.LEHB36
+	.uleb128 .L906-.LFB4572
+	.uleb128 0
+	.uleb128 .LEHB37-.LFB4572
+	.uleb128 .LEHE37-.LEHB37
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE4572:
+	.text
+	.size	_ZN14MultiBitSolver5solveERi, .-_ZN14MultiBitSolver5solveERi
+	.section	.rodata
+	.align 32
+	.type	_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, @object
+	.size	_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__, 54
+_ZZN14MultiBitSolver5solveERiE19__PRETTY_FUNCTION__:
+	.string	"virtual std::vector<bool> MultiBitSolver::solve(int&)"
+	.align 32
+	.type	_ZZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEiE19__PRETTY_FUNCTION__, @object
+	.size	_ZZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEiE19__PRETTY_FUNCTION__, 68
+_ZZN14MultiBitSolverC1ESt6vectorIS0_IiSaIiEESaIS2_EEiE19__PRETTY_FUNCTION__:
+	.string	"MultiBitSolver::MultiBitSolver(std::vector<std::vector<int> >, int)"
+	.weak	_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 16
+	.type	_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE, 16
+_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.weak	_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 32
+	.type	_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE, 47
+_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE:
+	.string	"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE"
+	.weak	_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 16
+	.type	_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, 24
+_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.quad	_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.weak	_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 32
+	.type	_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, 52
+_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE:
+	.string	"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE"
+	.weak	_ZTINSt6thread10_Impl_baseE
+	.section	.rodata._ZTINSt6thread10_Impl_baseE,"aG",@progbits,_ZTINSt6thread10_Impl_baseE,comdat
+	.align 16
+	.type	_ZTINSt6thread10_Impl_baseE, @object
+	.size	_ZTINSt6thread10_Impl_baseE, 16
+_ZTINSt6thread10_Impl_baseE:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSNSt6thread10_Impl_baseE
+	.weak	_ZTSNSt6thread10_Impl_baseE
+	.section	.rodata._ZTSNSt6thread10_Impl_baseE,"aG",@progbits,_ZTSNSt6thread10_Impl_baseE,comdat
+	.align 16
+	.type	_ZTSNSt6thread10_Impl_baseE, @object
+	.size	_ZTSNSt6thread10_Impl_baseE, 24
+_ZTSNSt6thread10_Impl_baseE:
+	.string	"NSt6thread10_Impl_baseE"
+	.weak	_ZTI6Solver
+	.section	.rodata._ZTI6Solver,"aG",@progbits,_ZTI6Solver,comdat
+	.align 16
+	.type	_ZTI6Solver, @object
+	.size	_ZTI6Solver, 16
+_ZTI6Solver:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTS6Solver
+	.weak	_ZTS6Solver
+	.section	.rodata._ZTS6Solver,"aG",@progbits,_ZTS6Solver,comdat
+	.type	_ZTS6Solver, @object
+	.size	_ZTS6Solver, 8
+_ZTS6Solver:
+	.string	"6Solver"
+	.weak	_ZTS14MultiBitSolver
+	.section	.rodata._ZTS14MultiBitSolver,"aG",@progbits,_ZTS14MultiBitSolver,comdat
+	.align 16
+	.type	_ZTS14MultiBitSolver, @object
+	.size	_ZTS14MultiBitSolver, 17
+_ZTS14MultiBitSolver:
+	.string	"14MultiBitSolver"
+	.weak	_ZTI14MultiBitSolver
+	.section	.rodata._ZTI14MultiBitSolver,"aG",@progbits,_ZTI14MultiBitSolver,comdat
+	.align 32
+	.type	_ZTI14MultiBitSolver, @object
+	.size	_ZTI14MultiBitSolver, 40
+_ZTI14MultiBitSolver:
+	.quad	_ZTVN10__cxxabiv121__vmi_class_type_infoE+16
+	.quad	_ZTS14MultiBitSolver
+	.long	0
+	.long	1
+	.quad	_ZTI6Solver
+	.quad	0
+	.weak	_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE
+	.section	.rodata._ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,"aG",@progbits,_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,comdat
+	.align 16
+	.type	_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, @object
+	.size	_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, 24
+_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE
+	.quad	_ZTINSt6thread10_Impl_baseE
+	.weak	_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE
+	.section	.rodata._ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,"aG",@progbits,_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,comdat
+	.align 32
+	.type	_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, @object
+	.size	_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, 77
+_ZTSNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE:
+	.string	"NSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE"
+	.weak	_ZTISt19_Sp_make_shared_tag
+	.section	.rodata._ZTISt19_Sp_make_shared_tag,"aG",@progbits,_ZTISt19_Sp_make_shared_tag,comdat
+	.align 16
+	.type	_ZTISt19_Sp_make_shared_tag, @object
+	.size	_ZTISt19_Sp_make_shared_tag, 16
+_ZTISt19_Sp_make_shared_tag:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSSt19_Sp_make_shared_tag
+	.weak	_ZTSSt19_Sp_make_shared_tag
+	.section	.rodata._ZTSSt19_Sp_make_shared_tag,"aG",@progbits,_ZTSSt19_Sp_make_shared_tag,comdat
+	.align 16
+	.type	_ZTSSt19_Sp_make_shared_tag, @object
+	.size	_ZTSSt19_Sp_make_shared_tag, 24
+_ZTSSt19_Sp_make_shared_tag:
+	.string	"St19_Sp_make_shared_tag"
+	.weak	_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 16
+	.type	_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, 24
+_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE
+	.quad	_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.weak	_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 32
+	.type	_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, 142
+_ZTSSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE:
+	.string	"St23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE"
+	.weak	_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 32
+	.type	_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, 56
+_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE:
+	.quad	0
+	.quad	_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
+	.quad	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED1Ev
+	.quad	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.quad	__cxa_pure_virtual
+	.quad	_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.quad	__cxa_pure_virtual
+	.weak	_ZTVNSt6thread10_Impl_baseE
+	.section	.rodata._ZTVNSt6thread10_Impl_baseE,"aG",@progbits,_ZTVNSt6thread10_Impl_baseE,comdat
+	.align 32
+	.type	_ZTVNSt6thread10_Impl_baseE, @object
+	.size	_ZTVNSt6thread10_Impl_baseE, 40
+_ZTVNSt6thread10_Impl_baseE:
+	.quad	0
+	.quad	_ZTINSt6thread10_Impl_baseE
+	.quad	_ZNSt6thread10_Impl_baseD1Ev
+	.quad	_ZNSt6thread10_Impl_baseD0Ev
+	.quad	__cxa_pure_virtual
+	.weak	_ZTV6Solver
+	.section	.rodata._ZTV6Solver,"aG",@progbits,_ZTV6Solver,comdat
+	.align 32
+	.type	_ZTV6Solver, @object
+	.size	_ZTV6Solver, 32
+_ZTV6Solver:
+	.quad	0
+	.quad	_ZTI6Solver
+	.quad	__cxa_pure_virtual
+	.quad	__cxa_pure_virtual
+	.weak	_ZTV14MultiBitSolver
+	.section	.rodata._ZTV14MultiBitSolver,"aG",@progbits,_ZTV14MultiBitSolver,comdat
+	.align 32
+	.type	_ZTV14MultiBitSolver, @object
+	.size	_ZTV14MultiBitSolver, 32
+_ZTV14MultiBitSolver:
+	.quad	0
+	.quad	_ZTI14MultiBitSolver
+	.quad	_ZN14MultiBitSolver5solveERi
+	.quad	_ZN14MultiBitSolver5solveEv
+	.weak	_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE
+	.section	.rodata._ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,"aG",@progbits,_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE,comdat
+	.align 32
+	.type	_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, @object
+	.size	_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE, 40
+_ZTVNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE:
+	.quad	0
+	.quad	_ZTINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEEE
+	.quad	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED1Ev
+	.quad	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEED0Ev
+	.quad	_ZNSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS3_EEE6_M_runEv
+	.weak	_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE
+	.section	.rodata._ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,"aG",@progbits,_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE,comdat
+	.align 32
+	.type	_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, @object
+	.size	_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE, 56
+_ZTVSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE:
+	.quad	0
+	.quad	_ZTISt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE
+	.quad	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED1Ev
+	.quad	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EED0Ev
+	.quad	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+	.quad	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+	.quad	_ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFSt7_Mem_fnIM14MultiBitSolverFvvEEPS4_EEEESaISB_ELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info
+	.weakref	_ZL28__gthrw___pthread_key_createPjPFvPvE,__pthread_key_create
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
+.LC6:
+	.long	4
+	.long	4
+	.long	4
+	.long	4
+	.ident	"GCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-44)"
+	.section	.note.GNU-stack,"",@progbits
