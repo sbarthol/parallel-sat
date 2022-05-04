@@ -11,7 +11,7 @@
 class MultiBitSolver : Solver {
  public:
   typedef uint64_t uintk_t;
-  MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_);
+  MultiBitSolver(std::vector<std::vector<int>> clauses_, int n_, bool use_openmp = true);
   std::vector<bool> solve(int& periods);
   std::vector<bool> solve();
 
@@ -20,6 +20,7 @@ class MultiBitSolver : Solver {
   std::vector<std::vector<int>> clauses;
   std::vector<std::vector<int>> inv_clauses;
   int n, m;
+  bool use_openmp = true;
 
   // Duplicate removal task
   std::thread dup_task;
@@ -31,6 +32,8 @@ class MultiBitSolver : Solver {
 
   uintk_t satisfies(const std::vector<uintk_t>& phi);
   void unit_propagation(std::vector<uintk_t>& phi);
+  void unit_propagation_queue(std::vector<uintk_t>& phi);
+  void unit_propagation_fork(std::vector<uintk_t>& phi);
   std::vector<std::pair<int, uintk_t>> get_rem_lits(
       const std::vector<int>& clause, const std::vector<uintk_t>& phi);
   uintk_t compute_duplicate_mask(const std::vector<uintk_t>& phi);

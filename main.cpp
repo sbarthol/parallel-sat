@@ -11,9 +11,11 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    printf("Please use the program as \"./parallel-sat <--single or --multi> "
-           "<filename>\"\n");
+  const char* errstr = "Please use the program as \"./parallel-sat <--single or --multi>" 
+  " <filename> <optional: --use_openmp=false>\"\n";
+
+  if (argc != 3 && argc != 4) {
+    printf(errstr);
     return -1;
   }
   CNFParser parser;
@@ -24,6 +26,12 @@ int main(int argc, char *argv[]) {
 
   vector<bool> assignment;
   int periods;
+
+  bool use_openmp = true;
+  if (argc == 4 && strcmp("--use_openmp=false", argv[3])) {
+    use_openmp = false;
+  }
+
 
   if (!strcmp("--single", argv[1])) {
     printf("Solving using single bit solver...\n");
@@ -39,13 +47,12 @@ int main(int argc, char *argv[]) {
     // 8 * sizeof(MultiBitSolver::uintk_t));
     double begin = omp_get_wtime();
     MultiBitSolver multi_bit_solver =
-        MultiBitSolver(clauses, parser.n_variables);
+        MultiBitSolver(clauses, parser.n_variables, use_openmp);
     assignment = multi_bit_solver.solve(periods);
     double end = omp_get_wtime();
     printf("%.7lf\n", (end - begin) / periods);
   } else {
-    printf("Please use the program as \"./parallel-sat <filename> <--single or "
-           "--multi>\"\n");
+    printf(errstr);
     return -1;
   }
 

@@ -21,8 +21,10 @@
 
 using namespace std;
 
-MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_)
+MultiBitSolver::MultiBitSolver(vector<vector<int>> clauses_, int n_, bool use_openmp)
     : clauses(clauses_), n(n_) {
+      
+  use_openmp = use_openmp;
   m = clauses_.size();
   assert(m > 0);
   phi_master = vector<uintk_t>(2 * n, 0);
@@ -105,6 +107,53 @@ MultiBitSolver::get_rem_lits(const vector<int> &clause,
 }
 
 void MultiBitSolver::unit_propagation(vector<uintk_t> &phi) {
+  if(use_openmp) {
+    MultiBitSolver::unit_propagation_fork(phi);
+  }
+  else {
+    MultiBitSolver::unit_propagation_queue(phi);
+  }
+}
+
+void MultiBitSolver::unit_propagation_queue(vector<uintk_t> &phi) {
+  queue<int> q;
+  unordered_set<int> in_queue;
+
+  for (int i = 0; i < m; i++) {
+    vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
+    for (auto p : rem_lits) {
+      assert(p.first != -1);
+      phi[p.first] |= p.second;
+      if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
+        q.push(p.first);
+        in_queue.insert(p.first);
+      }
+    }
+  }
+
+  while (!q.empty()) {
+    int u = q.front();
+    q.pop();
+    in_queue.erase(u);
+
+    for (int i : inv_clauses[COMPL(u)]) {
+      vector<pair<int, uintk_t>> rem_lits = get_rem_lits(clauses[i], phi);
+      for (auto p : rem_lits) {
+        assert(p.first != u);
+        assert(p.first != -1);
+        phi[p.first] |= p.second;
+        if (!in_queue.count(p.first) && !in_queue.count(COMPL(p.first))) {
+          assert(!in_queue.count(COMPL(p.first)));
+          q.push(p.first);
+          in_queue.insert(p.first);
+        }
+      }
+    }
+  }
+
+}
+
+void MultiBitSolver::unit_propagation_fork(vector<uintk_t> &phi) {
   vector<vector<pair<int, uintk_t>>> tmp(N_OMP_THREADS);
   vector<int> all_rem_lits;
   unordered_set<int> all_rem_lits_set;
